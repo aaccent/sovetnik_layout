@@ -1,0 +1,64 @@
+header.header 
+    .header__container.container
+        .header__top 
+            .header__city
+                .header__city-icon.icon.icon-location
+                span.header__city-text Москва
+            .header__address 127083, Москва, ул. 8-го Марта, д. 1, стр. 12.
+            .header__operation-mode.header__operation-mode_desktop #[span Режим работы:] #[span пн-пт с 08:00 до 20:00]
+            .header__operation-mode.header__operation-mode_mobile Понедельник-пятница: 09:30-20:00
+            a.header__account(href="#") 
+                .header__account-icon.icon.icon-profile 
+                span.header__account-text Войти в личный кабинет
+        .header__main 
+            a.header__logo(href="#")
+                img(src="./images/logo.png", alt="logo")
+                //- .header__logo-text
+                //-     .header__logo-title Советник
+                //-     .header__logo-desc юридическая компания
+            nav.header__menu 
+                ul.header__menu-list 
+                    li.header__menu-item 
+                        a.header__menu-link(href="#") Главная
+                    li.header__menu-item 
+                        a.header__menu-link(href="#") Услуги
+                        button.header__menu-arrow.icon-arrow-down 
+                        ul.header__submenu.submenu 
+                            li.submenu__item 
+                                a.submenu__link(href="#") Название услуги
+                            li.submenu__item 
+                                a.submenu__link(href="#") Название услуги 1
+                            li.submenu__item 
+                                a.submenu__link(href="#") Название услуги 2
+                            li.submenu__item 
+                                a.submenu__link(href="#") Название услуги 3
+                            li.submenu__item 
+                                a.submenu__link(href="#") Название услуги 4
+                    li.header__menu-item 
+                        a.header__menu-link(href="#") Цены
+                    li.header__menu-item 
+                        a.header__menu-link(href="#") Наш опыт
+                    li.header__menu-item 
+                        a.header__menu-link(href="#") Контакты
+            .header__actions 
+                .header__call
+                    a.header__call-phone(href="tel:89765432100") 8 (976) 543 21 00
+                    button.header__call-desc(type="button")
+                        span.header__call-icon.icon.icon-phone
+                        span.header__call-label Заказать звонок
+                button.header__button.button.button_primary(type="button") 
+                    span Записаться
+                button.header__call-icon.icon.icon-phone(type="button")
+                a.header__account-icon.icon.icon-profile(href="#")
+            .header__burger
+                span
+            button.header__menu-close(type="button")
+        .header__footer
+            nav.header__menu
+                ul.header__menu-list
+                    li.header__menu-item 
+                        a.header__menu-link(href="#") Отзывы
+                    li.header__menu-item 
+                        a.header__menu-link(href="#") О компании
+                    li.header__menu-item 
+                        a.header__menu-link(href="#") Пресс-центр

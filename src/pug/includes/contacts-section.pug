@@ -1,0 +1,46 @@
+section.contact-section.section 
+    .container 
+        .contact-section__inner-wrapper 
+            .contact-section__form-block.form-block
+                .form-block__page.form-block__page_one 
+                    .form-block__header 
+                        h3.form-block__title Торговое предложение в две строки
+                    .form-block__body
+                        form.form-block__form.form(action="#" method="POST" name="")
+                            .form__control
+                                input.form__input.form__input_required(type="text" id="name" name="name")
+                                label.form__label(for="name") Ваше имя
+                                span.form__error-text Текст ошибки
+                            .form__control
+                                input.form__input.form__input_required(type="tel" id="phone" name="phone" autocomplete="off")
+                                label.form__label(for="phone") +7 987 654-32-10
+                                span.form__error-text Текст ошибки
+                            .form__control 
+                                textarea.form__input.form__input_textarea(id="comment" name="comment" row="3")
+                                //- textarea.contact-us-form__input.contact-us-form__textarea.contact-us-form__textarea_hidden(name="comments_hidden" aria-hidden="true" tabindex="-1" readonly)
+                                //- textarea.contact-us-form__input.contact-us-form__textarea(id="comments" name="comments")
+                                label.form__label(for="comments") Комментарий
+                            .form__file 
+                                .form__file-field 
+                                    input.form__file-input(type="file" id="file" accept=".pdf, .doc, .docx")
+                                    label.form__file-label(for="file") 
+                                        span.icon
+                                        span.text Прикрепить файл
+                                .form__file-doc
+                                    span.icon-attachment
+                                    span.text 
+                                    button.close
+                            label.form__check 
+                                input.form__check-input.form__check-input_required(type="checkbox" name="checkbox")
+                                span.form__check-box.icon.icon-check
+                                span.form__check-label Я согласен(а) с политикой конфиденциальности и даю согласие на обработку персональных данных
+                            button.form__submit.button.button_secondary(type="submit") 
+                                span Получить консультацию
+                .form-block__page.form-block__page_two
+                    .form-block__header 
+                        h3.form-block__title Спасибо!#[br]Ваш запрос успешно отправлен
+                        p.form-block__subtitle Пожалуйста дождитесь звонка нашего менеджера для уточнения деталей
+                    .form-block__body 
+                        a.button.button_secondary(href="#") Реализованные проекты
+            .contact-section__map#map(data-mark="55.7954692462696,49.10686513125719" data-center="55.79551291555022,49.10679244528347") 
+

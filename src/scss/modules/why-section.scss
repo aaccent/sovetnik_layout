@@ -1,0 +1,81 @@
+.why-section {
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        gap: 8.875rem;
+        @include adaptive-value(gap, 32, 142, 992, $max-width);
+
+    }
+    &__desc {
+        p {
+            @include base_18;
+            &:not(:last-child) {
+                margin: 0 0 1.5rem;
+            }
+        }
+    }
+    &__advantages {
+        flex-shrink: 0;
+        flex-basis: calc(710 / 1440 * 100%);
+    }
+    &__advantage-item {
+        &:not(:last-child) {
+            border-bottom: 1px solid $border-color;
+            margin: 0 0 1.625rem;
+        }
+    }
+    @include tablet {
+        &__body {
+            flex-direction: column;
+            max-width: 48rem;
+            margin: 0 auto 0 0;
+        }
+    }
+    @include phone {
+        gap: 1.5rem;
+        &__desc {
+            p {
+                @include base_16;
+            }
+        }
+        &__advantage-item {
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.advantage {
+    display: flex;
+    gap: 1.375rem;
+    padding: 0 0 1.625rem;
+    &__number {
+        color: $turquoise;
+        @include desk_title_block;
+    }
+    &__text {
+        font-size: 1.625rem;
+        font-weight: 500;
+        line-height: 2rem;
+    }
+    @media screen and (min-width: 992.5px) and (max-width: 1280px) {
+        padding-bottom: 1.25rem;
+        &__number {
+            font-size: 2.25rem;
+        }
+        &__text {
+            font-size: 1.5rem;
+        }
+    }
+    @include phone {
+        gap: 0.625rem;
+        padding-bottom: 1rem;
+        &__number {
+            @include mob_start;
+        }
+        &__text {
+            @include mob_base_20
+        }
+    }
+}

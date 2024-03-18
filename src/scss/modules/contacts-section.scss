@@ -1,0 +1,119 @@
+.contact-section {
+    &__inner-wrapper {
+        background-color: $turquoise;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 3rem;
+        padding: 2.75rem;
+    }
+    &__form-block {
+        display: flex;
+        align-items: center;
+        flex: 0 1 32.8125rem;
+    }
+    &__form {
+        gap: 1.5rem;
+        .form__file, .form__submit {
+            margin-top: -0.25rem;
+        }
+    }
+    .form-block {
+        &__title {
+            text-align: left;
+        }
+        &__body {
+            margin: 2.75rem 0 0;
+        }
+        &__page {
+            &_two {
+                align-items: flex-start;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translate(0, -50%);
+                .form-block__body {
+                    margin: 2.75rem 0 0;
+                }
+                .button {
+                    display: block;
+                }
+            }
+        }
+        &_sent {
+            position: relative;
+            .form-block__page {
+                &_one {
+                    display: block;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                &_two {
+                    display: flex;
+                }
+            }
+        }
+    }
+    &__map {
+        background-color: coral;
+        border-radius: 0.5rem;
+        flex-basis: calc(665 / 1352 * 100%);
+        overflow: hidden;
+    }
+    @media screen and (max-width: 1080px) {
+        &__inner-wrapper {
+            background-color: transparent;
+            border-radius: 0;
+            padding: 0;
+            flex-direction: column;
+        }
+        &__form-block {
+            background-color: $turquoise;
+            border-radius: 0.5rem;
+            margin: 0 auto;
+            padding: 2.75rem;
+            max-width: 680px;
+            .form-block__page_two {
+                left: 2.75rem;
+                right: 2.75rem;
+            }
+        }
+        &__map {
+            flex-basis: auto;
+            height: 550px;
+        }
+    }
+    @include phone {
+        &__form-block {
+            padding: 1.25rem;
+        }
+        &__form {
+            gap: 0.875rem;
+            .form__file {
+                margin-top: 0;
+            }
+            .form__check {
+                margin-top: 0.125rem;
+            }
+            .form__submit {
+                margin: 0.375rem;
+            }
+        }
+        .form-block {
+            &__body {
+                margin-top: 1.25rem;
+            }
+            &__page {
+                &_two {
+                    align-items: center;
+                    left: 1.25rem;
+                    right: 1.25rem;
+                    .form-block__body {
+                        margin-top: 1.875rem;
+                    }
+                }
+            }
+        }
+    }
+}

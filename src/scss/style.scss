@@ -1,0 +1,28 @@
+@import "base/_vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "mixins/fonts.scss";
+@import "mixins/media.scss";
+@import "base.scss";
+
+// components
+@import "components/button";
+@import "components/popup";
+@import "components/form";
+
+// modules
+@import "modules/header.scss";
+
+@import "modules/hero-section.scss";
+@import "modules/in-numbers.scss";
+@import "modules/why-section.scss";
+@import "modules/services-section.scss";
+@import "modules/about-section.scss";
+@import "modules/specialist-section.scss";
+@import "modules/press-center-section.scss";
+@import "modules/reviews-section.scss";
+@import "modules/seo-section.scss";
+@import "modules/contacts-section.scss";
+
+@import "modules/footer.scss";

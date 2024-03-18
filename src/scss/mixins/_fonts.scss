@@ -1,0 +1,77 @@
+@mixin phone {
+    @media (max-width: $phone) {
+        @content
+    }
+};
+
+@mixin base_16 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.375;
+}
+
+@mixin base_18 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+}
+
+@mixin mob_start {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.125rem;
+}
+
+@mixin mob_subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.75;
+}
+
+@mixin mob_base_14 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.125rem;
+}
+
+@mixin mob_base_20 {
+    font-family: "Inter", "sans-serif";
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+@mixin desk_blog-name {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+@mixin desk_title_hero {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 3.75rem;
+    @include adaptive-value(font-size, 32, 60, 576, $max-width);
+    font-weight: 600;
+    line-height: calc(1em + 0.125rem);
+}
+@mixin desk_title_block {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 2.625rem;
+}
+@mixin desk_title_subtitle {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+}
+
+@mixin mob_block_title {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2rem;
+}

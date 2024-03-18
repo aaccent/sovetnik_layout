@@ -1,0 +1,72 @@
+.in-numbers {
+    margin: 3.125rem auto 9.375rem;
+    @include adaptive-value(margin-bottom, 70, 150, 576, $max-width);
+    &__list {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+    }
+    &__item {
+        flex-basis: calc((100% - 3.75rem) / 4) ;
+    }
+    @media screen and (max-width: 1440px) {
+        max-width: 64rem;
+        &__item {
+            flex-basis: calc(50% - 0.625rem);
+        }
+    }
+    @include gap {
+        max-width: 42.5rem;
+        &__item {
+            flex-basis: 100%;
+        }
+    }
+    @include phone {
+        &__list {
+            gap: 0.625rem;
+        }
+    }
+}
+
+.number {
+    border-radius: 0.5rem;
+    padding: 4rem 1.625rem 1.625rem;
+    &__value {
+        color: inherit;
+        font-family: "Montserrat", "sans-serif";
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1;
+        white-space: nowrap;
+    }
+    &__label {
+        color: inherit;
+        @include base_18;
+        margin-top: 0.25rem
+    }
+    &_primary {
+        background-color: $turquoise;
+        color: $white;
+    }
+    &_outlined {
+        border: 1px solid rgba($color: $black, $alpha: 0.2);
+        color: $turquoise;
+    }
+    &_black {
+        background-color: $black;
+        color: $white;
+    }
+    &_white {
+        border: 1px solid rgba($color: $black, $alpha: 0.2);
+        color: $black
+    }
+    @include phone {
+        padding: 2.75rem 1rem 1rem;
+        &__value {
+            @include mob_start;
+        }
+        &__label {
+            @include base_16;
+        }
+    }
+}

@@ -1,0 +1,160 @@
+.hero-section {
+    background-color: $background-color;
+    &__container {
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+    &__content {
+        flex-basis: calc(790 / 1480 * 100%);
+        flex-shrink: 0;
+        padding: 7.5rem 0 10rem;
+        @include adaptive-value(padding-top, 0, 120, 576, $max-width);
+        @include adaptive-value(padding-bottom, 0, 160, 576, $max-width);
+    }
+    &__title {
+        @include desk_title_hero
+    }
+    &__desc {
+        font-size: 1.25rem;
+        font-weight: normal;
+        line-height: 1.75rem;
+        margin: 2.125rem 0 0;
+    }
+    &__button {
+        display: inline-block;
+        margin: 2.625rem 0 0;
+    }
+    &__img {
+        position: relative;
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 40.375rem;
+            object-fit: contain;
+        }
+        // &:before {
+        //     background-image: url("../images/hero-bg.svg");
+        //     background-repeat: no-repeat;
+        //     background-position: center;
+        //     background-size: cover;
+        //     content: "";
+        //     position: absolute;
+        //     top: -3rem;
+        //     width: 100%;
+        //     height: 100%;
+        //     z-index: 0;
+        // }
+        &:after {
+            background-image: url("../images/hero-vector.svg");
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: contain;
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 02.75rem;
+            width: 100%;
+            height: calc(207 / 676 * 100%);
+            z-index: -1;
+        }
+    }
+    &__phrase {
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.125rem;
+        padding: 1.5rem;
+        position: absolute;
+        max-width: 16.875rem;
+        z-index: 2;
+        &:before {
+            background-color: #B0E4E0;
+            box-shadow: 0 3px 6px 0 rgba(43, 80, 90, 0.15);
+            content: "";
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            z-index: -1;
+        }
+        &_right {
+            top: 0;
+            right: 0;
+            &:before {
+                border-radius: 0.5rem 0.5rem 0.5rem 0;
+            }
+        }
+        &_left {
+            top: calc(170 / 634 * 100%);
+            left: calc(32 / 630 * 100%);
+            &:before {
+                border-radius: 0.5rem 0.5rem 0 0.5rem;
+            }
+            
+        }
+        @media screen and (min-width: 992.5px) and (max-width: #{$max-width}px) {
+            padding: calc(1rem + 0.5 * ((100vw - 992.5px) / 16) / ($max-width - 992.5))
+        }
+    }
+    @include tablet {
+        &__container {
+            flex-direction: column;
+        }
+        &__content {
+            align-self: flex-start;
+        }
+        &__img {
+            img {
+                max-height: 34.375rem;
+            }
+        }
+    }
+    @media screen and (min-width: 768.5px) {
+        &__content {
+            max-width: 80%;
+        }
+    }
+    @include gap {
+        &__img {
+            order: -1;
+            img {
+                max-height: 30rem;
+            }
+        }
+    }
+    @include min_phone {
+        padding-top: 1.5rem;
+        &__img {
+            padding: 0.75rem 0.75rem 0 0;
+        }
+    }
+    @include phone {
+        &__desc {
+            font-size: 1.125rem;
+            line-height: 1.25rem;
+            margin-top: 0.75rem;
+        }
+        &__button {
+            margin-top: 1.25rem;
+        }
+        &__img {
+            align-self: stretch;
+            img {
+                max-height: calc(297 / 390 * 100vw);
+            }
+        }
+        &__phrase {
+            font-size: 0.75rem;
+            padding: 0.625rem;
+            max-width: 9.375rem;
+            &_right {
+                left: 50%;
+                right: auto
+            }
+        };
+    }
+}

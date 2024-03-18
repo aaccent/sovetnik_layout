@@ -1,0 +1,106 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        block head
+    body 
+        include ../includes/header
+        block content 
+        include ../includes/footer
+        .popup.popup_cities
+            .popup__container 
+                .popup__content
+                    button.popup__close.close(type="button")
+                    .popup__header 
+                        h3.popup__title Выбор города
+                    .popup__body  
+                        ul.popup__cities-list 
+                            li.popup__cities-item.city.city_active(data-city="moscow")
+                                span.city__icon.icon.icon-location
+                                span.city__text Москва
+                            li.popup__cities-item.city(data-city="saint petersburg") 
+                                span.city__icon.icon.icon-location
+                                span.city__text Санкт-Петербург
+                            li.popup__cities-item.city(data-city="kazan") 
+                                span.city__icon.icon.icon-location
+                                span.city__text Казань
+                            li.popup__cities-item.city(data-city="vladivostok") 
+                                span.city__icon.icon.icon-location
+                                span.city__text Владивосток
+                            li.popup__cities-item.city(data-city="krasnodar") 
+                                span.city__icon.icon.icon-location
+                                span.city__text Краснодар
+                            li.popup__cities-item.city(data-city="stavropol") 
+                                span.city__icon.icon.icon-location
+                                span.city__text Ставраполь
+                            li.popup__cities-item.city(data-city="ukhta") 
+                                span.city__icon.icon.icon-location
+                                span.city__text Ухты
+                            li.popup__cities-item.city(data-city="ufa") 
+                                span.city__icon.icon.icon-location
+                                span.city__text Уфа
+                            li.popup__cities-item.city(data-city="almetyevsk") 
+                                span.city__icon.icon.icon-location
+                                span.city__text Альметьевск
+                            li.popup__cities-item.city(data-city="nalchik") 
+                                span.city__icon.icon.icon-location
+                                span.city__text Нальчик  
+        .popup.popup_callback
+            .popup__container 
+                .popup__content
+                    button.popup__close.close(type="button")
+                    .popup__body
+                        .form-block
+                            .form-block__page.form-block__page_one 
+                                .form-block__header 
+                                    h3.form-block__title Обратный звонок
+                                .form-block__body
+                                    form.form-block__form.form(action="#" method="POST" name="")
+                                        .form__control
+                                            input.form__input.form__input_required(type="text" id="name" name="name")
+                                            label.form__label(for="name") Ваше имя
+                                            span.form__error-text Текст ошибки
+                                        .form__control
+                                            input.form__input.form__input_required(type="tel" id="phone" name="phone" autocomplete="off")
+                                            label.form__label(for="phone") +7 987 654-32-10
+                                            span.form__error-text Текст ошибки
+                                        label.form__check 
+                                            input.form__check-input(type="checkbox" name="checkbox")
+                                            span.form__check-box.icon.icon-check
+                                            span.form__check-label Я согласен(а) с политикой конфиденциальности и даю согласие на обработку персональных данных
+                                        //- .form__control
+                                        //-     input(type="checkbox" id="checkbox")
+                                        //-     span.checkbox.icon.icon-check
+                                        //-     label(for="checkbox") Я согласен(а) с политикой конфиденциальности и даю согласие на обработку персональных данных
+                                        button.form__submit.button.button_secondary(type="submit") 
+                                            span Заказать звонок
+                            .form-block__page.form-block__page_two
+                                .form-block__header 
+                                    h3.form-block__title Спасибо за заявку!
+                                    p.form-block__subtitle Наш менеджер свяжется с вами в течении 10 минут
+                                .form-block__body 
+                                    img.form-block__logo(src="./images/logo-icon.png", alt="logo icon")
+                                .form-block__footer 
+                                    .form-block__socials 
+                                        .form-block__socials-label Следите за нами в социальных сетях
+                                        ul.form-block__socials-list.socials
+                                            li.socials__item 
+                                                a.socials__link(href="#")
+                                                    img(src="./images/telegram.png", alt="telegram icon")
+                                            li.socials__item 
+                                                a.socials__link(href="#")
+                                                    img(src="./images/inst.png", alt="instagram icon")
+                                            li.socials__item 
+                                                a.socials__link(href="#")
+                                                    img(src="./images/youtube.png", alt="youtube icon")
+                                            li.socials__item 
+                                                a.socials__link(href="#")
+                                                    img(src="./images/vk.png", alt="vk icon")
+                                            li.socials__item 
+                                                a.socials__link(href="#")
+                                                    img(src="./images/fb.png", alt="facebook icon")
+
+        block scripts
+        

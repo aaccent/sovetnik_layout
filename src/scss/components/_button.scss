@@ -1,0 +1,33 @@
+ .button {
+    background-color: $turquoise;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    padding: 1.125rem 3.75rem;
+    transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
+    span {
+        font-family: "Inter", "sans-serif";
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1;
+    }
+    &_primary {
+        background-color: $turquoise;
+        color: $white;
+        @include ishover {
+            background-color: $lightturquoise;
+        }
+    }
+    &_secondary {
+        background-color: $white;
+        color: $turquoise;
+        @include ishover {
+            color: $lightturquoise;
+        }
+    }
+    @include phone {
+        padding: 0.875rem 2.5rem;
+        span {
+            font-size: 1rem;
+        }
+    }
+ }

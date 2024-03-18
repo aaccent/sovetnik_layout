@@ -1,0 +1,28 @@
+mixin review 
+    .review 
+        .review__author
+            .review__author-logo 
+            .review__about 
+                .review__author-name Иванов Иван Иванович
+                .review__date 12.01.2024
+        .review__text 
+            | Очень долго выбирали компанию по юридическим услугам и решили остановиться на Двитекс и не пожалели. Все грамотно и бы…
+        button.review__more(type="button") 
+            span Читать далее
+
+section.reviews-section.section
+    .container
+        .section__header 
+            h3.section__title Отзывы
+            .swiper-buttons 
+                .swiper-button-prev 
+                    span.icon-arrow-next
+                .swiper-button-next 
+                    span.icon-arrow-next
+        .section__body
+            .reviews-section__swiper.swiper 
+                .swiper-wrapper
+                    - for (var i = 0; i < 8; i++)
+                        .swiper-slide
+                            +review
+            a.reviews-section__show-all.button.button_primary(href="#") Показать все

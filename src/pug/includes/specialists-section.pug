@@ -1,0 +1,26 @@
+mixin specialist-card
+    .specialist
+        img.specialist__img(src="./images/specialist.png" alt="")
+        .specialist__desc 
+            .specialist__name Иванов Иван Иванович
+            .specialist__position Ведущй юрист по жилищному праву
+            .specialist__params
+                .specialist__param стаж: #[span 15 лет]
+                .specialist__param консультаций: #[span 66 000]
+
+section.specialists-section.section 
+    .container
+        .section__header 
+            h3.section__title Специалисты
+            .swiper-buttons 
+                .swiper-button-prev
+                    span.icon-arrow-next
+                .swiper-button-next
+                    span.icon-arrow-next
+        .specialists-section__body.section__body 
+            .swiper 
+                .swiper-wrapper 
+                    - for (var i = 0; i < 9; i++)
+                        .swiper-slide 
+                            +specialist-card
+                    
