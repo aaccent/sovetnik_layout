@@ -1,0 +1,110 @@
+@import "base/_vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "mixins/fonts.scss";
+@import "mixins/media.scss";
+@import "base.scss";
+
+// components
+@import "components/breadcrumbs";
+@import "components/button";
+@import "components/popup";
+@import "components/form";
+
+// modules
+@import "modules/header.scss";
+
+.about-company-section {
+    &__title {
+        max-width: 44.375rem
+    }
+    &__body {
+        margin: 2.5rem 0 0
+    }
+    &__columns-block {
+        display: flex;
+        gap: 1.25rem;
+        margin: 4.375rem 0 0;
+        @include adaptive-value (margin-top, 28, 70, 576, $max-width);
+        & > * {
+            width: calc(50% - 0.625rem)
+        }
+        & > :first-child {
+            font-family: "Montserrat", "sans-serif";
+            font-size: 1.875rem;
+            font-weight: 600;
+            line-height: 2rem;
+            max-width: 48rem;
+        }
+    }
+    @include tablet {
+        &__columns-block {
+            flex-direction: column;
+            & > * {
+                width: 100%
+            }
+        }
+    }
+    @include phone {
+        &__columns-block {
+            & > :first-child {
+                @include mob_subtitle;
+            }
+        }
+    }
+}
+@import "modules/hero-section.scss";
+@import "modules/in-numbers.scss";
+@import "modules/why-section.scss";
+@import "modules/services-section.scss";
+@import "modules/about-section.scss";
+@import "modules/specialist-section.scss";
+@import "modules/press-center-section.scss";
+@import "modules/reviews-section.scss";
+@import "modules/seo-section.scss";
+
+.certificates-section {
+    .swiper-slide {
+        width: 21.562rem;
+    }
+    @include gap {
+        &__body {
+            margin: 0 -1.25rem;
+        }
+        &__swiper {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+    }
+    @include phone {
+        .swiper-slide {
+            width: 11.875rem;
+        }
+    }
+}
+
+.certificate {
+    background-color: $white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    &__img {
+        width: 100%;
+        height: auto;
+    }
+    &__name {
+        @include base_22;
+        font-weight: 500;
+        padding: 1.625rem
+    }
+    @include phone {
+        &__name {
+            @include mob_base_14;
+            padding: 0.875rem
+        }
+    }
+}
+
+@import "modules/contacts-section.scss";
+
+@import "modules/footer.scss";

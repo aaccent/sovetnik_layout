@@ -420,14 +420,23 @@ new Swiper(".press-center-section .swiper", {
 new Swiper(".reviews-section .swiper", {
     spaceBetween: 20,
     slidesPerView: "auto",
-    // breakpoints: {
-    //     768: {
-    //         slidesPerView: 3
-    //     }
-    // },
     navigation: {
         prevEl: ".reviews-section .swiper-button-prev",
         nextEl: ".reviews-section .swiper-button-next",
+    }
+})
+
+new Swiper(".certificates-section__swiper", {
+    spaceBetween: 10,
+    slidesPerView: "auto",
+    breakpoints: {
+        577: {
+            spaceBetween: 20
+        }
+    },
+    navigation: {
+        prevEl: ".certificates-section .swiper-button-prev",
+        nextEl: ".certificates-section .swiper-button-next",
     }
 })
 

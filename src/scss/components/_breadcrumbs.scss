@@ -1,0 +1,28 @@
+.breadcrumbs {
+    &__list {
+        display: flex;
+        gap: 4px;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        &:not(:last-child) {
+            &:after {
+                content: "/";
+                display: inline-block;
+                margin-left: 0.25em;
+            }
+        }
+        &:last-child {
+            opacity: 0.6;
+            .breadcrumbs__link {
+                cursor: auto;
+                pointer-events: none;
+            }
+        }
+    }
+    &__link {
+        @include base_16;
+        white-space: nowrap;
+    }
+}

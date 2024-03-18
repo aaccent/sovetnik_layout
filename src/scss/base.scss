@@ -87,6 +87,39 @@ img {
     }
 }
 
+.page {
+    &__breadcrumbs {
+        margin: 0 0 4.5rem;
+        @include adaptive-value(margin-bottom, 16, 72, 572, $max-width)
+    }
+    &__title {
+        @include desk_title_hero;
+        margin: 0 0 3.375rem
+    }
+    @include phone {
+        &__title {
+            margin-bottom: 1.875rem;
+        }
+    }
+}
+
+.text {
+    p {
+        @include base_18;
+        &:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+    }
+    @include phone {
+        p {
+            @include base_16;
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
 .city {
     display: flex;
     align-items: center;
