@@ -1,0 +1,85 @@
+@import "base/_vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "mixins/fonts.scss";
+@import "mixins/media.scss";
+@import "base.scss";
+
+// components
+@import "components/breadcrumbs";
+@import "components/button";
+@import "components/popup";
+@import "components/form";
+@import "components/project";
+
+
+.filter-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    &__item {
+        border: 1px solid rgba($color: $black, $alpha: 0.7);
+        border-radius: 0.5rem;
+        padding: 0.75rem 2.8125rem;
+        transition: background-color 0.2s ease 0s, border-color 0.2s ease 0s;
+        span {
+            font-size: 1.125rem;
+            font-weight: 400;
+            line-height: 1;
+            transition: color 0.2s ease 0s;
+        }
+        &_active {
+            background-color: $turquoise;
+            border-color: $turquoise;
+            span {
+                color: $white
+            }
+        }
+    }
+    @include phone {
+        gap: 0.5rem;
+        &__item {
+            padding: 0.5rem 1.875rem;
+            span {
+                @include base_16;
+            }
+        }
+    }
+}
+
+// modules
+@import "modules/header.scss";
+.projects-section {
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+    &__project {
+        width: calc((100% - 2.5rem) / 3)
+    }
+    &__more {
+        display: block;
+        margin: 2.625rem auto 0;
+        width: fit-content;
+    }
+    @include tablet {
+        &__project {
+            width: calc(50% - 1.25rem)
+        } 
+    }
+    @include gap {
+        &__project {
+            width: 100%
+        }
+    }
+    @include phone {
+        &__more {
+            margin-top: 1rem
+        }
+    }
+}
+@import "modules/reviews-section.scss";
+@import "modules/seo-section.scss";
+@import "modules/footer.scss";

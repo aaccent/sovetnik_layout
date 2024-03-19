@@ -596,3 +596,22 @@ faqItemHeaderEls.forEach(faqItemHeaderEl => {
         }
     })
 })
+
+// filter panel
+
+const filterPanelEl = document.querySelector(".filter-panel")
+
+filterPanelEl?.addEventListener("click", e => {
+    const filterItemEl = e.target.closest(".filter-panel__item");
+    if (!filterItemEl) {
+        return
+    }
+
+    if (filterItemEl.classList.contains("filter-panel__item_active")) {
+        filterItemEl.classList.remove("filter-panel__item_active")
+        return
+    }
+
+    filterPanelEl.querySelector(".filter-panel__item_active").classList.remove("filter-panel__item_active")
+    filterItemEl.classList.add("filter-panel__item_active")
+})

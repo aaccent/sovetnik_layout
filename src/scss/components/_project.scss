@@ -1,0 +1,31 @@
+.project {
+    background-color: $white;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    &__content {
+        padding: 2rem;
+    }
+    &__img {
+        background-color: $turquoise;
+        height: 260px
+    }
+    &__name {
+        @include base_26;
+    }
+    &__desc {
+        margin: 1rem 0 0;
+
+    }
+    @include phone {
+        &__content {
+            padding: 1rem;
+        }
+        &__name {
+            @include mob_base_20;
+        }
+        &__desc {
+            margin-top: 0.625rem;
+            opacity: 0.8;
+        }
+    }
+}

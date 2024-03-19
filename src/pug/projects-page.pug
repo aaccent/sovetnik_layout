@@ -1,0 +1,49 @@
+extends templates/layout
+
+mixin project 
+    .projects-section__project.project 
+        .project__img 
+        .project__content 
+            .project__name Название проекта
+            .project__desc.text.text_16 
+                | Обращалась к юристам на Пушкина по вопросу банкротства, все подробно объяснили. Сама процедура заняла полгода и недавно все благополучно
+                | завершилось. Дело вела юрист Алла. Благодарю Федеральное Юридическое Бюро за помощь в решении моих финансовых проблем. Бюро за помощь в решении моих финансовых проблем.
+
+block head
+    title  
+    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
+    link(rel="stylesheet", href="css/projects-page.min.css")
+block content 
+    .page 
+        nav.page__breadcrumbs.breadcrumbs
+            .container
+                ol.breadcrumbs__list 
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="/") Главная
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="#") Реализованные проекты
+        h2.page__title 
+            .container Реализованные проекты
+        section.projects-section.section
+            .container 
+                .section__header 
+                    .filter-panel
+                        button.filter-panel__item.filter-panel__item_active(type="button") #[span Все]
+                        button.filter-panel__item(type="button") #[span Развод]
+                        button.filter-panel__item(type="button") #[span Банкротство]
+                        button.filter-panel__item(type="button") #[span Взыскание задолженности]
+                        button.filter-panel__item(type="button") #[span Наследство]
+                        button.filter-panel__item(type="button") #[span Сопровождение]
+                        button.filter-panel__item(type="button") #[span Семейные дела]
+                        button.filter-panel__item(type="button") #[span Сделки с недвижимостью]
+                .section__body 
+                    .projects-section__grid 
+                        - for (var i = 0; i < 9; i++) 
+                            +project
+                    a.projects-section__more.button.button_primary(href="#") Показать ещё            
+        include ./includes/reviews-section
+        include ./includes/seo-section
+        include ./includes/contacts-section
+block scripts 
+    script(src="js/libs/swiper-bundle.min.js")
+    script(src="js/index.min.js")
