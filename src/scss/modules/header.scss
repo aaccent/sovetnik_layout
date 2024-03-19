@@ -307,7 +307,7 @@
         &__menu {
             background-color: $background-color;
             // display: none;
-            padding: 13.375rem 2.5rem 2.5rem;
+            padding: 13.375rem 1.5rem 2.5rem;
             position: fixed;
             left: 0;
             bottom: 100%;
@@ -325,15 +325,14 @@
         }
         &__menu-list {
             flex-direction: column;
-            row-gap: 2.5rem;
-            padding-right: 1rem;
+            row-gap: 2rem;
             height: 100%;
             overflow: auto;
         }
         &__menu-item {
             align-self: flex-start;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
             &_open {
                 .header__submenu {
                     display: block;
@@ -346,7 +345,6 @@
         &__menu-link {
             font-size: 2rem;
             font-weight: 500;
-            line-height: 1.625rem;
         }
         &__menu-arrow {
             font-size: 1.125rem;
@@ -367,6 +365,10 @@
         }
         &__menu {
             padding-top: 12.5rem;
+        }
+        &__menu-list {
+            row-gap: 1.25rem;
+            height: auto;
         }
         &__menu-item {
             align-self: stretch;
@@ -431,7 +433,6 @@
         }
         &__menu-list {
             padding-right: 0;
-            height: auto;
             gap: 1rem;
         }
         &__menu-link {

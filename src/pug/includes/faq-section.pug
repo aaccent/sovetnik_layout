@@ -1,0 +1,23 @@
+mixin accordion
+    .accordion 
+        .accordion__header 
+            .accordion__title Вопрос в одну строку?
+            button.accordion__button(type="button")
+                .close
+        .accordion__body 
+            .accordion__text.text
+                p 
+                    | Среди огромного числа практикующих адвокатов и юристов в Москве и Московской области очень важно выбрать специалиста, 
+                    | который подходит именно вам.
+                p
+                    | Мы всегда говорим, что для каждого клиента есть свой собственный адвокат, с которым и только с которым у него сложатся 
+                    | действительно доверительные отношения. Только в этом случае можно говорить об эффективной работе и высоких шансах на успех.
+
+section.faq-section.section 
+    .container 
+        .section__header
+            h3.section__title Ответы на популярные вопросы
+        .section__body
+            .faq-section__questions 
+                - for (var i = 0; i < 6; i++)
+                    +accordion

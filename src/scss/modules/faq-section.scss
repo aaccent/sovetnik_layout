@@ -1,0 +1,69 @@
+.faq-section {
+    &__questions {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+    @include phone {
+        gap: 0.625rem;
+    }
+}
+
+.accordion {
+    background-color: $white;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    padding: 2.125rem;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__button {
+        border: 1px solid rgba($color: $black, $alpha: 0.1);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        transition: transform 0.2s ease 0s;
+        .close {
+            transform: rotate(45deg);
+            &:before, &:after {
+                width: 1.125rem;
+            }
+        }
+    }
+    &__title {
+        font-family: "Montserrat", "sans-serif";
+        font-size: 2rem;
+        font-weight: 600; 
+        line-height: 2.5rem;
+    }
+    &__body {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease 0s;
+    }
+    &__text {
+        margin: 1.25rem 0 0;
+    }
+    &_open {
+        .accordion__button {
+            .close {
+                transform: rotate(0deg);
+            }
+        }
+    }
+    @include phone {
+        padding: 1rem;
+        &__title {
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+        }
+        &__text {
+            margin-top: 0.625rem;
+        }
+    }
+}

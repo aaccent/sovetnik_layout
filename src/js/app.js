@@ -288,6 +288,7 @@ window.onload = function() {
     document.querySelector(".header__menu-close").addEventListener("click", () => {
         headerEl.classList.remove("header_menu-open")
         menuEl.classList.remove("header__menu_open")
+        burgerMenuEl.classList.remove("header__burger_open");
         document.querySelectorAll(".header__menu-item_open")
             .forEach(menuItemEl => menuItemEl.classList.remove("header__menu-item_open"))
         unlockBody()
@@ -440,6 +441,20 @@ new Swiper(".certificates-section__swiper", {
     }
 })
 
+new Swiper(".projects-section__swiper", {
+    spaceBetween: 10,
+    slidesPerView: "auto",
+    breakpoints: {
+        577: {
+            spaceBetween: 20
+        }
+    },
+    navigation: {
+        prevEl: ".projects-section .swiper-button-prev",
+        nextEl: ".projects-section .swiper-button-next",
+    }
+})
+
 // reviews & seo text
 const reviewItemEls = document.querySelectorAll(".review");
 const seoContentEl = document.querySelector(".seo-content")
@@ -550,3 +565,34 @@ function init() {
 }
 
 // ymaps.ready(init);
+
+// faq
+
+const faqItemHeaderEls = document.querySelectorAll(".accordion__header");
+
+faqItemHeaderEls.forEach(faqItemHeaderEl => {
+    let timeoutId;
+    faqItemHeaderEl.addEventListener("click", e => {
+        const faqItemEl = faqItemHeaderEl.parentElement;
+        const faqItemBodyEl = faqItemHeaderEl.nextElementSibling;
+        const faqItemTextEl = faqItemBodyEl.firstElementChild;
+
+        if (faqItemEl.classList.contains("accordion_open")) {
+            let faqItemBodyHeight = faqItemBodyEl.scrollHeight;
+            faqItemBodyEl.style.height = faqItemBodyHeight + "px";
+            faqItemEl.classList.remove("accordion_open")
+            timeoutId = setTimeout(() => faqItemBodyEl.style.height = "")
+        } else {
+            clearTimeout(timeoutId)
+            timeoutId = null
+            faqItemEl.classList.add("accordion_open");
+            faqItemBodyEl.style.height = faqItemTextEl.offsetHeight + "px";
+            faqItemBodyEl.addEventListener("transitionend", () => {
+                if (timeoutId) {
+                    return
+                }
+                faqItemBodyEl.style.height = "auto"
+            }, { once: true })
+        }
+    })
+})

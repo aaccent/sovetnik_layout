@@ -1,0 +1,24 @@
+mixin project 
+    .projects-section__project.project 
+        .project__img 
+        .project__content 
+            .project__name Название проекта
+            .project__desc.text.text_16 
+                | Обращалась к юристам на Пушкина по вопросу банкротства, все подробно объяснили. Сама процедура заняла полгода и недавно все благополучно
+                | завершилось. Дело вела юрист Алла. Благодарю Федеральное Юридическое Бюро за помощь в решении моих финансовых проблем. Бюро за помощь в решении моих финансовых проблем.
+
+section.projects-section.section 
+    .container 
+        .section__header 
+            h3.section__title Реализованные проекты
+            .swiper-buttons 
+                .swiper-button-prev 
+                    .icon-arrow-next
+                .swiper-button-next
+                    .icon-arrow-next
+        .projects-section__body.section__body
+            .projects-section__swiper.swiper 
+                .swiper-wrapper 
+                    - for (var i = 0; i < 7; i++)
+                        .swiper-slide
+                            +project
