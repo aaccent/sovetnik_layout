@@ -1,0 +1,121 @@
+@import "base/_vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "mixins/fonts.scss";
+@import "mixins/media.scss";
+@import "base.scss";
+
+// components
+@import "components/breadcrumbs";
+@import "components/button";
+@import "components/popup";
+@import "components/form";
+
+// modules
+@import "modules/header.scss";
+
+.services-section {
+    margin-bottom: -1.25rem;
+    &__grid {
+        // display: flex;
+        // flex-wrap: wrap;
+        // gap: 1.25rem;
+    }
+    &__row {
+        display: flex;
+        gap: 1.25rem;
+    }
+    &__column {
+        flex-wrap: wrap;
+        flex-basis: calc((100% - 2.5rem) / 3);
+        &_wide {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 125rem;
+            flex-basis: calc(2 * (100% - 2.5rem) / 3);
+            .services-section__block {
+                flex: calc(50% - 0.625rem);
+                &_full-width {
+                    flex-basis: 100%;
+                }
+            }
+        }
+    }
+    &__block {
+        margin: 0 0 1.25rem;
+        width: calc((100% - 2.5rem) / 3);
+        &_full-width {
+            width: calc(2 * (100% - 2.5rem) / 3 + 1.25rem);
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        &__block {
+            width: calc(50% - 0.625rem);
+        }
+    }
+    @include gap {
+        &__block {
+            width: 100%;
+        }
+    }
+    @include phone {
+        margin-bottom: 0;
+        &__block {
+            &:not(:last-child) {
+                margin-bottom: 0.625rem;
+            }
+        }
+    }
+}
+
+.services-block {
+    background-color: $white;
+    padding: 1.625rem;
+    &__title {
+        @include desk__aaccent_36;
+    }
+    &__list {
+        margin-top: 1.625rem;
+    }
+    &__list-item {
+        &:first-child .services-block__service { padding-top: 0 }
+        &:last-child .services-block__service { padding-bottom: 0 }
+        &:not(:last-child) .services-block__service { border-bottom: 1px solid $border-color}
+    }
+    &__service {
+        display: inline-block;
+        padding: 0.75rem 0;
+    }
+    @include phone {
+        padding: 1rem;
+        &__title {
+            @include mob_aaccent_26
+        }
+        &__list {
+            margin-top: 1.375rem;
+        }
+    }
+}
+
+.service {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    &__icon {
+        border: 1px solid $black;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        font-size: 0.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        opacity: 0.5;
+    }
+}
+
+@import "modules/reviews-section.scss";
+@import "modules/seo-section.scss";
+@import "modules/footer.scss";

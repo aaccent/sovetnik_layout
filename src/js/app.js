@@ -259,14 +259,16 @@ window.onload = function() {
             }
         }
     })
+
     tabletMediaQuery.addEventListener("change", replaceFooterMenu)
     gapMediaQuery.addEventListener("change", replaceButton)
     phoneMediaQuery.addEventListener("change", redrawMenu)
-
+    
     replaceButton(gapMediaQuery)
     redrawMenu(phoneMediaQuery)
     replaceFooterMenu(tabletMediaQuery)
-
+    
+    
     burgerMenuEl.addEventListener("click", () => {
         if (burgerMenuEl.classList.contains("header__burger_open")) {
             document.querySelectorAll(".header__menu-item_open")
@@ -372,15 +374,7 @@ window.onload = function() {
             parentEl.classList.remove("form__file_attached")
         }, { once: true })
     })
-}
 
-// Валидация российского номер
-function validateRuPhone(str) {
-    return /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/.test(
-        str
-    );
-}
-// Валидация российского номер END
 
 new Swiper(".specialists-section .swiper", {
     spaceBetween: 10,
@@ -454,6 +448,7 @@ new Swiper(".projects-section__swiper", {
         nextEl: ".projects-section .swiper-button-next",
     }
 })
+
 
 // reviews & seo text
 const reviewItemEls = document.querySelectorAll(".review");
@@ -617,3 +612,28 @@ filterPanelEl?.addEventListener("click", e => {
 })
 
 // similiar projects 
+
+// masonry 
+let masonry;
+
+function initMasonryLayout(e) {
+    if (e.matches) {
+        console.log("phone")
+        masonry?.destroy()
+    } else {
+        console.log("tablet")
+        masonry = new Masonry(".services-section__grid", {
+            itemSelector: '.services-block',
+            gutter: 20,
+            horizontalOrder: true,
+        });
+
+        masonry.on("removeComplete", () => console.log("destroyed"))
+    }
+}
+
+gapMediaQuery.addEventListener("change", initMasonryLayout)
+
+initMasonryLayout(gapMediaQuery)
+
+}

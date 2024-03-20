@@ -56,6 +56,13 @@
     line-height: 1.5rem;
 }
 
+@mixin mob_aaccent_26 {
+    font-family: "Inter", "sans-serif";
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
 @mixin mob_subtitle {
     font-family: "Montserrat", "sans-serif";
     font-size: 1.5rem;
