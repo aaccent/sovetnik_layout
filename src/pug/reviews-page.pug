@@ -1,0 +1,46 @@
+extends templates/layout
+
+block head
+    title  
+    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
+    link(rel="stylesheet", href="css/reviews-page.min.css")
+block content 
+    .page
+        nav.page__nav
+            .container
+                a.page__back-button(href="#") 
+                    .icon-arrow-backwards 
+                    span Назад
+                ol.page__breadcrumbs.breadcrumbs
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="/") Главная
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="#") Отзывы 
+        h2.page__title 
+            .container Отзывы
+        section.reviews-section.section 
+            .container
+                .section__body 
+                    .reviews-section__grid 
+                        mixin review 
+                            .review
+                                .review__author
+                                    .review__author-logo 
+                                    .review__about 
+                                        .review__author-name Иванов Иван Иванович
+                                        .review__date 12.01.2024
+                                .review__text 
+                                    | Очень долго выбирали компанию по юридическим услугам и решили остановиться на Двитекс и не пожалели. Все грамотно и бы…
+                                button.review__more(type="button") 
+                                    span Читать далее
+                        
+                        - for (var i = 0; i < 12; i++) 
+                            .reviews-section__review-wrapper
+                                +review
+                    a.reviews-section__more.button.button_primary(href="#") Показать еще
+        include ./includes/reviews-section
+        include ./includes/seo-section
+        include ./includes/contacts-section
+block scripts 
+    script(src="js/libs/swiper-bundle.min.js")
+    script(src="js/index.min.js") 

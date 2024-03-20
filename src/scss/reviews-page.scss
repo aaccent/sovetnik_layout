@@ -1,0 +1,53 @@
+@import "base/_vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "mixins/fonts.scss";
+@import "mixins/media.scss";
+@import "base.scss";
+
+// components
+@import "components/breadcrumbs";
+@import "components/button";
+@import "components/popup";
+@import "components/form";
+// @import "componentes/review";
+
+// modules
+@import "modules/header.scss";
+.reviews-section {
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+    &__review-wrapper {
+        width: calc((100% - 2.5rem) / 3);
+        .review {
+            width: 100%;
+        }
+    }
+    &__more {
+        display: block;
+        margin: 2.625rem auto 0;
+        width: fit-content;
+    }
+    @include tablet {
+        &__review-wrapper {
+            width: calc(50% - 0.625rem);
+        }
+    }
+    @include gap {
+        &__review-wrapper {
+            width: 100%;
+        }
+    }
+    @include phone {
+        &__more {
+            margin-top: 1rem
+        }
+    }
+}
+@import "modules/reviews-section.scss";
+@import "modules/seo-section.scss";
+@import "modules/footer.scss";

@@ -49,11 +49,25 @@
     line-height: 1.5rem;
 }
 
+@mixin mob_aaccent_20 {
+    font-family: "Inter", "sans-serif";
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+}
+
 @mixin mob_subtitle {
     font-family: "Montserrat", "sans-serif";
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.75rem;
+}
+
+@mixin mob_block_title {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2rem;
 }
 
 @mixin desk__aaccent_36 {
@@ -85,14 +99,7 @@
 }
 @mixin desk_title_subtitle {
     font-family: "Montserrat", "sans-serif";
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.75rem;
-}
-
-@mixin mob_block_title {
-    font-family: "Montserrat", "sans-serif";
-    font-size: 1.75rem;
+    font-size: 1.875rem;
     font-weight: 600;
     line-height: 2rem;
 }

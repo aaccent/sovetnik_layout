@@ -1,0 +1,50 @@
+@import "base/_vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "mixins/fonts.scss";
+@import "mixins/media.scss";
+@import "base.scss";
+
+// components
+@import "components/breadcrumbs";
+@import "components/button";
+@import "components/popup";
+@import "components/form";
+@import "components/news";
+@import "components/filter-panel";
+
+// modules
+@import "modules/header.scss";
+.news-section {
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+    &__news {
+        width: calc(50% - 0.625rem)
+    }
+    &__more {
+        display: block;
+        margin: 2.625rem auto 0;
+        width: fit-content;
+    }
+    @include min_desktop {
+        &__news {
+            &:not(.news-section__news_big) {
+                width: calc(25% - 0.9375rem);
+            }
+        }
+    }
+    @include gap {
+    }
+    @include phone {
+        &__more {
+            margin-top: 1rem
+        }
+    }
+}
+@import "modules/reviews-section.scss";
+@import "modules/seo-section.scss";
+@import "modules/footer.scss";

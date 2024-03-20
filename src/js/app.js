@@ -612,6 +612,8 @@ filterPanelEl?.addEventListener("click", e => {
         return
     }
 
-    filterPanelEl.querySelector(".filter-panel__item_active").classList.remove("filter-panel__item_active")
+    filterPanelEl.querySelector(".filter-panel__item_active")?.classList.remove("filter-panel__item_active")
     filterItemEl.classList.add("filter-panel__item_active")
 })
+
+// similiar projects 

@@ -1,0 +1,91 @@
+extends templates/layout
+
+block head
+    title  
+    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
+    link(rel="stylesheet", href="css/contacts-page.min.css")
+block content 
+    .page
+        nav.page__nav
+            .container
+                a.page__back-button(href="#") 
+                    .icon-arrow-backwards 
+                    span Назад
+                ol.page__breadcrumbs.breadcrumbs
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="/") Главная
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="#") Контакты 
+        h2.page__title 
+            .container Контакты
+        section.contacts-section.section 
+            .container
+                .contacts-section__body.section__body 
+                    .contacts-section__map 
+                        #map
+                        .contacts-section__map-desc.text.text_16
+                            | На проспекте Мира, дом 24а. Рядом торговый центр "Омега", вход справа от трактира "Старый Амбар", ост. 7 комплекс
+                    .contacts-section__info
+                        .contact-info.contact-info_contacts 
+                            .contact-info__title
+                                span.icon-phone 
+                                span Контакты
+                            .contact-info__body 
+                                table.contact-info__table
+                                    caption 
+                                    tbody 
+                                        tr 
+                                            td.text.text_18 Номер телефона
+                                            td #[a.contact-item__value(href="tel:+79765432100") 8 (976) 543 21 00]
+                                        tr 
+                                            td.text.text_18 Электронная почта
+                                            td #[a.contact-item__value(href="mailto:info@advokats.ru") info@advokats.ru]
+                                        tr 
+                                            td.text.text_18 Социальные сети
+                                            td 
+                                                .socials
+                                                    li.socials__item 
+                                                        a.socials__link(href="#")
+                                                            img(src="./images/telegram.png", alt="telegram icon")
+                                                    li.socials__item 
+                                                        a.socials__link(href="#")
+                                                            img(src="./images/inst.png", alt="instagram icon")
+                                                    li.socials__item 
+                                                        a.socials__link(href="#")
+                                                            img(src="./images/youtube.png", alt="youtube icon")
+                                                    li.socials__item 
+                                                        a.socials__link(href="#")
+                                                            img(src="./images/vk.png", alt="vk icon")
+                                                    li.socials__item 
+                                                        a.socials__link(href="#")
+                                                            img(src="./images/fb.png", alt="facebook icon")                                        
+                        .contact-info
+                            .contact-info__title
+                                span.icon-clock 
+                                span График работы
+                            .contact-info__body.contact
+                                table.contact-info__table
+                                    caption 
+                                    tbody 
+                                        tr 
+                                            td.text.text_18 пн-пт
+                                            td 8:00 - 20:00
+                                        tr 
+                                            td.text.text_18 сб
+                                            td._inactive выходной
+                                        tr 
+                                            td.text.text_18 вс
+                                            td._inactive выходной
+                        .contact-info
+                            .contact-info__title 
+                                span.icon-address
+                                span Адрес
+                            .contact-info__body
+                                span.contact-info__text 127083, Москва, ул. 8-го Марта, д. 1, стр. 12.
+                        .button.button_primary #[span Скачать реквизиты компании]
+        include ./includes/reviews-section
+        include ./includes/seo-section
+        include ./includes/contacts-section
+block scripts 
+    script(src="js/libs/swiper-bundle.min.js")
+    script(src="js/index.min.js") 

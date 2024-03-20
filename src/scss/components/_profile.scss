@@ -1,0 +1,35 @@
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    &__icon {
+        background-color: #D9D9D9;
+        border-radius: 50%;
+        flex-shrink: 0;
+        width: 4.125rem;
+        height: 4.125rem;
+        overflow: hidden;
+        object-fit: contain;
+        object-position: center;
+    }
+    &__name {
+        @include base_18;
+    }
+    &__position {
+        @include base_16;
+        opacity: 0.6;
+    }
+    @include phone {
+        gap: 0.625rem;
+        &__icon {
+            width: 2.625rem;
+            height: 2.625rem;
+        }
+        &__name {
+            @include base_16;
+        }
+        &__position {
+            @include mob_base_14
+        }
+    }
+}

@@ -1,0 +1,183 @@
+@import "base/_vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "mixins/fonts.scss";
+@import "mixins/media.scss";
+@import "base.scss";
+
+// components
+@import "components/breadcrumbs";
+@import "components/button";
+@import "components/popup";
+@import "components/form";
+
+// modules
+@import "modules/header.scss";
+
+.contacts-section {
+    &__body {
+        display: flex;
+        gap: 2.625rem;
+    }
+    &__map {
+        flex: 0 1 52rem;
+        // flex-basis: calc(832 / 1440 * 100%);
+        #map {
+            background-color: coral;
+            border-radius: 0.625rem;
+        }
+    }
+    &__map-desc {
+        margin: 2.125rem 0 0;
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 2.625rem;
+        flex-grow: 1;
+        .button {
+            align-self: flex-start;
+        }
+    }
+    @include tablet {
+        &__body {
+            flex-direction: column;
+        }
+        &__map {
+            flex-basis: auto;
+            #map {
+                height: 34.375rem;
+            }
+        }
+    }
+    @include phone {
+        &__body {
+            gap: 2rem;
+        }
+        &__map {
+            #map {
+                height: 30rem;
+            }
+        }
+        &__map-desc {
+            margin-top: 1rem;
+        }
+        &__info {
+            gap: 1.75rem;
+        }
+    }
+    @media screen and (max-width: 420px) {
+        &__map {
+            #map {
+                position: relative;
+                height: 0;
+                padding-top: calc(452 / 350 * 100%);
+                max-height: 470px;
+            }
+        }
+    }
+}
+
+.contact-info {
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        .icon-phone { font-size: 1.5rem; }
+        .icon-clock { font-size: 1.625rem; }
+        .icon-address { font-size: 1.8125rem; }
+        span {
+            &:last-child {
+                @include desk_title_subtitle;
+
+            }
+        }
+    }
+    &__body {
+        margin: 1.5rem 0 0
+    }
+    &__text {
+        @include base_22;
+    }
+    &_contacts {
+        
+    }
+    &_operation-mode {
+        .contact-info__title {
+
+        }
+    }
+    @include phone {
+        &__title {
+            gap: 0.5rem;
+            .icon-phone { font-size: 1.3125rem; }
+            .icon-clock { font-size: 1.5rem; }
+            .icon-address { font-size: 1.5625rem; }
+            span {
+                &:last-child {
+                    @include mob_subtitle;
+                }
+            }
+        }
+        &__body {
+            margin-top: 1rem;
+        }
+    }
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 100%;
+    caption {}
+    .socials {
+        display: inline-flex;
+    }
+    tr {
+        &:first-child {
+            td { padding-top: 0; }
+        }
+        &:last-child {
+            td { padding-bottom: 0; }
+        }
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba($color: $black, $alpha: 0.2);
+        }
+    }
+    td {
+        padding: 0.75rem 0;
+        &:first-child {
+            white-space: nowrap;
+        }
+        &:last-child {
+            @include base_22;
+            text-align: right;
+            &._inactive {
+                opacity: 0.5;
+            }
+        }
+        @include phone {
+            &:last-child {
+                font-size: 1rem;
+                line-height: 1.375;
+            }
+        }
+    }
+    @include phone {
+        padding: 0.625rem;
+        td {
+            &:first-child {
+                white-space: normal
+            }
+        }
+        .socials {
+            flex-wrap: wrap;
+            justify-content: flex-end
+        }
+    }
+}
+
+@import "modules/reviews-section.scss";
+@import "modules/seo-section.scss";
+@import "modules/footer.scss";

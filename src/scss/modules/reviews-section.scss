@@ -29,6 +29,7 @@
     &__author-logo {
         background-color: #D9D9D9;
         border-radius: 50%;
+        flex-shrink: 0;
         width: 4.125rem;
         height: 4.125rem;
     }

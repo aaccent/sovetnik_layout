@@ -1,0 +1,147 @@
+extends templates/layout
+
+block head
+    title  
+    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
+    link(rel="stylesheet", href="css/press-center-page.min.css")
+block content 
+    .page
+        nav.page__nav
+            .container
+                a.page__back-button(href="#") 
+                    .icon-arrow-backwards 
+                    span Назад
+                ol.page__breadcrumbs.breadcrumbs
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="/") Главная
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="#") Пресс-центр 
+        h2.page__title 
+            .container Пресс-центр
+        section.news-section.section 
+            .container
+                .section__header 
+                    .filter-panel
+                        button.filter-panel__item.filter-panel__item_active(type="button") #[span Все]
+                        button.filter-panel__item(type="button") #[span Новости]
+                        button.filter-panel__item(type="button") #[span Статьи]
+                        button.filter-panel__item(type="button") #[span Команда]
+                        button.filter-panel__item(type="button") #[span Полезные материалы]
+                        button.filter-panel__item(type="button") #[span Блог]
+                .section__body 
+                    .news-section__grid 
+                        .news-section__news.news-section__news_big.news
+                            .news__img 
+                                img(src="./images/news-01.png", alt="")
+                                .news__tag Новости
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Задача особенности же постоянный количественный рост
+                                p.news__desc
+                                    | Значимость этих проблем настолько очевидна, что дальнейшее развитие 
+                                    | различных форм деятельности требует от нас анализа соответствующих 
+                                    | условий активизации? Задача организации, в особенности же рамки и место 
+                                    | обучения кадров влечёт за собой процесс внедрения и модернизации ключевых компонентов планируемого обновления.
+                        .news-section__news.news.news 
+                            .news__img 
+                                img(src="./images/news-02.png", alt="")
+                                .news__tag Блог
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Повседневная практика
+                                p.news__desc
+                                    | Задача организации, в особенности же постоянный количественный рост 
+                                    | и сфера нашей активности требует от нас анализа модели развития. Дорогие друзья, 
+                                    | консультация с профессионалами из IT требует
+                        .news-section__news.news.news
+                            .news__img 
+                                img(src="./images/news-03.png", alt="")
+                                .news__tag Команда
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Победа в парусной бизнес-регате
+                                p.news__desc
+                                    | Задача организации, в особенности же повышение уровня гражданского 
+                                    | сознания способствует повышению актуальности системы масштабного изменения ряда параметров!
+                        .news-section__news.news.news 
+                            .news__img 
+                                img(src="./images/news-02.png", alt="")
+                                .news__tag Блог
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Повседневная практика
+                                p.news__desc
+                                    | Задача организации, в особенности же постоянный количественный рост 
+                                    | и сфера нашей активности требует от нас анализа модели развития. Дорогие друзья, 
+                                    | консультация с профессионалами из IT требует
+                        .news-section__news.news.news
+                            .news__img 
+                                img(src="./images/news-03.png", alt="")
+                                .news__tag Команда
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Победа в парусной бизнес-регате
+                                p.news__desc
+                                    | Задача организации, в особенности же повышение уровня гражданского 
+                                    | сознания способствует повышению актуальности системы масштабного изменения ряда параметров!
+                        .news-section__news.news-section__news_big.news
+                            .news__img 
+                                img(src="./images/news-01.png", alt="")
+                                .news__tag Новости
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Задача особенности же постоянный количественный рост
+                                p.news__desc
+                                    | Значимость этих проблем настолько очевидна, что дальнейшее развитие 
+                                    | различных форм деятельности требует от нас анализа соответствующих 
+                                    | условий активизации? Задача организации, в особенности же рамки и место 
+                                    | обучения кадров влечёт за собой процесс внедрения и модернизации ключевых компонентов планируемого обновления.
+                        .news-section__news.news.news 
+                            .news__img 
+                                img(src="./images/news-02.png", alt="")
+                                .news__tag Блог
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Повседневная практика
+                                p.news__desc
+                                    | Задача организации, в особенности же постоянный количественный рост 
+                                    | и сфера нашей активности требует от нас анализа модели развития. Дорогие друзья, 
+                                    | консультация с профессионалами из IT требует
+                        .news-section__news.news.news
+                            .news__img 
+                                img(src="./images/news-03.png", alt="")
+                                .news__tag Команда
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Победа в парусной бизнес-регате
+                                p.news__desc
+                                    | Задача организации, в особенности же повышение уровня гражданского 
+                                    | сознания способствует повышению актуальности системы масштабного изменения ряда параметров!
+                        .news-section__news.news.news 
+                            .news__img 
+                                img(src="./images/news-02.png", alt="")
+                                .news__tag Блог
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Повседневная практика
+                                p.news__desc
+                                    | Задача организации, в особенности же постоянный количественный рост 
+                                    | и сфера нашей активности требует от нас анализа модели развития. Дорогие друзья, 
+                                    | консультация с профессионалами из IT требует
+                        .news-section__news.news.news
+                            .news__img 
+                                img(src="./images/news-03.png", alt="")
+                                .news__tag Команда
+                            .news__content 
+                                span.news__data 25.01.2024
+                                .news__title Победа в парусной бизнес-регате
+                                p.news__desc
+                                    | Задача организации, в особенности же повышение уровня гражданского 
+                                    | сознания способствует повышению актуальности системы масштабного изменения ряда параметров!
+                    a.news-section__more.button.button_primary(href="#") Показать еще
+        include ./includes/reviews-section
+        include ./includes/seo-section
+        include ./includes/contacts-section
+block scripts 
+    script(src="js/libs/swiper-bundle.min.js")
+    script(src="js/index.min.js") 
