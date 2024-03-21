@@ -1,5 +1,4 @@
 .header {
-    background-color: $background-color;
     position: relative;
     z-index: 10;
     &:before {
@@ -307,27 +306,26 @@
         &__menu {
             background-color: $background-color;
             // display: none;
-            padding: 13.375rem 1.5rem 2.5rem;
+            padding: 2.5rem 1.5rem 2.5rem;
             position: fixed;
             left: 0;
-            bottom: 100%;
+            bottom: 0;
             width: 100%;
-            height: 100%;
-            // height: calc(100% - 10.875rem);
+            height: calc(100% - 11rem);
+            transform: translate(0, calc(-100% - 11rem));
             transition: transform 0.3s ease 0s;
+            overflow: auto;
             z-index: -2;
             .header__main & {
                 margin: 0;
             }
             &_open {
-                transform: translate(0, 100%);
+                transform: translate(0, 0) !important;
             }
         }
         &__menu-list {
             flex-direction: column;
             row-gap: 2rem;
-            height: 100%;
-            overflow: auto;
         }
         &__menu-item {
             align-self: flex-start;
@@ -364,11 +362,13 @@
             padding: 1.5rem;
         }
         &__menu {
-            padding-top: 12.5rem;
+            padding-bottom: 2.5rem;
+            height: calc(100% - 10rem);
+            transform: translate(0, calc(-100% - 10rem));
         }
         &__menu-list {
             row-gap: 1.25rem;
-            height: auto;
+            padding-bottom: 0;
         }
         &__menu-item {
             align-self: stretch;
@@ -428,8 +428,12 @@
             transition: left 0.3s ease 0s, transform 0.3s ease 0s;
         }
         &__menu {
-            padding: 7.25rem 1.25rem 1.875rem;
-            overflow: auto;
+            padding: 1.875rem 1.25rem 1.875rem;
+            height: calc(100% - 6rem);
+            transform: translate(0, calc(-100% - 6rem));
+        }
+        &__menu-item {
+            row-gap: 0.75rem;
         }
         &__menu-list {
             padding-right: 0;

@@ -13,10 +13,10 @@
         flex-grow: 1;
         position: relative;
         &:before {
-            background-image: url(../images/about_bg.png);
+            background-image: url(../images/about_bg.svg);
             background-repeat: no-repeat;
-            background-position: right bottom;
-            background-size: cover;
+            background-position: 80% 40%;
+            background-size: 200%;
             content: "";
             position: absolute;
             left: 0;
@@ -64,12 +64,6 @@
     &__text {
         margin: 3.75rem 0 0;
         @include adaptive-value(margin-top, 24, 58, 576, $max-width);
-        p {
-            @include base_18;
-            &:not(:last-child) {
-                margin: 0 0 1.5rem;
-            }
-        }
     }
     &__link {
         display: inline-block;
@@ -83,6 +77,10 @@
         }
         &__img {
             align-self: stretch;
+            &:before {
+                background-position: center;
+                background-size: 120%;
+            }
             img {
                 max-height: 550px;
             }
@@ -98,6 +96,14 @@
         &__img {
             img {
                 max-height: 420px;
+            }
+        }
+    }
+    @include gap {
+        &__img {
+            &:before {
+                background-size: 200%;
+                opacity: 0.3;
             }
         }
     }
@@ -119,14 +125,6 @@
         }
         &__quote-author {
             margin-top: 1.125rem;
-        }
-        &__text {
-            p {
-                @include base_16;
-                &:not(:last-child) {
-                    margin-bottom: 1rem;
-                }
-            }
         }
         &__img {
             img {

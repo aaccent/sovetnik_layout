@@ -23,7 +23,7 @@
 .specialist {
     background-color: $white;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 7px 0 rgba(48, 48, 48, 0.04);
+    box-shadow: $box-shadow;
     overflow: hidden;
     picture {
         display: block;

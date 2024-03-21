@@ -10,6 +10,14 @@
         width: fit-content;
     }
     @include phone {
+        &__body {
+            margin-left: -1.25rem;
+            margin-right: -1.25rem;
+        }
+        &__swiper {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
         .swiper-slide {
             width: 100%;
             min-width: 0;
@@ -20,7 +28,7 @@
 .review {
     background-color: $white;
     border-radius: 0.625rem;
-    box-shadow: 0 4px 7px 0 rgba(48, 48, 48, 0.04);
+    box-shadow: $box-shadow;
     padding: 1.625rem;
     &__author {
         display: flex;

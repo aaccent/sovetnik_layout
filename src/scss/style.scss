@@ -15,6 +15,19 @@
 // modules
 @import "modules/header.scss";
 
+.header {
+    &:before {
+        background-color: #F6F6F6
+    }
+    @media screen and (max-width: 1080px) {
+        &__menu {
+            background-color: #F6F6F6
+        }
+    }
+}
+
+
+
 @import "modules/hero-section.scss";
 @import "modules/in-numbers.scss";
 @import "modules/why-section.scss";

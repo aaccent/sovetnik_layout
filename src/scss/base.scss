@@ -9,8 +9,7 @@
 }
 
 body {
-    // background-color: $background-color;
-    background-color: #FBFBFB;
+    background-color: $background-color;
     color: $black;
     font-family: "Inter", "sans-serif";
     &._lock {
@@ -471,6 +470,10 @@ img {
     }
 }
 
+.swiper {
+    margin-bottom: -0.625rem;
+    padding-bottom: 0.625rem;
+}
 .swiper-buttons {
     display: flex;
     gap: 2.125rem;

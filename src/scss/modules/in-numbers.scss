@@ -1,6 +1,5 @@
 .in-numbers {
-    margin: 3.125rem auto 9.375rem;
-    @include adaptive-value(margin-bottom, 70, 150, 576, $max-width);
+    margin: 4.375rem auto 0;
     &__list {
         display: flex;
         gap: 1.25rem;
@@ -22,6 +21,7 @@
         }
     }
     @include phone {
+        margin-top: 3.125rem;
         &__list {
             gap: 0.625rem;
         }

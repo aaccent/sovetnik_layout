@@ -7,12 +7,7 @@
 
     }
     &__desc {
-        p {
-            @include base_18;
-            &:not(:last-child) {
-                margin: 0 0 1.5rem;
-            }
-        }
+
     }
     &__advantages {
         flex-shrink: 0;
@@ -34,9 +29,7 @@
     @include phone {
         gap: 1.5rem;
         &__desc {
-            p {
-                @include base_16;
-            }
+
         }
         &__advantage-item {
             &:not(:last-child) {

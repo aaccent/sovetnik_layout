@@ -1,3 +1,17 @@
+[class*="copyrights-pane"] {
+    display: none !important
+}
+
+[class*="ground-pane"] {
+    filter: grayscale(1);
+}
+
+[class*="image"] {
+    background-size: 3.75rem 3.75rem !important;
+    width: 3.75rem !important;
+    height: 3.75rem !important;
+}
+
 .contact-section {
     &__inner-wrapper {
         background-color: $turquoise;
@@ -56,7 +70,6 @@
         }
     }
     &__map {
-        background-color: coral;
         border-radius: 0.5rem;
         flex-basis: calc(665 / 1352 * 100%);
         overflow: hidden;

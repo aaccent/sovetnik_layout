@@ -6,7 +6,6 @@ block head
     link(rel="stylesheet", href="css/style.min.css")
 block content 
     include ./includes/hero-section
-    include ./includes/in-numbers
     include ./includes/why-section
     include ./includes/services-section
     include ./includes/about-section
@@ -15,6 +14,6 @@ block content
     include ./includes/reviews-section
     include ./includes/seo-section
     include ./includes/contacts-section
-block scripts 
+block append scripts 
     script(src="js/libs/swiper-bundle.min.js")
     script(src="js/index.min.js") 

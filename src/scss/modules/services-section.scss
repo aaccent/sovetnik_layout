@@ -29,6 +29,7 @@
 
 .service {
     border-radius: 0.5rem;
+    display: block;
     color: $white;
     padding: 2.125rem;
     @include adaptive-value(padding, 18, 34, 576, $max-width);

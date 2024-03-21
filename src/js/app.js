@@ -62,7 +62,7 @@ window.onload = function() {
 
         popup.classList.remove("popup_open");
         popup.addEventListener("transitionend", () =>  {
-            if (!document.querySelector(".header__burger_open")) {
+            if (!document.querySelector(".header__burger_open") && !headerEl.classList.contains("header_menu-open")) {
                 unlockBody() 
             }
 
@@ -170,7 +170,7 @@ window.onload = function() {
     }))
 
     document
-        .querySelectorAll(".header__call-desc, .header__button, .header__actions .header__call-icon, .footer__call-desc")
+        .querySelectorAll(".header__call-desc, .header__button, .header__actions .header__call-icon, .hero-section__button, .footer__button")
         .forEach(button => button.addEventListener("click", () => openPopup(callBackPopupEl)))
 
     document.querySelectorAll(".popup__close").forEach(
@@ -413,8 +413,13 @@ new Swiper(".press-center-section .swiper", {
 })
 
 new Swiper(".reviews-section .swiper", {
-    spaceBetween: 20,
+    spaceBetween: 10,
     slidesPerView: "auto",
+    breakpoints: {
+        577: {
+            spaceBetween: 20
+        }
+    },
     navigation: {
         prevEl: ".reviews-section .swiper-button-prev",
         nextEl: ".reviews-section .swiper-button-next",
@@ -559,7 +564,7 @@ function init() {
     }
 }
 
-// ymaps.ready(init);
+ymaps.ready(init);
 
 // faq
 

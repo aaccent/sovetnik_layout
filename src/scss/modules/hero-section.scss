@@ -1,5 +1,7 @@
 .hero-section {
-    background-color: $background-color;
+    &__inner-wrapper {
+        background-color: #F6F6F6;
+    }
     &__container {
         display: flex;
         // justify-content: space-between;
@@ -29,6 +31,7 @@
     &__img {
         position: relative;
         img {
+            position: relative;
             width: 100%;
             height: auto;
             max-height: 40.375rem;
@@ -46,7 +49,7 @@
         //     height: 100%;
         //     z-index: 0;
         // }
-        &:after {
+        &:before {
             background-image: url("../images/hero-vector.svg");
             background-repeat: no-repeat;
             background-position: bottom right;
@@ -57,7 +60,7 @@
             bottom: 02.75rem;
             width: 100%;
             height: calc(207 / 676 * 100%);
-            z-index: -1;
+            z-index: 0;
         }
     }
     &__phrase {
@@ -127,7 +130,9 @@
         }
     }
     @include min_phone {
-        padding-top: 1.5rem;
+        &__inner-wrapper {
+            padding-top: 1.5rem;
+        }
         &__img {
             padding: 0.75rem 0.75rem 0 0;
         }
