@@ -614,26 +614,65 @@ filterPanelEl?.addEventListener("click", e => {
 // similiar projects 
 
 // masonry 
-let masonry;
+    // let masonry;
 
-function initMasonryLayout(e) {
-    if (e.matches) {
-        console.log("phone")
-        masonry?.destroy()
-    } else {
-        console.log("tablet")
-        masonry = new Masonry(".services-section__grid", {
-            itemSelector: '.services-block',
-            gutter: 20,
-            horizontalOrder: true,
-        });
+    // function initMasonryLayout(e) {
+    //     if (e.matches) {
+    //         console.log("phone")
+    //         masonry?.destroy()
+    //     } else {
+    //         console.log("tablet")
+    //         masonry = new Masonry(".services-section__grid", {
+    //             itemSelector: '.services-block',
+    //             gutter: 20,
+    //             horizontalOrder: true,
+    //         });
 
-        masonry.on("removeComplete", () => console.log("destroyed"))
-    }
-}
+    //         masonry.on("removeComplete", () => console.log("destroyed"))
+    //     }
+    // }
 
-gapMediaQuery.addEventListener("change", initMasonryLayout)
+    // gapMediaQuery.addEventListener("change", initMasonryLayout)
 
-initMasonryLayout(gapMediaQuery)
+    // initMasonryLayout(gapMediaQuery)
 
+    // prices page
+    const pricesNavEl = document.querySelector(".prices-section__nav")
+    const servicesCategoriesEl = pricesNavEl.nextElementSibling;
+    const activeCategoryClassName = "prices-section__category_active"
+    pricesNavEl.addEventListener("click", e => {
+        const categoryButton = e.target.closest(".prices-section__category-button");
+
+        pricesNavEl.querySelector(".prices-section__category-button_active").classList.remove("prices-section__category-button_active")
+        categoryButton.classList.add("prices-section__category-button_active")
+
+        servicesCategoriesEl.style.opacity = 0;
+        servicesCategoriesEl.addEventListener("transitionend", () => {
+            servicesCategoriesEl.querySelector("." + activeCategoryClassName).classList.remove(activeCategoryClassName)
+            servicesCategoriesEl.style.opacity = ""
+            servicesCategoriesEl
+                .querySelector("[data-category='" + categoryButton.dataset.category + "']")
+                .classList.add(activeCategoryClassName)
+        }, { once: true })
+    })
+
+    // tabButtons.forEach(tabButton => {
+    //     tabButton.addEventListener("click", e => {
+    //         const tabNavigation = e.target.parentElement;
+    //         const tabContent = tabNavigation.nextElementSibling;
+
+    //         tabNavigation.querySelector(".experience__tab-button_active").classList.remove("experience__tab-button_active");
+    //         e.target.classList.add("experience__tab-button_active");
+    //         tabContent.style.opacity = 0;
+    //         tabContent.addEventListener("transitionend", () => {
+    //             tabContent.querySelector(".experience__tab-body_active").classList.remove("experience__tab-body_active");
+    //             tabContent.style.opacity = ""
+    //             tabContent.querySelector("." + e.target.dataset.tab).classList.add("experience__tab-body_active");
+    //         }, { once: true})
+
+    //         if (gapMediaQuery.matches) {
+    //             drawTabNaigationIndicator();
+    //         }
+    //     })
+    // })
 }

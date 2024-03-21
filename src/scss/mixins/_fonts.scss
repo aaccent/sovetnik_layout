@@ -10,17 +10,17 @@
     line-height: 1.625rem;
 }
 
-@mixin base_26 {
-    font-size: 1.625rem;
-    font-weight: 500;
-    line-height: 2rem;
-}
-
 @mixin base_22 {
     font-family: "Montserrat", "sans-serif";
     font-size: 1.125rem;
     font-weight: 600;
     line-height: 1.75rem;
+}
+
+@mixin base_26 {
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: 2rem;
 }
 
 @mixin mob_start {

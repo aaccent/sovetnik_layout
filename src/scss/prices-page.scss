@@ -1,0 +1,193 @@
+@import "base/_vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "mixins/fonts.scss";
+@import "mixins/media.scss";
+@import "base.scss";
+
+// components
+@import "components/breadcrumbs";
+@import "components/button";
+@import "components/popup";
+@import "components/form";
+
+// modules
+@import "modules/header.scss";
+
+.prices-section {
+    &__body {
+        display: flex;
+        align-items: center;
+    }
+    &__nav {
+        border-top-left-radius: 0.625rem;
+        border-bottom-left-radius: 0.625rem;
+        flex: 0 1 470px;
+        overflow: hidden;
+    }
+
+    &__category-button {
+        background-color: #E9F1F1;
+        font-size: 1.625rem;
+        font-weight: 600;
+        line-height: 1.75rem;
+        padding: 2.125rem;
+        width: 100%;
+        transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
+        &_active {
+            background-color: $white;
+            color: $turquoise
+        }
+    }
+    &__categories {
+        background-color: $white;
+        align-self: center;
+        flex: 1 1 auto;
+        padding: 2.125rem;
+        transition: opacity 0.3s ease 0s
+    }
+    &__category {
+        display: none;
+        &_active {
+            display: block;
+        }
+    }
+    @include desktop {
+        &__category-button {
+            font-size: 1.5rem;
+            line-height: 1.75rem;
+            padding: 2rem 1.5rem;
+        }
+    }
+    @media screen and (max-width: 1080px) {
+        &__nav {
+            border-top-right-radius: 0.625rem;
+            border-bottom-right-radius: 0.625rem;
+            display: flex;
+            align-self: stretch;
+            flex-basis: auto;
+            overflow: auto;
+        }
+        &__body {
+            flex-direction: column;
+            gap: 1.5rem
+        }
+    }
+    @include gap {
+        &__nav {
+            display: none;
+        }
+        &__categories {
+            background-color: transparent;
+            padding: 0;
+        }
+        &__category {
+            display: block;
+            &:not(:last-child) {
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+    @include phone {
+        &__category {
+            display: block;
+            &:not(:last-child) {
+                margin-bottom: 1.75rem;
+            }
+        }
+    }
+}
+
+.category {
+    &__name {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+        margin: 0 0 1.5rem;
+    }
+    &__services {
+        background-color: $white;
+    }
+    &__service {
+        &:first-child { padding-top: 0; }
+        &:last-child { padding-bottom: 0; }
+    }
+    @include min_gap {
+        &__name {
+            display: none;
+        }
+    }
+    @include gap {
+        &__services {
+            padding: 1.5rem;
+        }
+    }
+    @include phone {
+        &__services {
+            padding: 1rem
+        }
+        &__name {
+            @include mob_base_20;
+            margin-bottom: 1rem;
+        }
+    }
+}
+.service {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0.875rem 0;
+    &__desc {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        flex-grow: 1;
+    }
+    &__name {
+        flex: 0 1 31.875rem;
+        font-size: 1.375rem;
+        font-weight: 500;
+        line-height: 1.75rem
+    }
+    &__price, &__button {
+        flex-shrink: 0
+    }
+    &__price {
+        @include base_22;
+    }
+    &:not(:last-child) {
+        border-bottom: 1px solid $border-color
+    }
+    @include gap {
+        gap: 1rem;
+        &__desc {
+            gap: 1rem
+        };
+        &__name {
+            font-weight: 400;
+        }
+    }
+    @include phone {
+        &__desc {
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        &__name {
+            flex-basis: auto;
+            font-size: 1rem;
+            line-height: 1.25;
+        }
+        &__price {
+            font-size: 1rem;
+            line-height: 1.375;
+            opacity: 0.8;
+        }
+    }
+}
+
+@import "modules/reviews-section.scss";
+@import "modules/seo-section.scss";
+@import "modules/contacts-section.scss";
+@import "modules/footer.scss";
