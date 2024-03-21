@@ -87,6 +87,7 @@
 .certificate {
     background-color: $white;
     border-radius: 0.5rem;
+    box-shadow: $box-shadow;
     overflow: hidden;
     &__img {
         width: 100%;

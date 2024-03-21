@@ -6,13 +6,16 @@ block head
     link(rel="stylesheet", href="css/about-page.min.css")
 block content 
     .page 
-        nav.page__breadcrumbs.breadcrumbs
+        nav.page__nav
             .container
-                ol.breadcrumbs__list 
+                a.page__back-button(href="#") 
+                    .icon-arrow-backwards 
+                    span Назад
+                ol.page__breadcrumbs.breadcrumbs
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="/") Главная
                     li.breadcrumbs__item 
-                        a.breadcrumbs__link(href="#") О компании
+                        a.breadcrumbs__link(href="#") О компании 
         h2.page__title 
             .container О компании
         section.about-company-secion.section
@@ -37,7 +40,7 @@ block content
                             p 
                                 | Успешная российская юридическая компания предоставляющая полный спектр правовых услуг во всех регионах России. На защите ваших интересов с 2006 года!
                                 | Успешная российская юридическая компания предоставляющая полный спектр правовых услуг во всех регионах России
-        include ./includes/in-numbers
+            include ./includes/in-numbers
         include ./includes/why-section
         include ./includes/specialists-section
         include ./includes/reviews-section
@@ -66,6 +69,6 @@ block content
                                 
                         
         include ./includes/contacts-section
-block scripts 
+block append scripts 
     script(src="js/libs/swiper-bundle.min.js")
     script(src="js/index.min.js") 
