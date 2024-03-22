@@ -342,7 +342,7 @@ window.onload = function() {
         })
     }
     document.querySelector(".form__file-input").addEventListener("change", e => {
-        if (e.target.files[0].size > 30 * 1024 * 1024) {
+        if (e.target.files[0].size > 100 * 1024 * 1024) {
             alert("Размер файла не должен превышать 30 MB")
             return
         }

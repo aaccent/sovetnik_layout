@@ -1,7 +1,7 @@
 extends templates/layout
 
 block head
-    title  
+    title Страница отзывов
     link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/reviews-page.min.css")
 block content 
@@ -16,8 +16,9 @@ block content
                         a.breadcrumbs__link(href="/") Главная
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="#") Отзывы 
-        h2.page__title 
-            .container Отзывы
+        .page__header
+            .container 
+                h2.page__title Отзывы
         section.reviews-section.section 
             .container
                 .section__body 

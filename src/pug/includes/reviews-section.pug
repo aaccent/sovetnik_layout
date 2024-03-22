@@ -13,7 +13,7 @@ mixin review
 section.reviews-section.section
     .container
         .section__header 
-            h3.section__title Отзывы
+            h2.section__title Отзывы
             .swiper-buttons 
                 .swiper-button-prev 
                     span.icon-arrow-next
@@ -25,4 +25,4 @@ section.reviews-section.section
                     - for (var i = 0; i < 8; i++)
                         .swiper-slide
                             +review
-            a.reviews-section__show-all.button.button_primary(href="./reviews-page.html") Показать все
+            a.reviews-section__show-all.button.button_primary(href="reviews-page.html") Показать все

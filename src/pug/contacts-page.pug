@@ -1,7 +1,7 @@
 extends templates/layout
 
 block head
-    title  
+    title Контакты 
     link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/contacts-page.min.css")
 block content 
@@ -16,8 +16,9 @@ block content
                         a.breadcrumbs__link(href="/") Главная
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="#") Контакты 
-        h2.page__title 
-            .container Контакты
+        .page__header 
+            .container
+                h1.page__title Контакты
         section.contacts-section.section 
             .container
                 .contacts-section__body.section__body 

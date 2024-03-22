@@ -192,6 +192,10 @@
             @include base_18;
             text-transform: lowercase;
         }
+        .close {
+            &::before { transform: rotate(45deg); }
+            &::after { transform: rotate(-45deg); }
+        }
     }
     &__file-label {
         cursor: pointer;

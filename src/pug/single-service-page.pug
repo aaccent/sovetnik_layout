@@ -1,7 +1,7 @@
 extends templates/layout
 
 block head
-    title  
+    title Страница услуги
     link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/single-service-page.min.css")
 block content 
@@ -20,7 +20,7 @@ block content
                         a.breadcrumbs__link(href="#") Название услуги 
         .page__header
             .container 
-                h2.page__title  Длинное название услуги
+                h1.page__title  Длинное название услуги
                 .page__hero-img 
                     img.img(src="./images/single-service-hero.png", alt="")
                     img.vector(src="./images/single-service-vector.svg" alt="")
@@ -29,7 +29,7 @@ block content
         section.service-desc-secion.section
             .container 
                 .section__header 
-                    h3.about-company-section__title.section__title Подробное описание услуги
+                    h2.about-company-section__title.section__title Подробное описание услуги
                 .about-company-section.section__body
                     .text-block
                         p

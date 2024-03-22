@@ -19,12 +19,13 @@ block content
                         a.breadcrumbs__link(href="projects-page.html") Реализованные проекты
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="#") Название проекта
-        h2.page__title 
-            .container Страница реализованного проекта
+        .page__header
+            .container 
+                h1.page__title Страница реализованного проекта
         section.project-section.section 
             .container 
                 .section__header
-                    h3.section__title Название проекта 
+                    h2.section__title Название проекта 
                 .section__body 
                     .project-section__inner-section.inner-section
                         .text-block 
@@ -36,7 +37,7 @@ block content
                                 | Мы предлагаем комплекс мер, которые позволяют предотвратить уголовное преследование руководства и сотрудников компании. Мы предлагаем комплекс мер, 
                                 | которые позволяют предотвратить уголовное преследование руководства и сотрудников компании.
                     .project-section__details.project-section__inner-section.inner-section
-                        .inner-section__title Подзаголовок 
+                        h4.inner-section__title Подзаголовок 
                         .text-block 
                             p 
                                 | Ежегодно жители страны становятся всё более закредитованными. Такое же положение сложилось и в 2022 году, чему способствовали пандемия 
@@ -109,7 +110,7 @@ block content
         section.projects-section.section 
             .container 
                 .section__header 
-                    h3.section__title Похожие проекты
+                    h2.section__title Похожие проекты
                 .projects-section__body.section__body
                     mixin project 
                         a.projects-section__project.project.swiper-slide(href="./single-project-page.html")

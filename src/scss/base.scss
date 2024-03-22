@@ -104,9 +104,11 @@ img {
             @include mob_base_14;
         }
     }
+    &__header {
+        margin: 0 0 3.375rem
+    }
     &__title {
         @include desk_title_hero;
-        margin: 0 0 3.375rem
     }
     @include phone {
         &__back-button {
@@ -115,8 +117,9 @@ img {
         &__breadcrumbs {
             display: none;
         }
-        &__title {
+        &__header {
             margin-bottom: 1.875rem;
+
         }
     }
 }
@@ -406,6 +409,7 @@ img {
         opacity: 0.8;
     }
     &__page {
+        width: 100%;
         &_one {
 
         }
