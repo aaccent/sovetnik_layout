@@ -634,31 +634,35 @@ filterPanelEl?.addEventListener("click", e => {
 
     // initMasonryLayout(gapMediaQuery)
 
-    Fancybox.bind("[data-fancybox]", {
-        // Your custom options
-        on: {
-            init: () => console.log("!!!!!!"),
-            ready: () => console.log("ready")
-        }
-    });
-    
+    if (document.querySelector("[data-fancybox]")) {
+        Fancybox.bind("[data-fancybox]", {
+            // Your custom options
+            on: {
+                init: () => console.log("!!!!!!"),
+                ready: () => console.log("ready")
+            }
+        });
+    }
+
     // prices page
-    const pricesNavEl = document.querySelector(".prices-section__nav")
-    const servicesCategoriesEl = pricesNavEl.nextElementSibling;
-    const activeCategoryClassName = "prices-section__category_active"
-    pricesNavEl.addEventListener("click", e => {
-        const categoryButton = e.target.closest(".prices-section__category-button");
-
-        pricesNavEl.querySelector(".prices-section__category-button_active").classList.remove("prices-section__category-button_active")
-        categoryButton.classList.add("prices-section__category-button_active")
-
-        servicesCategoriesEl.style.opacity = 0;
-        servicesCategoriesEl.addEventListener("transitionend", () => {
-            servicesCategoriesEl.querySelector("." + activeCategoryClassName).classList.remove(activeCategoryClassName)
-            servicesCategoriesEl.style.opacity = ""
-            servicesCategoriesEl
-                .querySelector("[data-category='" + categoryButton.dataset.category + "']")
-                .classList.add(activeCategoryClassName)
-        }, { once: true })
-    })
+    if (document.querySelector(".prices-section")) {
+        const pricesNavEl = document.querySelector(".prices-section__nav")
+        const servicesCategoriesEl = pricesNavEl.nextElementSibling;
+        const activeCategoryClassName = "prices-section__category_active"
+        pricesNavEl.addEventListener("click", e => {
+            const categoryButton = e.target.closest(".prices-section__category-button");
+    
+            pricesNavEl.querySelector(".prices-section__category-button_active").classList.remove("prices-section__category-button_active")
+            categoryButton.classList.add("prices-section__category-button_active")
+    
+            servicesCategoriesEl.style.opacity = 0;
+            servicesCategoriesEl.addEventListener("transitionend", () => {
+                servicesCategoriesEl.querySelector("." + activeCategoryClassName).classList.remove(activeCategoryClassName)
+                servicesCategoriesEl.style.opacity = ""
+                servicesCategoriesEl
+                    .querySelector("[data-category='" + categoryButton.dataset.category + "']")
+                    .classList.add(activeCategoryClassName)
+            }, { once: true })
+        })
+    }
 }

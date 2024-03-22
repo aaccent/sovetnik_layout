@@ -38,6 +38,9 @@
         }
     }
     @include gap {
+        &__news {
+            width: 100%;
+        }
     }
     @include phone {
         &__more {
@@ -45,6 +48,6 @@
         }
     }
 }
-@import "modules/reviews-section.scss";
-@import "modules/seo-section.scss";
+
+@import "modules/contacts-section.scss";
 @import "modules/footer.scss";

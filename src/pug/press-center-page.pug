@@ -22,12 +22,12 @@ block content
             .container
                 .section__header 
                     .filter-panel
-                        button.filter-panel__item.filter-panel__item_active(type="button") #[span Все]
-                        button.filter-panel__item(type="button") #[span Новости]
-                        button.filter-panel__item(type="button") #[span Статьи]
-                        button.filter-panel__item(type="button") #[span Команда]
-                        button.filter-panel__item(type="button") #[span Полезные материалы]
-                        button.filter-panel__item(type="button") #[span Блог]
+                        button.filter-panel__item.filter-panel__item_active(type="button" data-value="all") #[span Все]
+                        button.filter-panel__item(type="button" data-value="news") #[span Новости]
+                        button.filter-panel__item(type="button" data-value="article") #[span Статьи]
+                        button.filter-panel__item(type="button" data-value="team") #[span Команда]
+                        button.filter-panel__item(type="button" data-value="useful materials") #[span Полезные материалы]
+                        button.filter-panel__item(type="button" data-value="blog") #[span Блог]
                 .section__body 
                     .news-section__grid 
                         .news-section__news.news-section__news_big.news
@@ -139,9 +139,7 @@ block content
                                     | Задача организации, в особенности же повышение уровня гражданского 
                                     | сознания способствует повышению актуальности системы масштабного изменения ряда параметров!
                     a.news-section__more.button.button_primary(href="#") Показать еще
-        include ./includes/reviews-section
-        include ./includes/seo-section
         include ./includes/contacts-section
-block scripts 
+block append scripts 
     script(src="js/libs/swiper-bundle.min.js")
     script(src="js/index.min.js") 

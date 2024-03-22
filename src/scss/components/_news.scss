@@ -1,18 +1,12 @@
 .news {
     border-radius: 0.625rem;
     box-shadow: $box-shadow;
-    width: calc(50% - 0.625rem);
     overflow: hidden;
     &__img {
         position: relative;
-        // padding-top: 75%;
-        // height: 0;
         height: 22.375rem;
         overflow: hidden;
         img {
-            // position: absolute;
-            // top: 0;
-            // left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -55,20 +49,6 @@
     &__desc {
         @include base_16;
         margin-top: calc(1em - 0.25rem);
-    }
-    @include min_desktop {
-        &__img {
-            // padding-top: calc(358 / 710 * 100%);
-        }
-        &_small {
-            width: calc(25% - 0.9375rem);
-            .news__img {
-                // padding-top: calc(358 / 345 * 100%);
-            }
-        }
-    }
-    @include gap {
-        width: 100%;
     }
     @include phone {
         &__img {
