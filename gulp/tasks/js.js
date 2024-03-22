@@ -3,9 +3,10 @@ import webpack from "webpack-stream"
 const js = () => {
     return app.gulp.src(app.path.src.js, { sourcemaps: true })
         .pipe(webpack({
-            mode: "development",
+            mode: process.env.NODE_ENV || 'production',
+            devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
             optimization: {
-                minimize: false
+                minimize: process.env.NODE_ENV === 'production'
             },
             entry: {
                 index: "./src/js/app.js",
