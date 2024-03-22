@@ -1,4 +1,7 @@
 .projects-section {
+    &__project {
+        display: block;
+    }
     .swiper-slide {
         width: 29.1875rem;
     }
@@ -39,8 +42,12 @@
         padding: 2rem;
     }
     &__img {
-        background-color: $turquoise;
-        height: 260px
+        height: 260px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
     }
     &__name {
         @include base_26;

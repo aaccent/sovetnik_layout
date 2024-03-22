@@ -66,7 +66,7 @@
     }
     @include tablet {
         &__project {
-            width: calc(50% - 1.25rem)
+            width: calc(50% - 0.625rem)
         } 
     }
     @include gap {
@@ -80,6 +80,5 @@
         }
     }
 }
-@import "modules/reviews-section.scss";
-@import "modules/seo-section.scss";
+@import "modules/contacts-section.scss";
 @import "modules/footer.scss";

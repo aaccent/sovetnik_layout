@@ -1,8 +1,9 @@
 extends templates/layout
 
 mixin project 
-    .projects-section__project.project 
+    a.projects-section__project.project(href="./single-project-page.html") 
         .project__img 
+            img(src="./images/single-project.png", alt="")
         .project__content 
             .project__name Название проекта
             .project__desc.text.text_16 
@@ -10,14 +11,17 @@ mixin project
                 | завершилось. Дело вела юрист Алла. Благодарю Федеральное Юридическое Бюро за помощь в решении моих финансовых проблем. Бюро за помощь в решении моих финансовых проблем.
 
 block head
-    title  
+    title Реализованные проекты
     link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/projects-page.min.css")
 block content 
     .page 
-        nav.page__breadcrumbs.breadcrumbs
+        nav.page__nav
             .container
-                ol.breadcrumbs__list 
+                a.page__back-button(href="#") 
+                    .icon-arrow-backwards 
+                    span Назад
+                ol.page__breadcrumbs.breadcrumbs
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="/") Главная
                     li.breadcrumbs__item 
@@ -28,22 +32,20 @@ block content
             .container 
                 .section__header 
                     .filter-panel
-                        button.filter-panel__item.filter-panel__item_active(type="button") #[span Все]
-                        button.filter-panel__item(type="button") #[span Развод]
-                        button.filter-panel__item(type="button") #[span Банкротство]
-                        button.filter-panel__item(type="button") #[span Взыскание задолженности]
-                        button.filter-panel__item(type="button") #[span Наследство]
-                        button.filter-panel__item(type="button") #[span Сопровождение]
-                        button.filter-panel__item(type="button") #[span Семейные дела]
-                        button.filter-panel__item(type="button") #[span Сделки с недвижимостью]
+                        button.filter-panel__item.filter-panel__item_active(type="button" data-value="all") #[span Все]
+                        button.filter-panel__item(type="button" data-value="devorce") #[span Развод]
+                        button.filter-panel__item(type="button" data-value="bankruptcy") #[span Банкротство]
+                        button.filter-panel__item(type="button" data-value="debt collection") #[span Взыскание задолженности]
+                        button.filter-panel__item(type="button" data-value="inheritance") #[span Наследство]
+                        button.filter-panel__item(type="button" data-value="accompaniment") #[span Сопровождение]
+                        button.filter-panel__item(type="button" data-value="family matters") #[span Семейные дела]
+                        button.filter-panel__item(type="button" data-value="real estate") #[span Сделки с недвижимостью]
                 .section__body 
                     .projects-section__grid 
                         - for (var i = 0; i < 9; i++) 
                             +project
                     a.projects-section__more.button.button_primary(href="#") Показать ещё            
-        include ./includes/reviews-section
-        include ./includes/seo-section
         include ./includes/contacts-section
-block scripts 
+block append scripts 
     script(src="js/libs/swiper-bundle.min.js")
     script(src="js/index.min.js")

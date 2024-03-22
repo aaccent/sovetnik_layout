@@ -9,8 +9,13 @@
         width: 4.125rem;
         height: 4.125rem;
         overflow: hidden;
-        object-fit: contain;
-        object-position: center;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+
+        }
     }
     &__name {
         @include base_18;

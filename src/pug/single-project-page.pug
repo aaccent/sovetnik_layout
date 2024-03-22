@@ -1,8 +1,9 @@
 extends templates/layout
 
 block head
-    title  
+    title Страница реализованного проекта
     link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
+    link(rel="stylesheet", href="css/libs/fancybox.css")
     link(rel="stylesheet", href="css/single-project-page.min.css")
 block content 
     .page
@@ -72,6 +73,7 @@ block content
                                 .inner-block__body 
                                     .lawyer.profile 
                                         .profile__icon 
+                                            img(src="./images/avatar.png", alt="")
                                         div 
                                             .profile__name Соболева Юлия Владимировна
                                             .profile__position
@@ -80,6 +82,7 @@ block content
                                                 span более 200 выигранных дел
                                     .lawyer.profile 
                                         .profile__icon 
+                                            img(src="./images/avatar.png", alt="")
                                         div 
                                             .profile__name Соболева Юлия Владимировна
                                             .profile__position
@@ -94,13 +97,13 @@ block content
                                         span.text Открыть в pdf
                                 .inner-block__body 
                                     .inner-block__attachments 
-                                        .inner-block__attachment.attachment 
+                                        .inner-block__attachment.attachment(data-fancybox data-src="./images/document.png") 
                                             img.attachment__img(src="./images/document.png", alt="копия документа")
                                             .attachment__loupe.icon-loupe
-                                        .inner-block__attachment.attachment 
+                                        .inner-block__attachment.attachment(data-fancybox data-src="./images/document.png")  
                                             img.attachment__img(src="./images/document.png", alt="копия документа")
                                             .attachment__loupe.icon-loupe
-                                        .inner-block__attachment.attachment 
+                                        .inner-block__attachment.attachment(data-fancybox data-src="./images/document.png")  
                                             img.attachment__img(src="./images/document.png", alt="копия документа")
                                             .attachment__loupe.icon-loupe
         section.projects-section.section 
@@ -109,8 +112,9 @@ block content
                     h3.section__title Похожие проекты
                 .projects-section__body.section__body
                     mixin project 
-                        .projects-section__project.project.swiper-slide
+                        a.projects-section__project.project.swiper-slide(href="./single-project-page.html")
                             .project__img 
+                                img(src="./images/single-project.png", alt="")
                             .project__content 
                                 .project__name Название проекта
                                 .project__desc.text.text_16 
@@ -120,9 +124,8 @@ block content
                         .swiper-wrapper 
                             - for (var i = 0; i < 3; i++)
                                 +project
-        include ./includes/reviews-section
-        include ./includes/seo-section
         include ./includes/contacts-section
-block scripts 
+block append scripts 
     script(src="js/libs/swiper-bundle.min.js")
+    script(src="js/libs/fancybox.umd.js") 
     script(src="js/index.min.js") 

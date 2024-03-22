@@ -1,13 +1,13 @@
 .news {
     border-radius: 0.625rem;
-    box-shadow: 0 4px 7px 0 rgba(48, 48, 48, 0.04);
+    box-shadow: $box-shadow;
     width: calc(50% - 0.625rem);
     overflow: hidden;
     &__img {
         position: relative;
         // padding-top: 75%;
         // height: 0;
-        height: 358px;
+        height: 22.375rem;
         overflow: hidden;
         img {
             // position: absolute;

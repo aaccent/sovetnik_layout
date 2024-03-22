@@ -87,8 +87,8 @@ img {
 }
 
 .page {
-    background-color: #F6F6F6;
     padding: 3.125rem 0 0;
+    @include adaptive-value(padding-top, 20, 50, 576, $max-width);
     &__nav {
         margin: 0 0 4.5rem;
         @include adaptive-value(margin-bottom, 16, 72, 572, $max-width)
@@ -108,11 +108,7 @@ img {
         @include desk_title_hero;
         margin: 0 0 3.375rem
     }
-    @include gap {
-        padding-top: 1.5rem;
-    }
     @include phone {
-        padding-top: 0;
         &__back-button {
             display: flex;
         }

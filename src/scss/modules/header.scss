@@ -1,13 +1,6 @@
 .header {
     position: relative;
     z-index: 10;
-    &:before {
-        background-color: $background-color;
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-    }
     &__container {
     }
     &__top {
@@ -297,12 +290,13 @@
         }
     }
     @media screen and (max-width: 1080px) {
-        // &__call-phone {
-        //     font-size: 1.125rem;
-        // }
-        // &__call-desc {
-        //     display: none;
-        // }
+        &:before {
+            background-color: $background-color;
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
         &__menu {
             background-color: $background-color;
             // display: none;

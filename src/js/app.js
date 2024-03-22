@@ -259,7 +259,7 @@ window.onload = function() {
     }))
 
     document
-        .querySelectorAll(".header__call-desc, .header__button, .header__actions .header__call-icon, .hero-section__button, .footer__button")
+        .querySelectorAll(".header__call-desc, .header__button, .header__actions .header__call-icon, .hero-section__button, .step__button, .footer__button, .footer__call-desc")
         .forEach(button => button.addEventListener("click", () => openPopup(callBackPopupEl)))
 
     document.querySelectorAll(".popup__close").forEach(
@@ -445,7 +445,7 @@ const reviewItemEls = document.querySelectorAll(".review");
 const seoContentEl = document.querySelector(".seo-content")
 const maxHeights = {};
 
-if (reviewItemEls) {
+if (reviewItemEls.length) {
     maxHeights.review = parseFloat(getComputedStyle(document.querySelector(".review__text")).maxHeight)
 }
 
@@ -634,6 +634,14 @@ filterPanelEl?.addEventListener("click", e => {
 
     // initMasonryLayout(gapMediaQuery)
 
+    Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+        on: {
+            init: () => console.log("!!!!!!"),
+            ready: () => console.log("ready")
+        }
+    });
+    
     // prices page
     const pricesNavEl = document.querySelector(".prices-section__nav")
     const servicesCategoriesEl = pricesNavEl.nextElementSibling;
@@ -653,24 +661,4 @@ filterPanelEl?.addEventListener("click", e => {
                 .classList.add(activeCategoryClassName)
         }, { once: true })
     })
-
-    // tabButtons.forEach(tabButton => {
-    //     tabButton.addEventListener("click", e => {
-    //         const tabNavigation = e.target.parentElement;
-    //         const tabContent = tabNavigation.nextElementSibling;
-
-    //         tabNavigation.querySelector(".experience__tab-button_active").classList.remove("experience__tab-button_active");
-    //         e.target.classList.add("experience__tab-button_active");
-    //         tabContent.style.opacity = 0;
-    //         tabContent.addEventListener("transitionend", () => {
-    //             tabContent.querySelector(".experience__tab-body_active").classList.remove("experience__tab-body_active");
-    //             tabContent.style.opacity = ""
-    //             tabContent.querySelector("." + e.target.dataset.tab).classList.add("experience__tab-body_active");
-    //         }, { once: true})
-
-    //         if (gapMediaQuery.matches) {
-    //             drawTabNaigationIndicator();
-    //         }
-    //     })
-    // })
 }
