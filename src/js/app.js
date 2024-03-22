@@ -62,11 +62,6 @@ window.onload = function() {
             if (popup.querySelector("form")) {
                 popup.querySelector("form").reset()
             }
-            // if (popup.querySelector(".form-block").classList.contains("form-block_sent")) {
-            //     popup.querySelector(".form-block").classList.remove("form-block_sent")
-            // } else {
-            //     resetForm(popup.querySelector(".form"))
-            // }
         }, {once: true})
     }
     
@@ -141,12 +136,12 @@ window.onload = function() {
 
     menuEl.addEventListener("click", e => {
         const targetEl = e.target;
-        if (!targetEl.closest(".header__menu-item") && !targetEl.closest(".header__submenu")) {
+        if ((!targetEl.closest(".header__menu-item") && !targetEl.closest(".header__submenu")) || targetEl.closest(".submenu__item")) {
             return
         }
-
+        
         let menuItemEl = targetEl.closest(".header__menu-item")
-        if (!menuItemEl.childElementCount === 3) {
+        if (menuItemEl.childElementCount !== 3) {
             return
         }
 
@@ -664,6 +659,25 @@ filterPanelEl?.addEventListener("click", e => {
                     .querySelector("[data-category='" + categoryButton.dataset.category + "']")
                     .classList.add(activeCategoryClassName)
             }, { once: true })
+        })
+
+        let scroll = new LocomotiveScroll()
+        let formBlockEl = document.querySelector(".form-block")
+
+        document.querySelector(".prices-section__category").addEventListener("click", e => {
+            const buttonEl = e.target.closest(".service__button")
+            if (!buttonEl) {
+                return
+            }
+
+            const textareaEl = formBlockEl.querySelector("textarea")
+            const formControlEl = textareaEl.closest(".form__control")
+            const serviceName = buttonEl.closest(".service").querySelector(".service__name").innerHTML
+
+            textareaEl.value = serviceName
+            formControlEl.classList.add("form__control_filled")
+            formBlockEl.querySelector("input[type='hidden']").value = buttonEl.dataset["serviceName"]
+            scroll.scrollTo(formBlockEl)            
         })
     }
 }

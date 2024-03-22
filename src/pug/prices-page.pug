@@ -9,7 +9,7 @@ mixin service(long_name)
                 - else 
                     | Название услуги
             .service__price 3500 Р
-        button.service__button.button.button_primary(type="button") #[span Записаться]
+        button.service__button.button.button_primary(type="button" data-service-name="service-name") #[span Записаться]
 
 mixin category(active, index) 
     .prices-section__category.category(
@@ -59,6 +59,6 @@ block content
 
         include ./includes/contacts-section
 block append scripts 
-    script(src="js/libs/swiper-bundle.min.js")
+    script(src="js/libs/locomotive-scroll.min.js") 
     script(src="js/libs/masonry.pkgd.min.js")
     script(src="js/index.min.js") 

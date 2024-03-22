@@ -1,9 +1,9 @@
 extends templates/layout
 
 mixin project 
-    a.projects-section__project.project(href="./single-project-page.html") 
+    a.projects-section__project.project(href="single-project-page.html") 
         .project__img 
-            img(src="./images/single-project.png", alt="")
+            img(src="images/single-project.png", alt="")
         .project__content 
             .project__name Название проекта
             .project__desc.text.text_16 
@@ -47,5 +47,4 @@ block content
                     a.projects-section__more.button.button_primary(href="#") Показать ещё            
         include ./includes/contacts-section
 block append scripts 
-    script(src="js/libs/swiper-bundle.min.js")
     script(src="js/index.min.js")

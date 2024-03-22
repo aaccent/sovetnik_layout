@@ -16,7 +16,7 @@ block content
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="/") Главная
                     li.breadcrumbs__item 
-                        a.breadcrumbs__link(href="./projects-page.html") Реализованные проекты
+                        a.breadcrumbs__link(href="projects-page.html") Реализованные проекты
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="#") Название проекта
         h2.page__title 
@@ -73,7 +73,7 @@ block content
                                 .inner-block__body 
                                     .lawyer.profile 
                                         .profile__icon 
-                                            img(src="./images/avatar.png", alt="")
+                                            img(src="images/avatar.png", alt="")
                                         div 
                                             .profile__name Соболева Юлия Владимировна
                                             .profile__position
@@ -82,7 +82,7 @@ block content
                                                 span более 200 выигранных дел
                                     .lawyer.profile 
                                         .profile__icon 
-                                            img(src="./images/avatar.png", alt="")
+                                            img(src="images/avatar.png", alt="")
                                         div 
                                             .profile__name Соболева Юлия Владимировна
                                             .profile__position
@@ -97,14 +97,14 @@ block content
                                         span.text Открыть в pdf
                                 .inner-block__body 
                                     .inner-block__attachments 
-                                        .inner-block__attachment.attachment(data-fancybox data-src="./images/document.png") 
-                                            img.attachment__img(src="./images/document.png", alt="копия документа")
+                                        .inner-block__attachment.attachment(data-fancybox data-src="images/document.png") 
+                                            img.attachment__img(src="images/document.png", alt="копия документа")
                                             .attachment__loupe.icon-loupe
-                                        .inner-block__attachment.attachment(data-fancybox data-src="./images/document.png")  
-                                            img.attachment__img(src="./images/document.png", alt="копия документа")
+                                        .inner-block__attachment.attachment(data-fancybox data-src="images/document.png")  
+                                            img.attachment__img(src="images/document.png", alt="копия документа")
                                             .attachment__loupe.icon-loupe
-                                        .inner-block__attachment.attachment(data-fancybox data-src="./images/document.png")  
-                                            img.attachment__img(src="./images/document.png", alt="копия документа")
+                                        .inner-block__attachment.attachment(data-fancybox data-src="images/document.png")  
+                                            img.attachment__img(src="images/document.png", alt="копия документа")
                                             .attachment__loupe.icon-loupe
         section.projects-section.section 
             .container 
@@ -114,7 +114,7 @@ block content
                     mixin project 
                         a.projects-section__project.project.swiper-slide(href="./single-project-page.html")
                             .project__img 
-                                img(src="./images/single-project.png", alt="")
+                                img(src="images/single-project.png", alt="")
                             .project__content 
                                 .project__name Название проекта
                                 .project__desc.text.text_16 
@@ -126,6 +126,5 @@ block content
                                 +project
         include ./includes/contacts-section
 block append scripts 
-    script(src="js/libs/swiper-bundle.min.js")
     script(src="js/libs/fancybox.umd.js") 
     script(src="js/index.min.js") 
