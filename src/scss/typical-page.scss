@@ -1,0 +1,52 @@
+@import "base/_vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "mixins/fonts.scss";
+@import "mixins/media.scss";
+@import "base.scss";
+
+// components
+@import "components/breadcrumbs";
+@import "components/button";
+@import "components/popup";
+@import "components/form";
+
+
+// modules
+@import "modules/header.scss";
+.section {
+    &__body {
+        & > .text-block {
+            margin: 0 0 4.375rem;
+            @include adaptive-value(margin-bottom, 28, 70, 576, $max-width)
+        }
+    }
+}
+.inner-section {
+    &:not(:last-child) {
+        margin: 0 0 4.375rem
+    }
+    &__title {
+        @include desk_title_subtitle;
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+    @include phone {
+        &:not(:last-child) {
+            margin-bottom: 3.125rem
+        }
+        &__title {
+            @include mob_subtitle;
+            &:not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}
+
+@import "modules/in-numbers.scss";
+@import "modules/why-section.scss";
+@import "modules/contacts-section.scss";
+@import "modules/footer.scss";

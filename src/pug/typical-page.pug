@@ -1,0 +1,58 @@
+extends templates/layout
+
+block head
+    title Типовая страница
+    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
+    link(rel="stylesheet", href="css/typical-page.min.css")
+block content 
+    .page
+        nav.page__nav
+            .container
+                a.page__back-button(href="#") 
+                    .icon-arrow-backwards 
+                    span Назад
+                ol.page__breadcrumbs.breadcrumbs
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="/") Главная
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="./press-center-page.html") Пресс-центр
+                    li.breadcrumbs__item 
+                        a.breadcrumbs__link(href="#") Название статьи 
+        .page__header 
+            .container 
+                h2.page__title Название типовой страницы
+
+        section.section 
+            .container 
+                .section__header 
+                    h3.section__title Кредитная статистика Центробанка
+                .section__body 
+                    .text-block 
+                        p 
+                            | Ежегодно жители страны становятся всё более закредитованными. Такое же положение сложилось и в 2022 году, 
+                            | чему способствовали пандемия Covid-19 и инфляционные процессы. Согласно статистическим отчётам ЦБ, более 
+                            | половины экономически активного населения в стране имеет действующие займы. В целом финансовая обстановка
+                            | ухудшается — учащаются просрочки.
+                        p 
+                            | Мы предлагаем комплекс мер, которые позволяют предотвратить уголовное преследование руководства и сотрудников компании.
+                            | Мы предлагаем комплекс мер, которые позволяют предотвратить уголовное преследование руководства и сотрудников компании.
+                    .page__inner-section.inner-section
+                        .inner-section__title Подзаголовок
+                        .inner-section__body 
+                            .text-block 
+                                p 
+                                    | Регулятор российских финансов регулярно публикует отчёты по работе компаний. Сами банковские организации также ежегодно 
+                                    | отчитываются по выданным взаймы средствам, допущенным просрочкам.
+                                p 
+                                    | За три квартала 2022-го выдано на 41 % меньше заёмных сумм, чем за тот же промежуток предыдущего отчётного периода. 
+                                    | Снижение заметно даже по сравнению с «пандемийным» 2020-м — на 13 %. Общий объём составил 1,95 триллиона рублей. 
+                                    | Усреднённый персональный рейтинг граждан — 352, что позволяет получить одобрение займа от ста до трёхсот тысяч.
+                                p 
+                                    | Статистические данные включают информацию по потребительскому, целевому и ипотечному кредитованию. Статистические данные включают 
+                                    | информацию по потребительскому, целевому и ипотечному кредитованию.
+            include ./includes/in-numbers
+        include ./includes/why-section
+        include ./includes/contacts-section
+block append scripts 
+    script(src="js/libs/swiper-bundle.min.js")
+    script(src="js/index.min.js") 
