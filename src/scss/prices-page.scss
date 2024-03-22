@@ -68,6 +68,18 @@
             align-self: stretch;
             flex-basis: auto;
             overflow: auto;
+            width: 100%;
+            overflow-x: auto;
+            /* Скрываем scrollbar для IE, Edge и Firefox */
+            -ms-overflow-style: none;  // IE и Edge
+            scrollbar-width: none;  // Firefox 
+            /* Скрываем scrollbar для Chrome, Safari и Opera */
+            &::-webkit-scrollbar {
+                height: 0
+            }
+            // & > div {
+            //     white-space: nowrap;
+            // }
         }
         &__body {
             flex-direction: column;
@@ -187,7 +199,5 @@
     }
 }
 
-@import "modules/reviews-section.scss";
-@import "modules/seo-section.scss";
 @import "modules/contacts-section.scss";
 @import "modules/footer.scss";

@@ -503,7 +503,7 @@ if (seoContentEl) {
 
 // yandex map
 
-function init() {
+function init(mapContainerSelector) {
     function setMapPin() {
         let myCollection = new ymaps.GeoObjectCollection();
         let coords = mapEl?.dataset.mark?.split(',').map(Number) || [55.7954692462696,49.10686513125719];
@@ -523,17 +523,17 @@ function init() {
         }, 2000)
     }
     
-    let mapEl = document.getElementById('#map');
+    let mapEl = document.getElementById(mapContainerSelector);
     let center = mapEl?.dataset.center?.split(',').map(Number) || [55.79551291555022,49.10679244528347];
 
     // создание карты
-    let map = new ymaps.Map("map", {
+    let map = new ymaps.Map(mapContainerSelector, {
         center,
         controls: [],
         zoom: 14,
-    })
+    }, {  autoFitToViewport: 'always' })
     
-    let imagesSrc = document.getElementById("map").dataset
+    let imagesSrc = mapEl.dataset
     
     getCoords()
     
@@ -557,7 +557,11 @@ function init() {
     }
 }
 
-ymaps.ready(init);
+ymaps.ready(() => init("map"));
+if (document.getElementById("contact-map")) {
+    ymaps.ready(() => init("contact-map"));
+}
+
 
 // faq
 
@@ -612,27 +616,24 @@ filterPanelEl?.addEventListener("click", e => {
 // similiar projects 
 
 // masonry 
-    // let masonry;
+    let masonry;
 
-    // function initMasonryLayout(e) {
-    //     if (e.matches) {
-    //         console.log("phone")
-    //         masonry?.destroy()
-    //     } else {
-    //         console.log("tablet")
-    //         masonry = new Masonry(".services-section__grid", {
-    //             itemSelector: '.services-block',
-    //             gutter: 20,
-    //             horizontalOrder: true,
-    //         });
+    function initMasonryLayout(e) {
+        if (e.matches) {
+            masonry?.destroy()
+        } else {
+            masonry = new Masonry(".services-section__grid", {
+                itemSelector: '.services-block',
+                gutter: 20,
+                horizontalOrder: true,
+            });
+        }
+    }
 
-    //         masonry.on("removeComplete", () => console.log("destroyed"))
-    //     }
-    // }
-
-    // gapMediaQuery.addEventListener("change", initMasonryLayout)
-
-    // initMasonryLayout(gapMediaQuery)
+    if (document.querySelector(".services-section__grid")) {
+        gapMediaQuery.addEventListener("change", initMasonryLayout)
+        initMasonryLayout(gapMediaQuery)
+    }
 
     if (document.querySelector("[data-fancybox]")) {
         Fancybox.bind("[data-fancybox]", {

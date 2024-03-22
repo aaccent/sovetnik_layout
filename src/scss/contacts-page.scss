@@ -21,11 +21,15 @@
         gap: 2.625rem;
     }
     &__map {
-        flex: 0 1 52rem;
-        // flex-basis: calc(832 / 1440 * 100%);
-        #map {
-            background-color: coral;
+        display: flex;
+        flex-direction: column;
+        width: calc(832 / 1440 * 100%);
+        overflow: hidden;
+        #contact-map {
             border-radius: 0.625rem;
+            flex-grow: 1;
+            width: 100%;
+            overflow: hidden;
         }
     }
     &__map-desc {
@@ -36,6 +40,7 @@
         flex-direction: column;
         gap: 2.625rem;
         flex-grow: 1;
+        flex: 0 1 542px;
         .button {
             align-self: flex-start;
         }
@@ -46,6 +51,7 @@
         }
         &__map {
             flex-basis: auto;
+            width: 100%;
             #map {
                 height: 34.375rem;
             }
@@ -178,6 +184,5 @@ table {
     }
 }
 
-@import "modules/reviews-section.scss";
-@import "modules/seo-section.scss";
+@import "modules/contacts-section.scss";
 @import "modules/footer.scss";

@@ -11,7 +11,7 @@
 @import "components/button";
 @import "components/popup";
 @import "components/form";
-// @import "componentes/review";
+@import "components/review";
 
 // modules
 @import "modules/header.scss";
@@ -48,6 +48,6 @@
         }
     }
 }
-@import "modules/reviews-section.scss";
-@import "modules/seo-section.scss";
+
+@import "modules/contacts-section.scss";
 @import "modules/footer.scss";

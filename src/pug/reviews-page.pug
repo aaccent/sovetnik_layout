@@ -38,9 +38,7 @@ block content
                             .reviews-section__review-wrapper
                                 +review
                     a.reviews-section__more.button.button_primary(href="#") Показать еще
-        include ./includes/reviews-section
-        include ./includes/seo-section
         include ./includes/contacts-section
-block scripts 
+block append scripts 
     script(src="js/libs/swiper-bundle.min.js")
     script(src="js/index.min.js") 

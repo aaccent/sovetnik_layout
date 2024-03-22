@@ -22,7 +22,7 @@ block content
             .container
                 .contacts-section__body.section__body 
                     .contacts-section__map 
-                        #map
+                        #contact-map
                         .contacts-section__map-desc.text.text_16
                             | На проспекте Мира, дом 24а. Рядом торговый центр "Омега", вход справа от трактира "Старый Амбар", ост. 7 комплекс
                     .contacts-section__info
@@ -83,9 +83,7 @@ block content
                             .contact-info__body
                                 span.contact-info__text 127083, Москва, ул. 8-го Марта, д. 1, стр. 12.
                         .button.button_primary #[span Скачать реквизиты компании]
-        include ./includes/reviews-section
-        include ./includes/seo-section
         include ./includes/contacts-section
-block scripts 
+block append scripts 
     script(src="js/libs/swiper-bundle.min.js")
     script(src="js/index.min.js") 

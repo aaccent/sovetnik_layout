@@ -40,28 +40,25 @@ block content
                         a.breadcrumbs__link(href="#") Цены 
         h2.page__title 
             .container Цены
-            section.prices-section.section 
-                .container
-                    .section__header 
-                        h3.section__title Стоимость услуг
-                    .prices-section__body.section__body 
-                        nav.prices-section__nav 
-                            - for (var i = 0; i < 10; i++)
-                                button.prices-section__category-button(
-                                    type="button" 
-                                    class= i==0 && "prices-section__category-button_active"
-                                    data-category=i
-                                ) Название категории
-                        .prices-section__categories
-                            - for (var i = 0; i < 10; i++)
-                                - var active = i == 0 ? true : false
-                                +category(active, i)
+        section.prices-section.section 
+            .container
+                .section__header 
+                    h3.section__title Стоимость услуг
+                .prices-section__body.section__body 
+                    nav.prices-section__nav 
+                        - for (var i = 0; i < 10; i++)
+                            button.prices-section__category-button(
+                                type="button" 
+                                class= i==0 && "prices-section__category-button_active"
+                                data-category=i
+                            ) Название категории
+                    .prices-section__categories
+                        - for (var i = 0; i < 10; i++)
+                            - var active = i == 0 ? true : false
+                            +category(active, i)
 
-
-        include ./includes/reviews-section
-        include ./includes/seo-section
         include ./includes/contacts-section
-block scripts 
+block append scripts 
     script(src="js/libs/swiper-bundle.min.js")
     script(src="js/libs/masonry.pkgd.min.js")
     script(src="js/index.min.js") 
