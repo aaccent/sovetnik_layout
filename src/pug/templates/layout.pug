@@ -17,36 +17,46 @@ html(lang="en")
                         h3.popup__title Выбор города
                     .popup__body  
                         ul.popup__cities-list 
-                            li.popup__cities-item.city.city_active(data-city="moscow")
-                                span.city__icon.icon.icon-location
-                                span.city__text Москва
-                            li.popup__cities-item.city(data-city="saint petersburg") 
-                                span.city__icon.icon.icon-location
-                                span.city__text Санкт-Петербург
-                            li.popup__cities-item.city(data-city="kazan") 
-                                span.city__icon.icon.icon-location
-                                span.city__text Казань
-                            li.popup__cities-item.city(data-city="vladivostok") 
-                                span.city__icon.icon.icon-location
-                                span.city__text Владивосток
-                            li.popup__cities-item.city(data-city="krasnodar") 
-                                span.city__icon.icon.icon-location
-                                span.city__text Краснодар
-                            li.popup__cities-item.city(data-city="stavropol") 
-                                span.city__icon.icon.icon-location
-                                span.city__text Ставраполь
-                            li.popup__cities-item.city(data-city="ukhta") 
-                                span.city__icon.icon.icon-location
-                                span.city__text Ухты
-                            li.popup__cities-item.city(data-city="ufa") 
-                                span.city__icon.icon.icon-location
-                                span.city__text Уфа
-                            li.popup__cities-item.city(data-city="almetyevsk") 
-                                span.city__icon.icon.icon-location
-                                span.city__text Альметьевск
-                            li.popup__cities-item.city(data-city="nalchik") 
-                                span.city__icon.icon.icon-location
-                                span.city__text Нальчик  
+                            li.popup__cities-item
+                                a.popup__cities-link.city.city_active(href="#" data-city="moscow")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Москва
+                            li.popup__cities-item
+                                a.popup__cities-link.city(href="#" data-city="saint petersburg")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Санкт-Петербург
+                            li.popup__cities-item
+                                a.popup__cities-link.city(href="#" data-city="kazan")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Казань
+                            li.popup__cities-item
+                                a.popup__cities-link.city(href="#" data-city="vladivostok")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Владивосток
+                            li.popup__cities-item
+                                a.popup__cities-link.city(href="#" data-city="krasnodar")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Краснодар
+                            li.popup__cities-item
+                                a.popup__cities-link.city(href="#" data-city="stavropol")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Ставраполь
+                            li.popup__cities-item
+                                a.popup__cities-link.city(href="#" data-city="ukhta")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Ухты
+                            li.popup__cities-item
+                                a.popup__cities-link.city(href="#" data-city="ufa")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Уфа
+                            li.popup__cities-item
+                                a.popup__cities-link.city(href="#" data-city="almetyevsk")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Альметьевск
+                            li.popup__cities-item
+                                a.popup__cities-link.city(href="#" data-city="nalchik")
+                                    span.city__icon.icon.icon-location
+                                    span.city__text Нальчик  
         .popup.popup_callback
             .popup__container 
                 .popup__content
@@ -67,7 +77,7 @@ html(lang="en")
                                             label.form__label(for="phone") +7 987 654-32-10
                                             span.form__error-text Текст ошибки
                                         label.form__check 
-                                            input.form__check-input(type="checkbox" name="checkbox")
+                                            input.form__check-input.form__check-input_required(type="checkbox" name="checkbox")
                                             span.form__check-box.icon.icon-check
                                             span.form__check-label Я согласен(а) с политикой конфиденциальности и даю согласие на обработку персональных данных
                                         //- .form__control

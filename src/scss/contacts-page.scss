@@ -52,7 +52,7 @@
         &__map {
             flex-basis: auto;
             width: 100%;
-            #map {
+            #contact-map {
                 height: 34.375rem;
             }
         }
@@ -62,7 +62,7 @@
             gap: 2rem;
         }
         &__map {
-            #map {
+            #contact-map {
                 height: 30rem;
             }
         }
@@ -75,11 +75,8 @@
     }
     @media screen and (max-width: 420px) {
         &__map {
-            #map {
-                position: relative;
-                height: 0;
-                padding-top: calc(452 / 350 * 100%);
-                max-height: 470px;
+            #contact-map {
+                height: 27.625rem;
             }
         }
     }
@@ -154,6 +151,7 @@ table {
     td {
         padding: 0.75rem 0;
         &:first-child {
+            @include base_18;
             white-space: nowrap;
         }
         &:last-child {
@@ -174,12 +172,21 @@ table {
         padding: 0.625rem;
         td {
             &:first-child {
+                @include base_16;
                 white-space: normal
+            }
+            &:last-child {
+                @include base_16;
+                font-weight: 500;
             }
         }
         .socials {
-            flex-wrap: wrap;
             justify-content: flex-end
+        }
+    }
+    @media screen and (max-width: 380px) {
+        .socials {
+            flex-wrap: wrap
         }
     }
 }

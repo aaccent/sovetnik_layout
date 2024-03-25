@@ -17,6 +17,10 @@
 // modules
 @import "modules/header.scss";
 
+.page__title {
+    max-width: 50.625rem;
+}
+
 .project-section {
     &__details {
         .inner-section {
@@ -51,9 +55,9 @@
         }
     }
     &__lawyers {
-        flex-shrink: 0;
+        // flex: 0 1 30.875rem;
     }
-    &__attacments {
+    &__attachments {
         flex: 0 1 44.375rem;
     }
     @include tablet {
@@ -64,7 +68,7 @@
                 }
             }
         }
-        &__attacments {
+        &__attachments {
             flex: 0 1 auto;
         }
     }
@@ -141,6 +145,7 @@
         align-items: center;
         gap: 0.625rem;
         color: $turquoise;
+        transition: color 0.2s ease 0s;
         .icon-document {
             font-size: 1.5rem;
         }
@@ -151,11 +156,17 @@
             line-height: 1.625rem;
             text-decoration: underline;
         }
+        @include ishover {
+            color: $lightturquoise;
+        }
     }
     .profile {
         &__icon {
             width: 6.625rem;
             height: 6.625rem;
+        }
+        &__name {
+            @include base_22;
         }
         &__position {
             span {
@@ -188,6 +199,9 @@
             &__icon {
                 width: 4.5rem;
                 height: 4.5rem;
+            }
+            &__name {
+                @include mob_aaccent_20;
             }
             &:not(:last-child) {
                 margin-bottom: 1rem

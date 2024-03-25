@@ -10,7 +10,7 @@
     }
     @include min_desktop {
         &__news {
-            &:not(.news-section__news_big) {
+            &:not(.press-center-section__news_big) {
                 width: calc(25% - 0.9375rem);
             }
         }

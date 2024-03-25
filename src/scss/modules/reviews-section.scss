@@ -10,6 +10,9 @@
         width: fit-content;
     }
     @include phone {
+        .swiper-buttons {
+            display: none;
+        }
         &__body {
             margin-left: -1.25rem;
             margin-right: -1.25rem;

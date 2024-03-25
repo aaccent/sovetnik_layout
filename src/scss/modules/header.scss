@@ -1,8 +1,6 @@
 .header {
     position: relative;
     z-index: 10;
-    &__container {
-    }
     &__top {
         display: flex;
         gap: 1rem;
@@ -15,6 +13,7 @@
         align-items: center;
         padding: 2rem;
         position: relative;
+        overflow: hidden;
     }
     &__footer {
         margin: 1.25rem 0 0;
@@ -109,7 +108,7 @@
         font-size: 1rem;
         line-height: 1.375;
         white-space: nowrap;
-        transition: color 0.2s ease 0s;
+        transition: color 0.2s ease 0s, transform 0.3s cubic-bezier(.4,0,.2,1) 0s;
     }
     &__menu-arrow {
         cursor: pointer;
@@ -130,6 +129,9 @@
             transform: translate(0, -1.5rem);
             transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
             z-index: 3;
+            &__back-button {
+                display: none;
+            }
         }
     }
     &__actions {
@@ -299,8 +301,7 @@
         }
         &__menu {
             background-color: $background-color;
-            // display: none;
-            padding: 2.5rem 1.5rem 2.5rem;
+            padding: 2.5rem 1.5rem;
             position: fixed;
             left: 0;
             bottom: 0;
@@ -308,13 +309,26 @@
             height: calc(100% - 11rem);
             transform: translate(0, calc(-100% - 11rem));
             transition: transform 0.3s ease 0s;
-            overflow: auto;
+            overflow-x: hidden;
+            overflow-y: auto;
             z-index: -2;
             .header__main & {
                 margin: 0;
             }
+            & > *:not(.header__menu-list) {
+                transition: transform 0.3s cubic-bezier(.4,0,.2,1) 0s;
+            }
             &_open {
                 transform: translate(0, 0) !important;
+            }
+            &_submenu-open {
+                .header__submenu {
+                    transform: translate(0, 0);
+                }
+                .header__menu-link,
+                & > *:not(.header__menu-list) {
+                    transform: translate(-3.125rem, 0) !important;
+                }
             }
         }
         &__menu-list {
@@ -322,17 +336,11 @@
             row-gap: 2rem;
         }
         &__menu-item {
-            align-self: flex-start;
+            align-self: stretch;
+            justify-content: space-between;
             flex-wrap: wrap;
             gap: 1.5rem;
-            &_open {
-                .header__submenu {
-                    display: block;
-                }
-                .header__menu-arrow {
-                    transform: rotate(180deg);
-                }
-            }
+            position: static;
         }
         &__menu-link {
             font-size: 2rem;
@@ -341,10 +349,28 @@
         &__menu-arrow {
             font-size: 1.125rem;
             font-weight: 500;
+            transform: rotate(-90deg);
         }
         &__submenu {
-            display: none;
+            background-color: $background-color;
+            padding: 2.5rem 1.5rem;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            transform: translate(100%, 0);
+            transition: transform 0.3s cubic-bezier(.4,0,.2,1) 0s;
+            z-index: 5;
+        }
+        &__submenu-back-button {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 0 0 2.5rem;
+            font-size: 2rem;
+            font-weight: 500;
         }
         &__burger {
             display: block;
@@ -368,7 +394,7 @@
             align-self: stretch;
             justify-content: space-between;
         }
-        &__menu-link {
+        &__menu-link, &__submenu-back-button {
             font-size: 1.75rem;
         }
         &__container {
@@ -408,7 +434,11 @@
             }
             &_mobile {
                 display: block;
+                margin-top: -0.875rem;
             }
+        }
+        &__address {
+            margin-top: -0.25rem
         }
         &__account {
             border-top: 1px solid rgba($color: $black, $alpha: 0.3);
@@ -422,7 +452,7 @@
             transition: left 0.3s ease 0s, transform 0.3s ease 0s;
         }
         &__menu {
-            padding: 1.875rem 1.25rem 1.875rem;
+            padding: 1.875rem 1.25rem;
             height: calc(100% - 6rem);
             transform: translate(0, calc(-100% - 6rem));
         }
@@ -438,6 +468,19 @@
         }
         &__menu-arrow {
             font-size: 0.75rem;
+        }
+        &__submenu {
+            padding: 0.625rem 1.25rem 1.875rem;
+        }
+        &__submenu-back-button {
+            justify-content: center;
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            width: 1.625rem;
+            height: 1.625rem;
+            .text {
+                display: none;
+            }
         }
         &__actions {
             margin-left: 0;
@@ -476,6 +519,7 @@
                 }
             }
         }
+
         &_menu-open {
             .header__main {
                 background-color: transparent;
@@ -549,31 +593,35 @@
         }
     }
     @media screen and (max-width: 1080px) {
-        border-top-left-radius: 0.625rem;
-        border-top-right-radius: 0.625rem;
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
         &__item {
             & + & {
-                margin-top: 1.25rem;
+                margin-top: 2rem;
             }
         }
         &__link {
-            font-size: 1.5rem;
+            color: inherit;
+            font-size: 2rem;
+            font-weight: 500;
+            opacity: 1;
         }
     }
     @include gap {
         &__link {
-            font-size: 1.25rem;
+            font-size: 1.75rem;
         }
     }
     @include phone {
-        padding: 1rem;
         &__item {
             & + & {
                 margin-top: 0.875rem;
             }
         }
         &__link {
-            font-size: 1rem;
+            font-size: 1.125rem;
         }
     }
 }

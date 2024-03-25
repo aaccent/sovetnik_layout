@@ -73,6 +73,10 @@ img {
         font-weight: 500;
         line-height: 1.625rem;
         text-decoration: underline;
+        transition: color 0.2s ease 0s;
+        @include ishover {
+            color: $lightturquoise
+        }
     }
     &__body {}
     @include phone {
@@ -151,6 +155,9 @@ img {
     @include phone {
         &_16 {
             @include mob_base_14;
+        }
+        &_18 {
+            @include base_16
         }
     }
 }

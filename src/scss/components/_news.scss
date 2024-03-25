@@ -21,6 +21,10 @@
     &__tag {
         background-color: $white;
         border-radius: 0.25rem;
+        font-family: "Montserrat", "sans-serif";
+        font-size: 1rem;
+        font-weight: normal;
+        line-height: 1.375;
         padding: 0.375rem 1.125rem;
         position: absolute;
         left: 1.625rem;
@@ -63,6 +67,7 @@
             }
         }
         &__tag {
+            @include mob_base_14;
             left: 1rem;
             bottom: 1rem;
         }
@@ -79,10 +84,9 @@
             @include mob_base_14;
         }
     }
-    @media screen and (max-width: 480px) {
-        &__desc {
-            display: none;
-        }
-        
-    }
+    // @media screen and (max-width: 360px) {
+    //     &__desc {
+    //         display: none;
+    //     }
+    // }
 }

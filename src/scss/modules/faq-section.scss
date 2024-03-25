@@ -59,8 +59,7 @@
     @include phone {
         padding: 1rem;
         &__title {
-            font-size: 1.25rem;
-            line-height: 1.5rem;
+            @include mob_aaccent_20;
         }
         &__text {
             margin-top: 0.625rem;

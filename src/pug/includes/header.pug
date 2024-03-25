@@ -11,11 +11,8 @@ header.header
                 .header__account-icon.icon.icon-profile 
                 span.header__account-text Войти в личный кабинет
         .header__main 
-            a.header__logo(href="/")
+            a.header__logo(href="./")
                 img(src="./images/logo.png", alt="logo")
-                //- .header__logo-text
-                //-     .header__logo-title Советник
-                //-     .header__logo-desc юридическая компания
             nav.header__menu 
                 ul.header__menu-list 
                     li.header__menu-item 
@@ -23,17 +20,21 @@ header.header
                     li.header__menu-item 
                         a.header__menu-link(href="services-page.html") Услуги
                         button.header__menu-arrow.icon-arrow-down 
-                        ul.header__submenu.submenu 
-                            li.submenu__item 
-                                a.submenu__link(href="single-service-page.html") Название услуги
-                            li.submenu__item 
-                                a.submenu__link(href="single-service-page.html") Название услуги 1
-                            li.submenu__item 
-                                a.submenu__link(href="single-service-page.html") Название услуги 2
-                            li.submenu__item 
-                                a.submenu__link(href="single-service-page.html") Название услуги 3
-                            li.submenu__item 
-                                a.submenu__link(href="single-service-page.html") Название услуги 4
+                        .header__submenu 
+                            button.header__submenu-back-button 
+                                span.icon-arrow-backwards 
+                                spn.text Назад
+                            ul.header__submenu-list.submenu 
+                                li.submenu__item 
+                                    a.submenu__link(href="single-service-page.html") Название услуги
+                                li.submenu__item 
+                                    a.submenu__link(href="single-service-page.html") Название услуги 1
+                                li.submenu__item 
+                                    a.submenu__link(href="single-service-page.html") Название услуги 2
+                                li.submenu__item 
+                                    a.submenu__link(href="single-service-page.html") Название услуги 3
+                                li.submenu__item 
+                                    a.submenu__link(href="single-service-page.html") Название услуги 4
                     li.header__menu-item 
                         a.header__menu-link(href="prices-page.html") Цены
                     li.header__menu-item 

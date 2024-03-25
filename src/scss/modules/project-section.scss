@@ -5,6 +5,12 @@
     .swiper-slide {
         width: 29.1875rem;
     }
+    &__button {
+        display: block;
+        margin: 2.625rem auto 0;
+        @include adaptive-value(margin-top, 16, 42, 576, $max-width);
+        width: fit-content;
+    }
     @include phone {
         .swiper-buttons {
             display: none;

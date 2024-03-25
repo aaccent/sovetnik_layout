@@ -74,6 +74,11 @@
             width: 100%;
         }
     }
+    @include phone {
+        &__title {
+            @include mob_block_title
+        }
+    }
 }
 
 .step {
@@ -83,13 +88,13 @@
     flex-direction: column;
     row-gap: 1rem;
     column-gap: 1.25rem;
-    font-family: "Montserrat", "sans-serif";
     padding: 2.125rem;
     &__header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         gap: 1rem;
+        font-family: "Montserrat", "sans-serif";
         .step__tag {
             display: none;
         }
@@ -140,6 +145,7 @@
             gap: 0.625rem;
         }
         &__title {
+            font-family: "Inter", "sans-serif";
             font-size: 1.675rem;
             line-height: 1;
             max-width: 13.75rem

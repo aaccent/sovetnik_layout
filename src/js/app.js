@@ -55,7 +55,7 @@ window.onload = function() {
             }
 
             if (popup.querySelector(".form-block_sent")) {
-                popup.querySelector(".form-block_sent").classList.remove("form-block_white")
+                popup.classList.remove("popup_white")
                 popup.querySelector(".form-block_sent").classList.remove("form-block_sent")
             }
 
@@ -145,8 +145,14 @@ window.onload = function() {
             return
         }
 
+        if (targetEl.closest("button")) {
+            menuEl.classList.remove("header__menu_submenu-open")
+            return
+        }
+
         e.preventDefault();
-        menuItemEl.classList.toggle("header__menu-item_open")
+        menuEl.classList.add("header__menu_submenu-open")
+        // menuItemEl.classList.toggle("header__menu-item_open")
     })
 
     const tabletMediaQuery = window.matchMedia("(max-width: 1080px)") 
@@ -195,6 +201,7 @@ window.onload = function() {
                 burgerMenuEl.classList.remove("header__burger_open");
                 menuEl.classList.remove("header__menu_open");
                 document.querySelectorAll(".header__menu-item_open").forEach(menuItemEl => menuItemEl.classList.remove("header__menu-item_open"))
+                document.body.classList.remove("_lock")
             }
         }
     })
@@ -212,9 +219,12 @@ window.onload = function() {
             document.querySelectorAll(".header__menu-item_open")
                 .forEach(menuItemEl => menuItemEl.classList.remove("header__menu-item_open"))
             headerEl.classList.remove("header_menu-open")
+            menuEl.classList.remove("header__menu_submenu-open")
+            // menuEl.addEventListener("transitionend", () => menuEl.classList.remove("header__menu_submenu-open"), { once: true })
             unlockBody()
         } else {
             lockBody()
+            window.scrollTo(0,0 )
         }
 
         if (window.innerWidth <= 576) {
@@ -243,7 +253,8 @@ window.onload = function() {
         openPopup(citiesPopupEl)
     })
 
-    citiesItemEls.forEach(cityItemEl => cityItemEl.addEventListener("click", () => {
+    citiesItemEls.forEach(cityItemEl => cityItemEl.addEventListener("click", (e) => {
+        e.preventDefault()
         changeCity(
             cityItemEl.dataset.city,
             cityItemEl.lastElementChild.innerHTML
@@ -535,7 +546,7 @@ function init(mapContainerSelector) {
     // zoom ctrl + mouse wheel
     let ctrlKey = false
     let body = document.getElementsByTagName('body')[0];
-    map.behaviors.disable(['scrollZoom']);
+    map.behaviors.disable(['scrollZoom', 'drag']);
     body.onkeydown = callbackDown;
     body.onkeyup = callbackUp;
     function callbackDown(e){
@@ -664,20 +675,22 @@ filterPanelEl?.addEventListener("click", e => {
         let scroll = new LocomotiveScroll()
         let formBlockEl = document.querySelector(".form-block")
 
-        document.querySelector(".prices-section__category").addEventListener("click", e => {
-            const buttonEl = e.target.closest(".service__button")
-            if (!buttonEl) {
-                return
-            }
-
-            const textareaEl = formBlockEl.querySelector("textarea")
-            const formControlEl = textareaEl.closest(".form__control")
-            const serviceName = buttonEl.closest(".service").querySelector(".service__name").innerHTML
-
-            textareaEl.value = serviceName
-            formControlEl.classList.add("form__control_filled")
-            formBlockEl.querySelector("input[type='hidden']").value = buttonEl.dataset["serviceName"]
-            scroll.scrollTo(formBlockEl)            
+        document.querySelectorAll(".prices-section__category").forEach(categoryBlock => {
+            categoryBlock.addEventListener("click", e => {
+                const buttonEl = e.target.closest(".service__button")
+                if (!buttonEl) {
+                    return
+                }
+    
+                const textareaEl = formBlockEl.querySelector("textarea")
+                const formControlEl = textareaEl.closest(".form__control")
+                const serviceName = buttonEl.closest(".service").querySelector(".service__name").innerHTML
+    
+                textareaEl.value = serviceName
+                formControlEl.classList.add("form__control_filled")
+                formBlockEl.querySelector("input[type='hidden']").value = buttonEl.dataset["serviceName"]
+                scroll.scrollTo(formBlockEl)            
+            })  
         })
     }
 }
