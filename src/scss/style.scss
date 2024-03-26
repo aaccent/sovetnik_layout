@@ -26,9 +26,15 @@
     }
 }
 
-
-
 @import "modules/hero-section.scss";
+.hero-section {
+    @include phone {
+        margin-top: -1.25rem;
+        &__inner-wrapper {
+            padding-top: 1.25rem;
+        }
+    }
+}
 @import "modules/in-numbers.scss";
 @import "modules/why-section.scss";
 @import "modules/services-section.scss";

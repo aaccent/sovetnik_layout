@@ -43,6 +43,11 @@ input, textarea {
     outline-color: transparent;
 }
 
+textarea {
+    resize: none;
+    vertical-align: top;
+}
+
 img {
     vertical-align: top;
 }
@@ -78,7 +83,6 @@ img {
             color: $lightturquoise
         }
     }
-    &__body {}
     @include phone {
         &__header {
             gap: 1rem;
@@ -113,6 +117,42 @@ img {
     }
     &__title {
         @include desk_title_hero;
+    }
+    &__content {
+        & > .container > h2 {
+            @include desk_title_block;
+            margin: 0 0 2.625rem;
+        }
+        & > .container > p {
+            @include base_18;
+        }
+        & > .container > p + p {
+            margin-top: 1.5rem;
+        }
+        & > .container > h4 {
+            @include desk_title_subtitle;
+            margin: 4.375rem 0 2rem;
+        }
+        &:not(:last-child) {
+            margin: 0 0 9.375rem;
+            @include adaptive-value(margin-bottom, 70, 150, 576, $max-width);
+        }
+        @include phone {
+            & > .container > h2 {
+                @include mob_block_title;
+                margin-bottom: 1.5rem;
+            }
+            & > .container > p {
+                @include base_16;
+            }
+            & > .container > p + p {
+                margin-top: 1rem;
+            }
+            & > .container > h4 {
+                @include mob_block_title;
+                margin: 1.75rem 0 1.5rem;
+            }
+        }
     }
     @include phone {
         &__back-button {
@@ -486,6 +526,9 @@ img {
     gap: 2.125rem;
     @include phone {
         gap: 1.25rem;
+    }
+    @media screen and (max-width: 380px) {
+        display: none;
     }
 }
 

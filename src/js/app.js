@@ -117,7 +117,7 @@ window.onload = function() {
             setTimeout(() => {
                 changeContentPage(form)
                 resetForm(form)
-            }, 1000)
+            }, 200)
         }
     }
     
@@ -125,6 +125,7 @@ window.onload = function() {
         form.reset();
         form.classList.remove("form_sending")
         form.querySelectorAll(".form__control").forEach(controlEl => controlEl.className = "form__control")
+        form.querySelectorAll("input, textarea").forEach(inputEl => inputEl.disabled = false)
     }
 
     // Header
@@ -200,6 +201,7 @@ window.onload = function() {
             if (burgerMenuEl.classList.contains("header__burger_open")) {
                 burgerMenuEl.classList.remove("header__burger_open");
                 menuEl.classList.remove("header__menu_open");
+                menuEl.classList.remove("header__menu_submenu-open")
                 document.querySelectorAll(".header__menu-item_open").forEach(menuItemEl => menuItemEl.classList.remove("header__menu-item_open"))
                 document.body.classList.remove("_lock")
             }
@@ -220,7 +222,6 @@ window.onload = function() {
                 .forEach(menuItemEl => menuItemEl.classList.remove("header__menu-item_open"))
             headerEl.classList.remove("header_menu-open")
             menuEl.classList.remove("header__menu_submenu-open")
-            // menuEl.addEventListener("transitionend", () => menuEl.classList.remove("header__menu_submenu-open"), { once: true })
             unlockBody()
         } else {
             lockBody()
@@ -238,6 +239,7 @@ window.onload = function() {
     document.querySelector(".header__menu-close").addEventListener("click", () => {
         headerEl.classList.remove("header_menu-open")
         menuEl.classList.remove("header__menu_open")
+        menuEl.classList.remove("header__menu_submenu-open")
         burgerMenuEl.classList.remove("header__burger_open");
         document.querySelectorAll(".header__menu-item_open")
             .forEach(menuItemEl => menuItemEl.classList.remove("header__menu-item_open"))
@@ -367,279 +369,279 @@ window.onload = function() {
     })
 
 
-new Swiper(".specialists-section .swiper", {
-    spaceBetween: 10,
-    slidesPerView: "auto",
-    breakpoints: {
-        577: {
-            spaceBetween: 20,
-            slidesPerView: "auto",
-        }, 
-        820: {
-            slidesPerView: 3
+    new Swiper(".specialists-section .swiper", {
+        spaceBetween: 10,
+        slidesPerView: "auto",
+        breakpoints: {
+            577: {
+                spaceBetween: 20,
+                slidesPerView: "auto",
+            }, 
+            820: {
+                slidesPerView: 3
+            },
+            1080: {
+                slidesPerView: 4
+            }
         },
-        1080: {
-            slidesPerView: 4
-        }
-    },
-    navigation: {
-        prevEl: ".specialists-section .swiper-button-prev",
-        nextEl: ".specialists-section .swiper-button-next",
-    }
-})
-
-new Swiper(".press-center-section .swiper", {
-    spaceBetween: 10,
-    slidesPerView: "auto",
-    wathchOverlow: true,
-    breakpoints: {
-        577: {
-            spaceBetween: 20,
-        }, 
-    },
-    navigation: {
-        prevEl: ".press-center-section .swiper-button-prev",
-        nextEl: ".press-center-section .swiper-button-next",
-    }
-})
-
-new Swiper(".reviews-section .swiper", {
-    spaceBetween: 10,
-    slidesPerView: "auto",
-    breakpoints: {
-        577: {
-            spaceBetween: 20
-        }
-    },
-    navigation: {
-        prevEl: ".reviews-section .swiper-button-prev",
-        nextEl: ".reviews-section .swiper-button-next",
-    }
-})
-
-new Swiper(".certificates-section__swiper", {
-    spaceBetween: 10,
-    slidesPerView: "auto",
-    breakpoints: {
-        577: {
-            spaceBetween: 20
-        }
-    },
-    navigation: {
-        prevEl: ".certificates-section .swiper-button-prev",
-        nextEl: ".certificates-section .swiper-button-next",
-    }
-})
-
-new Swiper(".projects-section__swiper", {
-    spaceBetween: 10,
-    slidesPerView: "auto",
-    breakpoints: {
-        577: {
-            spaceBetween: 20
-        }
-    },
-    navigation: {
-        prevEl: ".projects-section .swiper-button-prev",
-        nextEl: ".projects-section .swiper-button-next",
-    }
-})
-
-
-// reviews & seo text
-const reviewItemEls = document.querySelectorAll(".review");
-const seoContentEl = document.querySelector(".seo-content")
-const maxHeights = {};
-
-if (reviewItemEls.length) {
-    maxHeights.review = parseFloat(getComputedStyle(document.querySelector(".review__text")).maxHeight)
-}
-
-if (seoContentEl) {
-    maxHeights.seo = parseFloat(getComputedStyle(document.querySelector(".seo-content__text")).maxHeight)
-}
-
-
-function changeElemHeight(elem) {
-    const buttonTextEl = elem.querySelector("span")
-    const className = elem.classList[0];
-    if (elem.classList.contains(className + "_open")) {
-        elem.classList.remove(className + "_open")
-        buttonTextEl.innerHTML = "Читать далее"
-    } else {
-        elem.classList.add(className + "_open")
-        buttonTextEl.innerHTML = "Свернуть текст"
-    }
-}
-
-function checkElemHeight(elem, maxHeight) {
-    const className = elem.classList[0];
-    const textEl = elem.querySelector("." + className + "__text");
-    const readMoreEl = elem.querySelector("." + className + "__more")
-    
-    if (textEl.offsetHeight < textEl.scrollHeight) {
-        !elem.classList.contains(className + "_hide") && elem.classList.add(className + "_hide")
-    } else {
-        if (!elem.classList.contains(className + "_open")) {
-            elem.className = className
-        } else if (textEl.offsetHeight <= maxHeight) {
-            elem.className = className
-            readMoreEl.querySelector("span").innerHTML = "Читать далее"
-        }
-    } 
-}
-
-reviewItemEls.forEach(reviewItemEl => {
-    checkElemHeight(reviewItemEl, maxHeights.review);
-    reviewItemEl.querySelector(".review__more").addEventListener("click", () => changeElemHeight(reviewItemEl))
-})
-
-
-if (reviewItemEls.length) {
-    window.addEventListener("resize", () => {
-        reviewItemEls.forEach(reviewItemEl => checkElemHeight(reviewItemEl, maxHeights.review))
-    })
-}
-
-if (seoContentEl) {
-    checkElemHeight(seoContentEl, maxHeights.seo);
-    seoContentEl.querySelector(".seo-content__more").addEventListener("click", () => changeElemHeight(seoContentEl))
-    window.addEventListener("resize", () => checkElemHeight(seoContentEl, maxHeights.seo))
-}
-
-// yandex map
-
-function init(mapContainerSelector) {
-    function setMapPin() {
-        let myCollection = new ymaps.GeoObjectCollection();
-        let coords = mapEl?.dataset.mark?.split(',').map(Number) || [55.7954692462696,49.10686513125719];
-        // создание и установка пинов
-        myCollection.add(new ymaps.Placemark(coords, {
-            iconLayout: "default#image",
-            iconImageHref: imagesSrc.pinImage,
-            iconImageSize: [60, 60],
-        }));
-        // добавление пинов на карту
-        map.geoObjects.add(myCollection);
-    }
-
-    async function getCoords () {
-        setTimeout(() => {
-            setMapPin()
-        }, 2000)
-    }
-    
-    let mapEl = document.getElementById(mapContainerSelector);
-    let center = mapEl?.dataset.center?.split(',').map(Number) || [55.79551291555022,49.10679244528347];
-
-    // создание карты
-    let map = new ymaps.Map(mapContainerSelector, {
-        center,
-        controls: [],
-        zoom: 14,
-    }, {  autoFitToViewport: 'always' })
-    
-    let imagesSrc = mapEl.dataset
-    
-    getCoords()
-    
-    // zoom ctrl + mouse wheel
-    let ctrlKey = false
-    let body = document.getElementsByTagName('body')[0];
-    map.behaviors.disable(['scrollZoom', 'drag']);
-    body.onkeydown = callbackDown;
-    body.onkeyup = callbackUp;
-    function callbackDown(e){
-        if(e.keyCode === 17 && !ctrlKey){
-            ctrlKey = true
-            map.behaviors.enable(['scrollZoom']);
-        }
-    }
-    function callbackUp(e){
-        if(e.keyCode === 17){
-            ctrlKey = false
-            map.behaviors.disable(['scrollZoom']);
-        }
-    }
-}
-
-ymaps.ready(() => init("map"));
-if (document.getElementById("contact-map")) {
-    ymaps.ready(() => init("contact-map"));
-}
-
-
-// faq
-
-const faqItemHeaderEls = document.querySelectorAll(".accordion__header");
-
-faqItemHeaderEls.forEach(faqItemHeaderEl => {
-    let timeoutId;
-    faqItemHeaderEl.addEventListener("click", e => {
-        const faqItemEl = faqItemHeaderEl.parentElement;
-        const faqItemBodyEl = faqItemHeaderEl.nextElementSibling;
-        const faqItemTextEl = faqItemBodyEl.firstElementChild;
-
-        if (faqItemEl.classList.contains("accordion_open")) {
-            let faqItemBodyHeight = faqItemBodyEl.scrollHeight;
-            faqItemBodyEl.style.height = faqItemBodyHeight + "px";
-            faqItemEl.classList.remove("accordion_open")
-            timeoutId = setTimeout(() => faqItemBodyEl.style.height = "")
-        } else {
-            clearTimeout(timeoutId)
-            timeoutId = null
-            faqItemEl.classList.add("accordion_open");
-            faqItemBodyEl.style.height = faqItemTextEl.offsetHeight + "px";
-            faqItemBodyEl.addEventListener("transitionend", () => {
-                if (timeoutId) {
-                    return
-                }
-                faqItemBodyEl.style.height = "auto"
-            }, { once: true })
+        navigation: {
+            prevEl: ".specialists-section .swiper-button-prev",
+            nextEl: ".specialists-section .swiper-button-next",
         }
     })
-})
 
-// filter panel
+    new Swiper(".press-center-section .swiper", {
+        spaceBetween: 10,
+        slidesPerView: "auto",
+        wathchOverlow: true,
+        breakpoints: {
+            577: {
+                spaceBetween: 20,
+            }, 
+        },
+        navigation: {
+            prevEl: ".press-center-section .swiper-button-prev",
+            nextEl: ".press-center-section .swiper-button-next",
+        }
+    })
 
-const filterPanelEl = document.querySelector(".filter-panel")
+    new Swiper(".reviews-section .swiper", {
+        spaceBetween: 10,
+        slidesPerView: "auto",
+        breakpoints: {
+            577: {
+                spaceBetween: 20
+            }
+        },
+        navigation: {
+            prevEl: ".reviews-section .swiper-button-prev",
+            nextEl: ".reviews-section .swiper-button-next",
+        }
+    })
 
-filterPanelEl?.addEventListener("click", e => {
-    const filterItemEl = e.target.closest(".filter-panel__item");
-    if (!filterItemEl) {
-        return
+    new Swiper(".certificates-section__swiper", {
+        spaceBetween: 10,
+        slidesPerView: "auto",
+        breakpoints: {
+            577: {
+                spaceBetween: 20
+            }
+        },
+        navigation: {
+            prevEl: ".certificates-section .swiper-button-prev",
+            nextEl: ".certificates-section .swiper-button-next",
+        }
+    })
+
+    new Swiper(".projects-section__swiper", {
+        spaceBetween: 10,
+        slidesPerView: "auto",
+        breakpoints: {
+            577: {
+                spaceBetween: 20
+            }
+        },
+        navigation: {
+            prevEl: ".projects-section .swiper-button-prev",
+            nextEl: ".projects-section .swiper-button-next",
+        }
+    })
+
+
+    // reviews & seo text
+    const reviewItemEls = document.querySelectorAll(".review");
+    const seoContentEl = document.querySelector(".seo-content")
+    const maxHeights = {};
+
+    if (reviewItemEls.length) {
+        maxHeights.review = parseFloat(getComputedStyle(document.querySelector(".review__text")).maxHeight)
     }
 
-    if (filterItemEl.classList.contains("filter-panel__item_active")) {
-        filterItemEl.classList.remove("filter-panel__item_active")
-        return
+    if (seoContentEl) {
+        maxHeights.seo = parseFloat(getComputedStyle(document.querySelector(".seo-content__text")).maxHeight)
     }
 
-    filterPanelEl.querySelector(".filter-panel__item_active")?.classList.remove("filter-panel__item_active")
-    filterItemEl.classList.add("filter-panel__item_active")
-})
 
-// similiar projects 
-
-// masonry 
-    let masonry;
-
-    function initMasonryLayout(e) {
-        if (e.matches) {
-            masonry?.destroy()
+    function changeElemHeight(elem) {
+        const buttonTextEl = elem.querySelector("span")
+        const className = elem.classList[0];
+        if (elem.classList.contains(className + "_open")) {
+            elem.classList.remove(className + "_open")
+            buttonTextEl.innerHTML = "Читать далее"
         } else {
-            masonry = new Masonry(".services-section__grid", {
-                itemSelector: '.services-block',
-                gutter: 20,
-                horizontalOrder: true,
-            });
+            elem.classList.add(className + "_open")
+            buttonTextEl.innerHTML = "Свернуть текст"
         }
     }
 
-    if (document.querySelector(".services-section__grid")) {
-        gapMediaQuery.addEventListener("change", initMasonryLayout)
-        initMasonryLayout(gapMediaQuery)
+    function checkElemHeight(elem, maxHeight) {
+        const className = elem.classList[0];
+        const textEl = elem.querySelector("." + className + "__text");
+        const readMoreEl = elem.querySelector("." + className + "__more")
+        
+        if (textEl.offsetHeight < textEl.scrollHeight) {
+            !elem.classList.contains(className + "_hide") && elem.classList.add(className + "_hide")
+        } else {
+            if (!elem.classList.contains(className + "_open")) {
+                elem.className = className
+            } else if (textEl.offsetHeight <= maxHeight) {
+                elem.className = className
+                readMoreEl.querySelector("span").innerHTML = "Читать далее"
+            }
+        } 
     }
+
+    reviewItemEls.forEach(reviewItemEl => {
+        checkElemHeight(reviewItemEl, maxHeights.review);
+        reviewItemEl.querySelector(".review__more").addEventListener("click", () => changeElemHeight(reviewItemEl))
+    })
+
+
+    if (reviewItemEls.length) {
+        window.addEventListener("resize", () => {
+            reviewItemEls.forEach(reviewItemEl => checkElemHeight(reviewItemEl, maxHeights.review))
+        })
+    }
+
+    if (seoContentEl) {
+        checkElemHeight(seoContentEl, maxHeights.seo);
+        seoContentEl.querySelector(".seo-content__more").addEventListener("click", () => changeElemHeight(seoContentEl))
+        window.addEventListener("resize", () => checkElemHeight(seoContentEl, maxHeights.seo))
+    }
+
+    // yandex map
+
+    function init(mapContainerSelector) {
+        function setMapPin() {
+            let myCollection = new ymaps.GeoObjectCollection();
+            let coords = mapEl?.dataset.mark?.split(',').map(Number) || [55.7954692462696,49.10686513125719];
+            // создание и установка пинов
+            myCollection.add(new ymaps.Placemark(coords, {
+                iconLayout: "default#image",
+                iconImageHref: imagesSrc.pinImage,
+                iconImageSize: [60, 60],
+            }));
+            // добавление пинов на карту
+            map.geoObjects.add(myCollection);
+        }
+
+        async function getCoords () {
+            setTimeout(() => {
+                setMapPin()
+            }, 2000)
+        }
+        
+        let mapEl = document.getElementById(mapContainerSelector);
+        let center = mapEl?.dataset.center?.split(',').map(Number) || [55.79551291555022,49.10679244528347];
+
+        // создание карты
+        let map = new ymaps.Map(mapContainerSelector, {
+            center,
+            controls: [],
+            zoom: 14,
+        }, {  autoFitToViewport: 'always' })
+        
+        let imagesSrc = mapEl.dataset
+        
+        getCoords()
+        
+        // zoom ctrl + mouse wheel
+        let ctrlKey = false
+        let body = document.getElementsByTagName('body')[0];
+        map.behaviors.disable(['scrollZoom', 'drag']);
+        body.onkeydown = callbackDown;
+        body.onkeyup = callbackUp;
+        function callbackDown(e){
+            if(e.keyCode === 17 && !ctrlKey){
+                ctrlKey = true
+                map.behaviors.enable(['scrollZoom']);
+            }
+        }
+        function callbackUp(e){
+            if(e.keyCode === 17){
+                ctrlKey = false
+                map.behaviors.disable(['scrollZoom']);
+            }
+        }
+    }
+
+    ymaps.ready(() => init("map"));
+    if (document.getElementById("contact-map")) {
+        ymaps.ready(() => init("contact-map"));
+    }
+
+
+    // faq
+
+    const faqItemHeaderEls = document.querySelectorAll(".accordion__header");
+
+    faqItemHeaderEls.forEach(faqItemHeaderEl => {
+        let timeoutId;
+        faqItemHeaderEl.addEventListener("click", e => {
+            const faqItemEl = faqItemHeaderEl.parentElement;
+            const faqItemBodyEl = faqItemHeaderEl.nextElementSibling;
+            const faqItemTextEl = faqItemBodyEl.firstElementChild;
+
+            if (faqItemEl.classList.contains("accordion_open")) {
+                let faqItemBodyHeight = faqItemBodyEl.scrollHeight;
+                faqItemBodyEl.style.height = faqItemBodyHeight + "px";
+                faqItemEl.classList.remove("accordion_open")
+                timeoutId = setTimeout(() => faqItemBodyEl.style.height = "")
+            } else {
+                clearTimeout(timeoutId)
+                timeoutId = null
+                faqItemEl.classList.add("accordion_open");
+                faqItemBodyEl.style.height = faqItemTextEl.offsetHeight + "px";
+                faqItemBodyEl.addEventListener("transitionend", () => {
+                    if (timeoutId) {
+                        return
+                    }
+                    faqItemBodyEl.style.height = "auto"
+                }, { once: true })
+            }
+        })
+    })
+
+    // filter panel
+
+    const filterPanelEl = document.querySelector(".filter-panel")
+
+    filterPanelEl?.addEventListener("click", e => {
+        const filterItemEl = e.target.closest(".filter-panel__item");
+        if (!filterItemEl) {
+            return
+        }
+
+        if (filterItemEl.classList.contains("filter-panel__item_active")) {
+            filterItemEl.classList.remove("filter-panel__item_active")
+            return
+        }
+
+        filterPanelEl.querySelector(".filter-panel__item_active")?.classList.remove("filter-panel__item_active")
+        filterItemEl.classList.add("filter-panel__item_active")
+    })
+
+    // similiar projects 
+
+    // masonry 
+    // let masonry;
+
+    // function initMasonryLayout(e) {
+    //     if (e.matches) {
+    //         masonry?.destroy()
+    //     } else {
+    //         masonry = new Masonry(".services-section__grid", {
+    //             itemSelector: '.services-block',
+    //             gutter: 20,
+    //             horizontalOrder: true,
+    //         });
+    //     }
+    // }
+
+    // if (document.querySelector(".services-section__grid")) {
+    //     gapMediaQuery.addEventListener("change", initMasonryLayout)
+    //     initMasonryLayout(gapMediaQuery)
+    // }
 
     if (document.querySelector("[data-fancybox]")) {
         Fancybox.bind("[data-fancybox]", {
@@ -693,4 +695,25 @@ filterPanelEl?.addEventListener("click", e => {
             })  
         })
     }
+
+    // single project page
+    function redrawTable(e, init) {
+        if (e.matches) {
+            let tableCells = document.querySelectorAll("table td:last-child")
+            tableCells.forEach(tableCell => {
+                let tableRow = document.createElement("tr");
+                tableCell.closest("tr").after(tableRow)
+                tableRow.append(tableCell)
+            })
+        } else if (!init) {
+            let tableRows = document.querySelectorAll("table tr:nth-child(2n)")
+            tableRows.forEach(tableRow => {
+                tableRow.previousElementSibling.append(tableRow.firstElementChild);
+                tableRow.remove()
+            })
+        }
+    }
+
+    gapMediaQuery.addEventListener("change", redrawTable)
+    redrawTable(gapMediaQuery, true)
 }

@@ -34,7 +34,6 @@
     &__input {
         background-color: $white;
         border-radius: 0.25rem;
-        @include base_16;
         padding: 1.125rem 1.375rem 0.875rem;
         width: 100%;
         // transition: outline-color 0.2s ease 0s;
@@ -53,8 +52,8 @@
             }
         }
         &_textarea {
+            display: block;
             height: 5.875rem;
-            resize: none;
         }
     }
     &__check {
@@ -121,45 +120,8 @@
     &__submit {
         align-self: flex-start;
         cursor: pointer;
-        // flex-basis: calc(340 / 1860 * 100%);
         position: relative;
-        white-space: nowrap;
         text-align: center;
-        transition: background-color 0.2s ease 0s;
-        overflow: hidden;
-        .spinner {
-            border-width: 2px;
-            border-style: solid;
-            border-radius: 50%;
-            display: none;
-            position: absolute;
-            top: calc(50% - 1rem);
-            left: calc(50% - 1rem);
-            width: 2rem;
-            height: 2rem;
-            animation: spin 1.5s linear infinite;
-        }
-        span, .spinner {
-            position: relative;
-            z-index: 1;
-        }
-        &:before {
-            background-color: $white;
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.2s ease 0s;
-            z-index: 0;
-        }
-        @include ishover {
-            &:before {
-                opacity: 0.2;
-            }
-        }
     }
     &__file {
         color: $white;

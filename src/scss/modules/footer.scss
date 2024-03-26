@@ -53,7 +53,7 @@
             height: 4.125rem
         };
     }
-    &__copyrights, &__policy {
+    &__copyrights, &__policy, &__aaccent span {
         @include base_16;
         opacity: 0.4;
     }
@@ -89,10 +89,6 @@
         align-items: flex-start;
         column-gap: 2rem;
         row-gap: 0.375rem;
-        span {
-            @include base_16;
-            opacity: 0.4;
-        }
         svg {
             width: auto;
             height: 2.75rem;
@@ -164,6 +160,9 @@
         &__call-phone,
         &__mail, &__address {
             font-size: 1rem;
+        }
+        &__copyrights, &__policy, &__aaccent span {
+            @include mob_base_14;
         }
         &__copyrights {
             margin-bottom: 0.5rem;

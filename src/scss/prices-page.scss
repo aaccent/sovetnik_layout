@@ -18,7 +18,7 @@
 .prices-section {
     &__body {
         display: flex;
-        align-items: center;
+        // align-items: center;
     }
     &__nav {
         border-top-left-radius: 0.625rem;
@@ -42,7 +42,6 @@
     }
     &__categories {
         background-color: $white;
-        align-self: center;
         flex: 1 1 auto;
         padding: 2.125rem;
         transition: opacity 0.3s ease 0s
