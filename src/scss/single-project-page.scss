@@ -109,6 +109,18 @@ table {
         padding: 1.375rem;
     }
     @include min_gap {
+        tr {
+            &:first-child {
+                td {
+                    &:first-child { border-top-left-radius: 0.625rem }
+                }
+            }
+            &:last-child {
+                td {
+                    &:first-child { border-bottom-left-radius: 0.625rem }
+                }
+            }
+        }
         td {
             &:first-child { 
                 background-color: #E9F1F1;
@@ -125,6 +137,10 @@ table {
     @include gap {
         td {
             width: 100%;
+            &:first-child {
+                border-top-left-radius: 0.625rem;
+                border-top-right-radius: 0.625rem;
+            }
         }
         tr {
             &:nth-child(2n + 1) {

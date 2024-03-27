@@ -2,7 +2,6 @@ extends templates/layout
 
 block head
     title Типовая страница
-    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/typical-page.min.css")
 block content 
     .page
@@ -54,6 +53,3 @@ block content
             include ./includes/in-numbers
         include ./includes/why-section
         include ./includes/contacts-section
-block append scripts 
-    script(src="js/libs/swiper-bundle.min.js")
-    script(src="js/index.min.js") 

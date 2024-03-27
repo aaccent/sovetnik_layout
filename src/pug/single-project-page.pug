@@ -2,8 +2,8 @@ extends templates/layout
 
 block head
     title Страница реализованного проекта
-    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/libs/fancybox.css")
+    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/single-project-page.min.css")
 block content 
     .page
@@ -125,6 +125,6 @@ block content
                             - for (var i = 0; i < 3; i++)
                                 +project
         include ./includes/contacts-section
-block append scripts 
+block prepend scripts 
     script(src="js/libs/fancybox.umd.js") 
-    script(src="js/index.min.js") 
+    script(src="js/libs/swiper-bundle.min.js") 

@@ -2,7 +2,6 @@ extends templates/layout
 
 block head
     title Контакты 
-    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/contacts-page.min.css")
 block content 
     .page
@@ -85,5 +84,3 @@ block content
                                 span.contact-info__text 127083, Москва, ул. 8-го Марта, д. 1, стр. 12.
                         .button.button_primary #[span Скачать реквизиты компании]
         include ./includes/contacts-section
-block append scripts 
-    script(src="js/index.min.js") 

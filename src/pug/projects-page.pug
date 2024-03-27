@@ -12,7 +12,6 @@ mixin project
 
 block head
     title Реализованные проекты
-    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/projects-page.min.css")
 block content 
     .page 
@@ -47,5 +46,3 @@ block content
                             +project
                     a.projects-section__more.button.button_primary(href="#") #[span Показать ещё]            
         include ./includes/contacts-section
-block append scripts 
-    script(src="js/index.min.js")
