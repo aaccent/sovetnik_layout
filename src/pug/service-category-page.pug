@@ -1,7 +1,7 @@
 extends templates/layout
 
 block head
-    title Страница услуги
+    title Страница категории услуги
     link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/single-service-page.min.css")
 block content 
@@ -17,10 +17,10 @@ block content
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="./services-page.html") Услуги
                     li.breadcrumbs__item 
-                        a.breadcrumbs__link(href="#") Название услуги 
+                        a.breadcrumbs__link(href="#") Название категории услуги 
         .page__header
             .container 
-                h1.page__title  Длинное название услуги
+                h1.page__title Длинное название <br>категории <br>в три строки
                 .page__hero-img 
                     img.img(src="./images/single-service-hero.png", alt="")
                     img.vector(src="./images/single-service-vector.svg" alt="")
@@ -28,7 +28,7 @@ block content
                     img.ellipse(src="./images/single-service-ellipse.svg" alt="")
         .page__content 
             .container 
-                h2 Подробное описание услуги
+                h2 Подробное описание <br>категории
                 p
                     | Ежегодно жители страны становятся всё более закредитованными. Такое же положение сложилось и в 2022 году, чему способствовали пандемия 
                     | Covid-19 и инфляционные процессы. Согласно статистическим отчётам ЦБ, более половины экономически активного населения в стране имеет действующие займы. 
@@ -38,11 +38,11 @@ block content
                     | которые позволяют предотвратить уголовное преследование руководства и сотрудников компании. Ежегодно жители страны становятся всё более закредитованными. 
                     | Такое же положение сложилось и в 2022 году, чему способствовали пандемия Covid-19 и инфляционные процессы. Согласно статистическим отчётам ЦБ, более половины
                     | экономически активного населения в стране имеет действующие займы. В целом финансовая обстановка ухудшается — учащаются просрочки.
+            include ./includes/projects-section
+            +project(false)
             include ./includes/in-numbers
         include ./includes/why-section
         include ./includes/steps-section
-        include ./includes/projects-section
-        +project(true)
         include ./includes/reviews-section
         include ./includes/faq-section
         include ./includes/seo-section

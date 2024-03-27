@@ -1,26 +1,34 @@
-mixin project 
-    a.projects-section__project.project(href="single-project-page.html") 
-        .project__img 
-            img(src="images/single-project.png", alt="")
-        .project__content 
-            .project__name Название проекта
-            .project__desc.text.text_16 
-                | Обращалась к юристам на Пушкина по вопросу банкротства, все подробно объяснили. Сама процедура заняла полгода и недавно все благополучно
-                | завершилось. Дело вела юрист Алла. Благодарю Федеральное Юридическое Бюро за помощь в решении моих финансовых проблем. Бюро за помощь в решении моих финансовых проблем.
-
-section.projects-section.section 
-    .container 
-        .section__header 
-            h2.section__title Реализованные проекты
-            .swiper-buttons 
-                .swiper-button-prev 
-                    .icon-arrow-next
-                .swiper-button-next
-                    .icon-arrow-next
-        .projects-section__body.section__body
-            .projects-section__swiper.swiper 
-                .swiper-wrapper 
-                    - for (var i = 0; i < 7; i++)
-                        .swiper-slide
-                            +project
-            a.projects-section__button.button.button_primary(href="projects-page.html") #[span Показать все]
+mixin project(isProject)
+    section.projects-section.section 
+        .container 
+            .section__header 
+                if(isProject)
+                    h2.section__title Реализованные проекты
+                else 
+                    h2.section__title Услуги 
+                .swiper-buttons 
+                    .swiper-button-prev 
+                        .icon-arrow-next
+                    .swiper-button-next
+                        .icon-arrow-next
+            .projects-section__body.section__body
+                .projects-section__swiper.swiper 
+                    .swiper-wrapper 
+                        - for (var i = 0; i < 7; i++)
+                            .swiper-slide
+                                if(isProject)
+                                    a.projects-section__project.project(href="single-project-page.html") 
+                                        .project__img 
+                                            img(src="images/single-project.png", alt="")
+                                        .project__content 
+                                            .project__name Название проекта
+                                            .project__desc.text.text_16 
+                                                    | Обращалась к юристам на Пушкина по вопросу банкротства, все подробно объяснили. Сама процедура заняла полгода и недавно все благополучно
+                                                    | завершилось. Дело вела юрист Алла. Благодарю Федеральное Юридическое Бюро за помощь в решении моих финансовых проблем. Бюро за помощь в решении моих финансовых проблем.
+                        a.projects-section__button.button.button_primary(href="projects-page.html") #[span Показать все]
+                                else
+                                    a.projects-section__project.project(href="single-service-page.html")
+                                        .project__img 
+                                            img(src="images/single-project.png", alt="")
+                                        .project__content 
+                                            .project__name Подуслуга   

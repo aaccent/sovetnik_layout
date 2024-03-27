@@ -1,4 +1,7 @@
 .projects-section {
+    &:has(+.in-numbers) {
+        margin-top: calc(20px + 80*(100vw - 576px) /(1600 - 576));
+    }
     &__project {
         display: block;
     }
