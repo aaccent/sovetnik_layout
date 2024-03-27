@@ -13,9 +13,9 @@ block content
                     span Назад
                 ol.page__breadcrumbs.breadcrumbs
                     li.breadcrumbs__item 
-                        a.breadcrumbs__link(href="/") Главная
+                        a.breadcrumbs__link(href="./") Главная
                     li.breadcrumbs__item 
-                        a.breadcrumbs__link(href="./services-page.html") Услуги
+                        a.breadcrumbs__link(href="services-page.html") Услуги
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="#") Название услуги 
         .page__header
@@ -47,6 +47,5 @@ block content
         include ./includes/faq-section
         include ./includes/seo-section
         include ./includes/contacts-section
-block append scripts 
+block prepend scripts 
     script(src="js/libs/swiper-bundle.min.js")
-    script(src="js/index.min.js") 

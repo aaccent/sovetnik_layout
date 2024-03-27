@@ -2,7 +2,6 @@ extends templates/layout
 
 block head
     title Страница отзывов
-    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/reviews-page.min.css")
 block content 
     .page
@@ -13,7 +12,7 @@ block content
                     span Назад
                 ol.page__breadcrumbs.breadcrumbs
                     li.breadcrumbs__item 
-                        a.breadcrumbs__link(href="/") Главная
+                        a.breadcrumbs__link(href="./") Главная
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="#") Отзывы 
         .page__header
@@ -40,5 +39,3 @@ block content
                                 +review
                     a.reviews-section__more.button.button_primary(href="#") Показать еще
         include ./includes/contacts-section
-block append scripts 
-    script(src="js/index.min.js") 

@@ -12,7 +12,6 @@ mixin project
 
 block head
     title Реализованные проекты
-    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/projects-page.min.css")
 block content 
     .page 
@@ -23,7 +22,7 @@ block content
                     span Назад
                 ol.page__breadcrumbs.breadcrumbs
                     li.breadcrumbs__item 
-                        a.breadcrumbs__link(href="/") Главная
+                        a.breadcrumbs__link(href="./") Главная
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="#") Реализованные проекты
         .page__header
@@ -47,5 +46,3 @@ block content
                             +project
                     a.projects-section__more.button.button_primary(href="#") #[span Показать ещё]            
         include ./includes/contacts-section
-block append scripts 
-    script(src="js/index.min.js")

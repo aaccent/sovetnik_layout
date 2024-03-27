@@ -24,7 +24,6 @@ mixin category(active, index)
 
 block head
     title Страница цен
-    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/prices-page.min.css")
 block content 
     .page
@@ -35,7 +34,7 @@ block content
                     span Назад
                 ol.page__breadcrumbs.breadcrumbs
                     li.breadcrumbs__item 
-                        a.breadcrumbs__link(href="/") Главная
+                        a.breadcrumbs__link(href="./") Главная
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="#") Цены 
         .page__header
@@ -59,7 +58,5 @@ block content
                             +category(active, i)
 
         include ./includes/contacts-section
-block append scripts 
+block prepend scripts 
     script(src="js/libs/locomotive-scroll.min.js") 
-    script(src="js/libs/masonry.pkgd.min.js")
-    script(src="js/index.min.js") 

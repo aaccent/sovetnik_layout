@@ -20,6 +20,11 @@ window.onload = function() {
         }
     }; 
 
+    function documentActions(e) {
+        if (!e.target.closest(".header__main .header__menu")) {
+            menuEl.querySelector(".header__menu-item_hover")?.classList.remove("header__menu-item_hover")
+        }
+    }
 
     function lockBody() {
         // let paddingValue = window.innerWidth - document.documentElement.clientWidth;
@@ -63,11 +68,6 @@ window.onload = function() {
                 popup.querySelector("form").reset()
             }
         }, {once: true})
-    }
-    
-    function changeCity(value, label) {
-        headerCityEl.dataset.city = value
-        headerCityEl.lastElementChild.innerHTML = label
     }
 
     function validateForm(form) {    
@@ -128,32 +128,53 @@ window.onload = function() {
         form.querySelectorAll("input, textarea").forEach(inputEl => inputEl.disabled = false)
     }
 
+    function changeCity(value, label) {
+        headerCityEl.dataset.city = value
+        headerCityEl.lastElementChild.innerHTML = label
+    }
+
+    document.addEventListener("click", documentActions)
     // Header
     const headerEl = document.querySelector(".header");
     const headerCityEl = headerEl.querySelector(".header__city");
     const burgerMenuEl = headerEl.querySelector(".header__burger");
-
     const menuEl = document.querySelector(".header__menu")
 
     menuEl.addEventListener("click", e => {
         const targetEl = e.target;
-        if ((!targetEl.closest(".header__menu-item") && !targetEl.closest(".header__submenu")) || targetEl.closest(".submenu__item")) {
+        // (!targetEl.closest(".header__menu-item") && !targetEl.closest(".header__submenu")) || targetEl.closest(".submenu__item")
+        if (!targetEl.closest(".header__menu-item") || targetEl.closest(".submenu__item")) {
             return
         }
         
-        let menuItemEl = targetEl.closest(".header__menu-item")
-        if (menuItemEl.childElementCount !== 3) {
+        let hasSubmenu = targetEl.closest(".header__menu-item").childElementCount === 3
+
+        if (!hasSubmenu) {
             return
         }
-
-        if (targetEl.closest("button")) {
+        
+        if (targetEl.closest(".header__submenu-back-button")) {
             menuEl.classList.remove("header__menu_submenu-open")
             return
         }
-
+        
         e.preventDefault();
-        menuEl.classList.add("header__menu_submenu-open")
-        // menuItemEl.classList.toggle("header__menu-item_open")
+        
+        if (window.innerWidth >= 1080 && isMobile.any()) {
+            let activeMenuItem = document.querySelector(".header__menu-item_hover");
+            let menuItemEl = targetEl.closest(".header__menu-item");
+
+            if (menuItemEl === activeMenuItem) {
+                menuItemEl.classList.remove("header__menu-item_hover")
+            } else {
+                activeMenuItem?.classList.remove("header__menu-item_hover")
+                menuItemEl.classList.add("header__menu-item_hover")
+            }
+        }
+        
+        if (window.innerWidth < 1080) {
+            menuEl.classList.add("header__menu_submenu-open")
+        }
     })
 
     const tabletMediaQuery = window.matchMedia("(max-width: 1080px)") 
@@ -161,6 +182,7 @@ window.onload = function() {
     const phoneMediaQuery = window.matchMedia("(max-width: 576px)")
 
     const footerMenuItemEls = headerEl.querySelectorAll(".header__footer .header__menu-item");
+
     function replaceFooterMenu(e) {
         if (e.matches) {
             menuEl.querySelector(".header__menu-list").append(...footerMenuItemEls)
@@ -306,13 +328,12 @@ window.onload = function() {
             return
         }
 
-
         inputEl.addEventListener("input", () => {
             if (inputControlEl.classList.contains(inputControlClass + "_error")) {
                 inputControlEl.classList.remove(inputControlClass + "_error")
             }
-
         })
+
         inputEl.addEventListener("change", () => {
             if (inputEl.value.trim() !== "") {
                 inputControlEl.classList.add("form__control_filled")
@@ -321,6 +342,27 @@ window.onload = function() {
             }
         })
     })
+
+    document.querySelector(".form__file-input").addEventListener("change", e => {
+        if (e.target.files[0].size > 100 * 1024 * 1024) {
+            alert("Размер файла не должен превышать 30 MB")
+            return
+        }
+        const parentEl = e.target.closest(".form__file");
+        parentEl.querySelector(".form__file-doc .text").innerHTML = e.target.files[0].name
+        parentEl.classList.add("form__file_attached")
+        parentEl.querySelector(".form__file-doc button").addEventListener("click", () => {
+            e.target.value = "";
+            parentEl.classList.remove("form__file_attached")
+        }, { once: true })
+    })
+    
+    for (let i = 0; i < document.forms.length; i++) {
+        document.forms[i].addEventListener("submit", e => {
+            e.preventDefault();
+            validateForm(e.target)
+        })
+    }
 
     document.querySelectorAll("input[name='phone']").forEach(inputElement => {
         inputElement.addEventListener("keypress", (e) => {
@@ -348,104 +390,85 @@ window.onload = function() {
         inputElement.addEventListener("input", e => {e.target.value.length === 3 && (e.target.value = "")})
     })
 
-    for (let i = 0; i < document.forms.length; i++) {
-        document.forms[i].addEventListener("submit", e => {
-            e.preventDefault();
-            validateForm(e.target)
+    if (window.Swiper) {
+        new Swiper(".specialists-section .swiper", {
+            spaceBetween: 10,
+            slidesPerView: "auto",
+            breakpoints: {
+                577: {
+                    spaceBetween: 20,
+                    slidesPerView: "auto",
+                }, 
+                820: {
+                    slidesPerView: 3
+                },
+                1080: {
+                    slidesPerView: 4
+                }
+            },
+            navigation: {
+                prevEl: ".specialists-section .swiper-button-prev",
+                nextEl: ".specialists-section .swiper-button-next",
+            }
+        })
+    
+        new Swiper(".press-center-section .swiper", {
+            spaceBetween: 10,
+            slidesPerView: "auto",
+            wathchOverlow: true,
+            breakpoints: {
+                577: {
+                    spaceBetween: 20,
+                }, 
+            },
+            navigation: {
+                prevEl: ".press-center-section .swiper-button-prev",
+                nextEl: ".press-center-section .swiper-button-next",
+            }
+        })
+    
+        new Swiper(".reviews-section .swiper", {
+            spaceBetween: 10,
+            slidesPerView: "auto",
+            breakpoints: {
+                577: {
+                    spaceBetween: 20
+                }
+            },
+            navigation: {
+                prevEl: ".reviews-section .swiper-button-prev",
+                nextEl: ".reviews-section .swiper-button-next",
+            }
+        })
+    
+        new Swiper(".certificates-section__swiper", {
+            spaceBetween: 10,
+            slidesPerView: "auto",
+            breakpoints: {
+                577: {
+                    spaceBetween: 20
+                }
+            },
+            navigation: {
+                prevEl: ".certificates-section .swiper-button-prev",
+                nextEl: ".certificates-section .swiper-button-next",
+            }
+        })
+    
+        new Swiper(".projects-section__swiper", {
+            spaceBetween: 10,
+            slidesPerView: "auto",
+            breakpoints: {
+                577: {
+                    spaceBetween: 20
+                }
+            },
+            navigation: {
+                prevEl: ".projects-section .swiper-button-prev",
+                nextEl: ".projects-section .swiper-button-next",
+            }
         })
     }
-    document.querySelector(".form__file-input").addEventListener("change", e => {
-        if (e.target.files[0].size > 100 * 1024 * 1024) {
-            alert("Размер файла не должен превышать 30 MB")
-            return
-        }
-        const parentEl = e.target.closest(".form__file");
-        parentEl.querySelector(".form__file-doc .text").innerHTML = e.target.files[0].name
-        parentEl.classList.add("form__file_attached")
-        parentEl.querySelector(".form__file-doc button").addEventListener("click", () => {
-            e.target.value = "";
-            parentEl.classList.remove("form__file_attached")
-        }, { once: true })
-    })
-
-
-    new Swiper(".specialists-section .swiper", {
-        spaceBetween: 10,
-        slidesPerView: "auto",
-        breakpoints: {
-            577: {
-                spaceBetween: 20,
-                slidesPerView: "auto",
-            }, 
-            820: {
-                slidesPerView: 3
-            },
-            1080: {
-                slidesPerView: 4
-            }
-        },
-        navigation: {
-            prevEl: ".specialists-section .swiper-button-prev",
-            nextEl: ".specialists-section .swiper-button-next",
-        }
-    })
-
-    new Swiper(".press-center-section .swiper", {
-        spaceBetween: 10,
-        slidesPerView: "auto",
-        wathchOverlow: true,
-        breakpoints: {
-            577: {
-                spaceBetween: 20,
-            }, 
-        },
-        navigation: {
-            prevEl: ".press-center-section .swiper-button-prev",
-            nextEl: ".press-center-section .swiper-button-next",
-        }
-    })
-
-    new Swiper(".reviews-section .swiper", {
-        spaceBetween: 10,
-        slidesPerView: "auto",
-        breakpoints: {
-            577: {
-                spaceBetween: 20
-            }
-        },
-        navigation: {
-            prevEl: ".reviews-section .swiper-button-prev",
-            nextEl: ".reviews-section .swiper-button-next",
-        }
-    })
-
-    new Swiper(".certificates-section__swiper", {
-        spaceBetween: 10,
-        slidesPerView: "auto",
-        breakpoints: {
-            577: {
-                spaceBetween: 20
-            }
-        },
-        navigation: {
-            prevEl: ".certificates-section .swiper-button-prev",
-            nextEl: ".certificates-section .swiper-button-next",
-        }
-    })
-
-    new Swiper(".projects-section__swiper", {
-        spaceBetween: 10,
-        slidesPerView: "auto",
-        breakpoints: {
-            577: {
-                spaceBetween: 20
-            }
-        },
-        navigation: {
-            prevEl: ".projects-section .swiper-button-prev",
-            nextEl: ".projects-section .swiper-button-next",
-        }
-    })
 
 
     // reviews & seo text
@@ -620,28 +643,6 @@ window.onload = function() {
         filterPanelEl.querySelector(".filter-panel__item_active")?.classList.remove("filter-panel__item_active")
         filterItemEl.classList.add("filter-panel__item_active")
     })
-
-    // similiar projects 
-
-    // masonry 
-    // let masonry;
-
-    // function initMasonryLayout(e) {
-    //     if (e.matches) {
-    //         masonry?.destroy()
-    //     } else {
-    //         masonry = new Masonry(".services-section__grid", {
-    //             itemSelector: '.services-block',
-    //             gutter: 20,
-    //             horizontalOrder: true,
-    //         });
-    //     }
-    // }
-
-    // if (document.querySelector(".services-section__grid")) {
-    //     gapMediaQuery.addEventListener("change", initMasonryLayout)
-    //     initMasonryLayout(gapMediaQuery)
-    // }
 
     if (document.querySelector("[data-fancybox]")) {
         Fancybox.bind("[data-fancybox]", {

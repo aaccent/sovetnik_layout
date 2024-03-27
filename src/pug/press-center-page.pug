@@ -2,7 +2,6 @@ extends templates/layout
 
 block head
     title Пресс-центр
-    link(rel="stylesheet", href="css/libs/swiper-bundle.min.css")
     link(rel="stylesheet", href="css/press-center-page.min.css")
 block content 
     .page
@@ -13,7 +12,7 @@ block content
                     span Назад
                 ol.page__breadcrumbs.breadcrumbs
                     li.breadcrumbs__item 
-                        a.breadcrumbs__link(href="/") Главная
+                        a.breadcrumbs__link(href="./") Главная
                     li.breadcrumbs__item 
                         a.breadcrumbs__link(href="#") Пресс-центр 
         .page__header
@@ -141,5 +140,3 @@ block content
                                     | сознания способствует повышению актуальности системы масштабного изменения ряда параметров!
                     a.news-section__more.button.button_primary(href="#") Показать еще
         include ./includes/contacts-section
-block append scripts 
-    script(src="js/index.min.js") 

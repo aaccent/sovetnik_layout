@@ -84,9 +84,20 @@
         display: flex;
         align-items: baseline;
         gap: 0.5rem;
+        cursor: pointer;
         position: relative;
         @media screen and (min-width: 1080px) {
             @include ishover {
+                .header__menu-arrow {
+                    transform: rotate(-180deg);
+                }
+                .header__submenu {
+                    pointer-events: auto;
+                    opacity: 1;
+                    transform: translate(0, 0);
+                }
+            }
+            &_hover {
                 .header__menu-arrow {
                     transform: rotate(-180deg);
                 }
@@ -115,9 +126,11 @@
         transition: transform 0.2s ease 0s, color 0.2s ease 0s;
     }
     &__menu-link, &__menu-arrow {
+        position: relative;
         z-index: 2;
     }
     &__submenu {
+        cursor: auto;
         @media screen and (min-width: 1081px) {
             pointer-events: none;
             position: absolute;
@@ -127,7 +140,7 @@
             min-width: 22.5rem;
             transform: translate(0, -1.5rem);
             transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
-            z-index: 3;
+            z-index: 3; //3;
             &__back-button {
                 display: none;
             }
@@ -326,6 +339,9 @@
                 transform: translate(0, 0) !important;
             }
             &_submenu-open {
+                .header__menu-item {
+                    cursor: auto;
+                }
                 .header__submenu {
                     transform: translate(0, 0);
                 }
@@ -368,6 +384,7 @@
             z-index: 5;
         }
         &__submenu-back-button {
+            color: $black;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -375,6 +392,10 @@
             margin: 0 0 2.5rem;
             font-size: 2rem;
             font-weight: 500;
+            transition: color 0.2s ease 0s;
+            @include ishover {
+                color: $turquoise;
+            }
         }
         &__burger {
             display: block;
@@ -630,6 +651,10 @@
             font-size: 2rem;
             font-weight: 500;
             opacity: 1;
+            transition: color 0.2s ease 0s;
+            @include ishover {
+                color: $turquoise;
+            }
         }
     }
     @include gap {
