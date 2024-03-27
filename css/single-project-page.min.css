@@ -1296,6 +1296,7 @@ img {
     -ms-flex-align: baseline;
     align-items: baseline;
     gap: .5rem;
+    cursor: pointer;
     position: relative
 }
 
@@ -1321,7 +1322,12 @@ img {
 }
 
 .header__menu-arrow,.header__menu-link {
+    position: relative;
     z-index: 2
+}
+
+.header__submenu {
+    cursor: auto
 }
 
 .header__actions {
@@ -2111,6 +2117,14 @@ table td {
 }
 
 @media (min-width:768px) {
+    table tr:first-child td:first-child {
+        border-top-left-radius: .625rem
+    }
+
+    table tr:last-child td:first-child {
+        border-bottom-left-radius: .625rem
+    }
+
     table td:first-child {
         background-color: #e9f1f1;
         font-family: Montserrat,sans-serif;
@@ -2138,6 +2152,22 @@ table td {
     }
 
     .header__menu-item:hover .header__submenu {
+        pointer-events: auto;
+        opacity: 1;
+        -webkit-transform: translate(0,0);
+        -ms-transform: translate(0,0);
+        transform: translate(0,0)
+    }
+}
+
+@media screen and (min-width:1080px) {
+    .header__menu-item_hover .header__menu-arrow {
+        -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        transform: rotate(-180deg)
+    }
+
+    .header__menu-item_hover .header__submenu {
         pointer-events: auto;
         opacity: 1;
         -webkit-transform: translate(0,0);
@@ -2272,6 +2302,10 @@ table td {
         transform: translate(0,0)!important
     }
 
+    .header__menu_submenu-open .header__menu-item {
+        cursor: auto
+    }
+
     .header__menu_submenu-open .header__submenu {
         -webkit-transform: translate(0,0);
         -ms-transform: translate(0,0);
@@ -2338,6 +2372,7 @@ table td {
     }
 
     .header__submenu-back-button {
+        color: #303030;
         cursor: pointer;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -2348,7 +2383,10 @@ table td {
         gap: 1rem;
         margin: 0 0 2.5rem;
         font-size: 2rem;
-        font-weight: 500
+        font-weight: 500;
+        -webkit-transition: color .2s ease 0s;
+        -o-transition: color .2s ease 0s;
+        transition: color .2s ease 0s
     }
 
     .header__burger {
@@ -2371,7 +2409,10 @@ table td {
         color: inherit;
         font-size: 2rem;
         font-weight: 500;
-        opacity: 1
+        opacity: 1;
+        -webkit-transition: color .2s ease 0s;
+        -o-transition: color .2s ease 0s;
+        transition: color .2s ease 0s
     }
 
     .contact-section__inner-wrapper {
@@ -2402,6 +2443,16 @@ table td {
         -ms-flex-preferred-size: auto;
         flex-basis: auto;
         height: 34.375rem
+    }
+}
+
+@media screen and (max-width:1080px) and (any-hover:hover) {
+    .header__submenu-back-button:hover {
+        color: #06b3a5
+    }
+
+    .submenu__link:hover {
+        color: #06b3a5
     }
 }
 
@@ -2481,6 +2532,11 @@ table td {
 
     table td {
         width: 100%
+    }
+
+    table td:first-child {
+        border-top-left-radius: .625rem;
+        border-top-right-radius: .625rem
     }
 
     table tr:nth-child(2n+1) td {
@@ -3527,6 +3583,14 @@ table td {
 
 }
 
+ @media screen and (min-width:1080px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
  @media screen and (min-width:1081px){
 
 @supports (-webkit-appearance:none){
@@ -3552,6 +3616,14 @@ table td {
 }
 
  @media screen and (max-width:1080px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media screen and (max-width:1080px) and (any-hover:hover){
 
 @supports (-webkit-appearance:none){
 
