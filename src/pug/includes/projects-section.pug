@@ -25,10 +25,11 @@ mixin project(isProject)
                                             .project__desc.text.text_16 
                                                     | Обращалась к юристам на Пушкина по вопросу банкротства, все подробно объяснили. Сама процедура заняла полгода и недавно все благополучно
                                                     | завершилось. Дело вела юрист Алла. Благодарю Федеральное Юридическое Бюро за помощь в решении моих финансовых проблем. Бюро за помощь в решении моих финансовых проблем.
-                        a.projects-section__button.button.button_primary(href="projects-page.html") #[span Показать все]
                                 else
                                     a.projects-section__project.project(href="single-service-page.html")
                                         .project__img 
                                             img(src="images/single-project.png", alt="")
                                         .project__content 
                                             .project__name Подуслуга   
+                    if(isProject)       
+                        a.projects-section__button.button.button_primary(href="projects-page.html") #[span Показать все]
