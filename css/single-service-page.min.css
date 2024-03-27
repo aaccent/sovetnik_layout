@@ -1962,6 +1962,10 @@ img {
     color: #fff
 }
 
+.projects-section:has(+.in-numbers) {
+    margin-top: calc(20px + 80 * (100vw - 576px)/ 1024)
+}
+
 .projects-section__project {
     display: block
 }
