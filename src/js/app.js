@@ -627,7 +627,8 @@ window.onload = function() {
 
     // filter panel
 
-    const filterPanelEl = document.querySelector(".filter-panel")
+    const filterPanelEl = document.querySelector(".filter-panel");
+    const filterItemElAll = filterPanelEl.querySelector(".filter-panel__item[data-value='all']");
 
     filterPanelEl?.addEventListener("click", e => {
         const filterItemEl = e.target.closest(".filter-panel__item");
@@ -635,13 +636,29 @@ window.onload = function() {
             return
         }
 
+       if (filterItemEl === filterItemElAll && filterItemElAll.classList.contains("filter-panel__item_active")) {
+           return;
+       }
+
+       if (filterItemEl === filterItemElAll) {
+           filterPanelEl.querySelectorAll('.filter-panel__item_active')
+               .forEach(item => item.classList.remove('filter-panel__item_active'));
+           filterItemElAll.classList.add('filter-panel__item_active')
+           return;
+       }
+
         if (filterItemEl.classList.contains("filter-panel__item_active")) {
-            filterItemEl.classList.remove("filter-panel__item_active")
-            return
+            filterItemEl.classList.remove("filter-panel__item_active");
+            const noActiveFilter = !filterPanelEl.querySelector('.filter-panel__item_active')
+
+            if (noActiveFilter) {
+                filterItemElAll.classList.add('filter-panel__item_active');
+            }
+            return;
         }
 
-        filterPanelEl.querySelector(".filter-panel__item_active")?.classList.remove("filter-panel__item_active")
-        filterItemEl.classList.add("filter-panel__item_active")
+        filterItemElAll.classList.remove('filter-panel__item_active');
+        filterItemEl.classList.add("filter-panel__item_active");
     })
 
     if (document.querySelector("[data-fancybox]")) {

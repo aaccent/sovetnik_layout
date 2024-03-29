@@ -113,7 +113,11 @@ img {
         }
     }
     &__header {
-        margin: 0 0 3.375rem
+        margin: 0 0 3.375rem;
+
+        &:has(+.services-section) {
+            margin-bottom: 2.625rem;
+        }
     }
     &__title {
         @include desk_title_hero;
