@@ -232,6 +232,10 @@ img {
     margin: 0 0 3.375rem
 }
 
+.page__header:has(+.services-section) {
+    margin-bottom: 2.625rem
+}
+
 .page__title {
     font-family: Montserrat,sans-serif;
     font-size: 3.75rem;
@@ -675,6 +679,14 @@ img {
     color: #06b3a5
 }
 
+.swiper-button-next:hover,.swiper-button-prev:hover {
+    color: #497471
+}
+
+.swiper-button-next:active,.swiper-button-prev:active {
+    color: #06b3a5
+}
+
 .popup {
     background-color: rgba(0,0,0,.9);
     position: fixed;
@@ -1058,6 +1070,10 @@ img {
     font-weight: 400;
     line-height: 1.625rem;
     text-transform: lowercase
+}
+
+.form__file-label:active {
+    background-color: rgba(255,255,255,.2)
 }
 
 .form__file-doc {
