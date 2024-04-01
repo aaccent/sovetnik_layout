@@ -32,3 +32,11 @@
         }
     }
  }
+
+ .swiper-button-next:hover, .swiper-button-prev:hover {
+     color: #497471;
+ }
+
+ .swiper-button-next:active, .swiper-button-prev:active {
+     color: $turquoise;
+ }

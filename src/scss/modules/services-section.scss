@@ -33,6 +33,14 @@
     color: $white;
     padding: 2.125rem;
     @include adaptive-value(padding, 18, 34, 576, $max-width);
+
+    &:hover {
+        .icon {
+            background-color: rgba($color: #E3E3E3, $alpha: 0.4);
+            transform: rotate(90deg);
+            transition: transform .3s;
+        }
+    }
     &__name {
         font-family: "Montserrat", "sans-serif";
         font-size: 2.25rem;
@@ -70,6 +78,7 @@
         @include adaptive-value(--side, 52, 76, 576, $max-width);
         width: var(--side, 4.75rem);
         height: var(--side, 4.75rem);
+        transition: transform .5s;
     }
     &_primary {
         background-color: $turquoise;

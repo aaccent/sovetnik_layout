@@ -188,6 +188,10 @@
         @include ishover {
             background-color: rgba($color: #FFFFFF, $alpha: 0.15);
         }
+
+        &:active {
+            background-color: rgba($color: #FFFFFF, $alpha: .2);
+        }
     }
     &__file-doc {
         cursor: auto;
