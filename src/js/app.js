@@ -1,24 +1,24 @@
-window.onload = function() {
+window.onload = function () {
     const isMobile = {
-        Android: function() {
+        Android: function () {
             return navigator.userAgent.match(/Android/i);
         },
-        BlackBerry: function() {
+        BlackBerry: function () {
             return navigator.userAgent.match(/BlackBerry/i);
         },
-        iOS: function() {
+        iOS: function () {
             return navigator.userAgent.match(/iPhone|iPad|iPod/i);
         },
-        Opera: function() {
+        Opera: function () {
             return navigator.userAgent.match(/Opera Mini/i);
         },
-        Windows: function() {
+        Windows: function () {
             return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
         },
-        any: function() {
+        any: function () {
             return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
         }
-    }; 
+    };
 
     function documentActions(e) {
         if (!e.target.closest(".header__main .header__menu")) {
@@ -34,7 +34,7 @@ window.onload = function() {
         document.body.classList.add("_lock")
     }
 
-    function unlockBody () {
+    function unlockBody() {
         // if (lockPaddingElements) {
         //     lockPaddingElements.style.paddingRight = ""
         // }
@@ -54,9 +54,9 @@ window.onload = function() {
         let popup = document.querySelector(".popup_open")
 
         popup.classList.remove("popup_open");
-        popup.addEventListener("transitionend", () =>  {
+        popup.addEventListener("transitionend", () => {
             if (!document.querySelector(".header__burger_open") && !headerEl.classList.contains("header_menu-open")) {
-                unlockBody() 
+                unlockBody()
             }
 
             if (popup.querySelector(".form-block_sent")) {
@@ -70,12 +70,12 @@ window.onload = function() {
         }, {once: true})
     }
 
-    function validateForm(form) {    
+    function validateForm(form) {
         const reqFiedls = form.querySelectorAll("[class$='input_required']")
-    
+
         function changeContentPage(form) {
             const formBlockEl = form.closest(".form-block__body");
-            
+
             formBlockEl.style.opacity = "0"
             if (formBlockEl.closest(".popup")) {
                 formBlockEl.closest(".popup").classList.add("popup_white")
@@ -83,9 +83,9 @@ window.onload = function() {
             formBlockEl.addEventListener("transitionend", () => {
                 form.closest(".form-block").classList.add("form-block_sent")
                 formBlockEl.style.opacity = "1"
-            }, { once: true })
+            }, {once: true})
         }
-    
+
         let errors = 0;
         for (let i = 0; i < reqFiedls.length; i++) {
             if (reqFiedls[i].getAttribute("name") === "name") {
@@ -108,7 +108,7 @@ window.onload = function() {
                 }
             }
         }
-    
+
         if (errors) {
             console.log("Fill req fields");
         } else {
@@ -120,7 +120,7 @@ window.onload = function() {
             }, 200)
         }
     }
-    
+
     function resetForm(form) {
         form.reset();
         form.classList.remove("form_sending")
@@ -146,20 +146,20 @@ window.onload = function() {
         if (!targetEl.closest(".header__menu-item") || targetEl.closest(".submenu__item")) {
             return
         }
-        
+
         let hasSubmenu = targetEl.closest(".header__menu-item").childElementCount === 3
 
         if (!hasSubmenu) {
             return
         }
-        
+
         if (targetEl.closest(".header__submenu-back-button")) {
             menuEl.classList.remove("header__menu_submenu-open")
             return
         }
-        
+
         e.preventDefault();
-        
+
         if (window.innerWidth >= 1080 && isMobile.any()) {
             let activeMenuItem = document.querySelector(".header__menu-item_hover");
             let menuItemEl = targetEl.closest(".header__menu-item");
@@ -171,13 +171,13 @@ window.onload = function() {
                 menuItemEl.classList.add("header__menu-item_hover")
             }
         }
-        
+
         if (window.innerWidth < 1080) {
             menuEl.classList.add("header__menu_submenu-open")
         }
     })
 
-    const tabletMediaQuery = window.matchMedia("(max-width: 1080px)") 
+    const tabletMediaQuery = window.matchMedia("(max-width: 1080px)")
     const gapMediaQuery = window.matchMedia("(max-width: 768px)")
     const phoneMediaQuery = window.matchMedia("(max-width: 576px)")
 
@@ -233,11 +233,11 @@ window.onload = function() {
     tabletMediaQuery.addEventListener("change", replaceFooterMenu)
     gapMediaQuery.addEventListener("change", replaceButton)
     phoneMediaQuery.addEventListener("change", redrawMenu)
-    
+
     replaceButton(gapMediaQuery)
     redrawMenu(phoneMediaQuery)
     replaceFooterMenu(tabletMediaQuery)
-    
+
     burgerMenuEl.addEventListener("click", () => {
         if (burgerMenuEl.classList.contains("header__burger_open")) {
             document.querySelectorAll(".header__menu-item_open")
@@ -247,7 +247,7 @@ window.onload = function() {
             unlockBody()
         } else {
             lockBody()
-            window.scrollTo(0,0 )
+            window.scrollTo(0, 0)
         }
 
         if (window.innerWidth <= 576) {
@@ -317,7 +317,7 @@ window.onload = function() {
 
     inputEls.forEach(inputEl => {
         let inputControlEl = inputEl.closest("." + inputControlClass)
-    
+
         // ввод
         if (!inputControlEl) {
             inputEl.addEventListener("change", () => {
@@ -354,9 +354,9 @@ window.onload = function() {
         parentEl.querySelector(".form__file-doc button").addEventListener("click", () => {
             e.target.value = "";
             parentEl.classList.remove("form__file_attached")
-        }, { once: true })
+        }, {once: true})
     })
-    
+
     for (let i = 0; i < document.forms.length; i++) {
         document.forms[i].addEventListener("submit", e => {
             e.preventDefault();
@@ -371,10 +371,10 @@ window.onload = function() {
                 e.preventDefault();
                 return;
             }
-    
+
             switch (length) {
-                case 0: 
-                    e.target.value = "+7 " ;
+                case 0:
+                    e.target.value = "+7 ";
                     break;
                 case 6:
                     e.target.value += " ";
@@ -387,7 +387,9 @@ window.onload = function() {
                     break;
             }
         })
-        inputElement.addEventListener("input", e => {e.target.value.length === 3 && (e.target.value = "")})
+        inputElement.addEventListener("input", e => {
+            e.target.value.length === 3 && (e.target.value = "")
+        })
     })
 
     if (window.Swiper) {
@@ -398,7 +400,7 @@ window.onload = function() {
                 577: {
                     spaceBetween: 20,
                     slidesPerView: "auto",
-                }, 
+                },
                 820: {
                     slidesPerView: 3
                 },
@@ -411,7 +413,7 @@ window.onload = function() {
                 nextEl: ".specialists-section .swiper-button-next",
             }
         })
-    
+
         new Swiper(".press-center-section .swiper", {
             spaceBetween: 10,
             slidesPerView: "auto",
@@ -419,14 +421,14 @@ window.onload = function() {
             breakpoints: {
                 577: {
                     spaceBetween: 20,
-                }, 
+                },
             },
             navigation: {
                 prevEl: ".press-center-section .swiper-button-prev",
                 nextEl: ".press-center-section .swiper-button-next",
             }
         })
-    
+
         new Swiper(".reviews-section .swiper", {
             spaceBetween: 10,
             slidesPerView: "auto",
@@ -440,7 +442,7 @@ window.onload = function() {
                 nextEl: ".reviews-section .swiper-button-next",
             }
         })
-    
+
         new Swiper(".certificates-section__swiper", {
             spaceBetween: 10,
             slidesPerView: "auto",
@@ -454,7 +456,7 @@ window.onload = function() {
                 nextEl: ".certificates-section .swiper-button-next",
             }
         })
-    
+
         new Swiper(".projects-section__swiper", {
             spaceBetween: 10,
             slidesPerView: "auto",
@@ -476,6 +478,25 @@ window.onload = function() {
     const seoContentEl = document.querySelector(".seo-content")
     const maxHeights = {};
 
+    const target = document.querySelector('.reviews-section__grid');
+    const callback = (mutationList) => {
+        for (const mutation of mutationList) {
+            if (mutation.target !== target || !mutation.addedNodes.length) return
+
+            mutation.addedNodes.forEach(node => {
+                const review = node.querySelector('.review');
+                checkElemHeight(review, maxHeights.review);
+                review.querySelector(".review__more").addEventListener("click", () => changeElemHeight(review));
+            })
+        }
+    };
+
+    const observer = new MutationObserver(callback);
+    if (target) {
+        observer.observe(target, { childList: true });
+    }
+
+
     if (reviewItemEls.length) {
         maxHeights.review = parseFloat(getComputedStyle(document.querySelector(".review__text")).maxHeight)
     }
@@ -483,7 +504,6 @@ window.onload = function() {
     if (seoContentEl) {
         maxHeights.seo = parseFloat(getComputedStyle(document.querySelector(".seo-content__text")).maxHeight)
     }
-
 
     function changeElemHeight(elem) {
         const buttonTextEl = elem.querySelector("span")
@@ -501,7 +521,7 @@ window.onload = function() {
         const className = elem.classList[0];
         const textEl = elem.querySelector("." + className + "__text");
         const readMoreEl = elem.querySelector("." + className + "__more")
-        
+
         if (textEl.offsetHeight < textEl.scrollHeight) {
             !elem.classList.contains(className + "_hide") && elem.classList.add(className + "_hide")
         } else {
@@ -511,18 +531,18 @@ window.onload = function() {
                 elem.className = className
                 readMoreEl.querySelector("span").innerHTML = "Читать далее"
             }
-        } 
+        }
     }
 
     reviewItemEls.forEach(reviewItemEl => {
         checkElemHeight(reviewItemEl, maxHeights.review);
-        reviewItemEl.querySelector(".review__more").addEventListener("click", () => changeElemHeight(reviewItemEl))
+        reviewItemEl.querySelector(".review__more").addEventListener("click", () => changeElemHeight(reviewItemEl));
     })
 
 
     if (reviewItemEls.length) {
         window.addEventListener("resize", () => {
-            reviewItemEls.forEach(reviewItemEl => checkElemHeight(reviewItemEl, maxHeights.review))
+            reviewItemEls.forEach(reviewItemEl => checkElemHeight(reviewItemEl, maxHeights.review));
         })
     }
 
@@ -537,7 +557,7 @@ window.onload = function() {
     function init(mapContainerSelector) {
         function setMapPin() {
             let myCollection = new ymaps.GeoObjectCollection();
-            let coords = mapEl?.dataset.mark?.split(',').map(Number) || [55.7954692462696,49.10686513125719];
+            let coords = mapEl?.dataset.mark?.split(',').map(Number) || [55.7954692462696, 49.10686513125719];
             // создание и установка пинов
             myCollection.add(new ymaps.Placemark(coords, {
                 iconLayout: "default#image",
@@ -548,40 +568,42 @@ window.onload = function() {
             map.geoObjects.add(myCollection);
         }
 
-        async function getCoords () {
+        async function getCoords() {
             setTimeout(() => {
                 setMapPin()
             }, 2000)
         }
-        
+
         let mapEl = document.getElementById(mapContainerSelector);
-        let center = mapEl?.dataset.center?.split(',').map(Number) || [55.79551291555022,49.10679244528347];
+        let center = mapEl?.dataset.center?.split(',').map(Number) || [55.79551291555022, 49.10679244528347];
 
         // создание карты
         let map = new ymaps.Map(mapContainerSelector, {
             center,
             controls: [],
             zoom: 14,
-        }, {  autoFitToViewport: 'always' })
-        
+        }, {autoFitToViewport: 'always'})
+
         let imagesSrc = mapEl.dataset
-        
+
         getCoords()
-        
+
         // zoom ctrl + mouse wheel
         let ctrlKey = false
         let body = document.getElementsByTagName('body')[0];
         map.behaviors.disable(['scrollZoom', 'drag']);
         body.onkeydown = callbackDown;
         body.onkeyup = callbackUp;
-        function callbackDown(e){
-            if(e.keyCode === 17 && !ctrlKey){
+
+        function callbackDown(e) {
+            if (e.keyCode === 17 && !ctrlKey) {
                 ctrlKey = true
                 map.behaviors.enable(['scrollZoom']);
             }
         }
-        function callbackUp(e){
-            if(e.keyCode === 17){
+
+        function callbackUp(e) {
+            if (e.keyCode === 17) {
                 ctrlKey = false
                 map.behaviors.disable(['scrollZoom']);
             }
@@ -620,7 +642,7 @@ window.onload = function() {
                         return
                     }
                     faqItemBodyEl.style.height = "auto"
-                }, { once: true })
+                }, {once: true})
             }
         })
     })
@@ -628,7 +650,7 @@ window.onload = function() {
     // filter panel
 
     const filterPanelEl = document.querySelector(".filter-panel");
-    const filterItemElAll = filterPanelEl.querySelector(".filter-panel__item[data-value='all']");
+    const filterItemElAll = document.querySelector(".filter-panel__item[data-value='all']");
 
     filterPanelEl?.addEventListener("click", e => {
         const filterItemEl = e.target.closest(".filter-panel__item");
@@ -636,16 +658,16 @@ window.onload = function() {
             return
         }
 
-       if (filterItemEl === filterItemElAll && filterItemElAll.classList.contains("filter-panel__item_active")) {
-           return;
-       }
+        if (filterItemEl === filterItemElAll && filterItemElAll.classList.contains("filter-panel__item_active")) {
+            return;
+        }
 
-       if (filterItemEl === filterItemElAll) {
-           filterPanelEl.querySelectorAll('.filter-panel__item_active')
-               .forEach(item => item.classList.remove('filter-panel__item_active'));
-           filterItemElAll.classList.add('filter-panel__item_active')
-           return;
-       }
+        if (filterItemEl === filterItemElAll) {
+            filterPanelEl.querySelectorAll('.filter-panel__item_active')
+                .forEach(item => item.classList.remove('filter-panel__item_active'));
+            filterItemElAll.classList.add('filter-panel__item_active')
+            return;
+        }
 
         if (filterItemEl.classList.contains("filter-panel__item_active")) {
             filterItemEl.classList.remove("filter-panel__item_active");
@@ -678,10 +700,10 @@ window.onload = function() {
         const activeCategoryClassName = "prices-section__category_active"
         pricesNavEl.addEventListener("click", e => {
             const categoryButton = e.target.closest(".prices-section__category-button");
-    
+
             pricesNavEl.querySelector(".prices-section__category-button_active").classList.remove("prices-section__category-button_active")
             categoryButton.classList.add("prices-section__category-button_active")
-    
+
             servicesCategoriesEl.style.opacity = 0;
             servicesCategoriesEl.addEventListener("transitionend", () => {
                 servicesCategoriesEl.querySelector("." + activeCategoryClassName).classList.remove(activeCategoryClassName)
@@ -689,7 +711,7 @@ window.onload = function() {
                 servicesCategoriesEl
                     .querySelector("[data-category='" + categoryButton.dataset.category + "']")
                     .classList.add(activeCategoryClassName)
-            }, { once: true })
+            }, {once: true})
         })
 
         let scroll = new LocomotiveScroll()
@@ -701,16 +723,16 @@ window.onload = function() {
                 if (!buttonEl) {
                     return
                 }
-    
+
                 const textareaEl = formBlockEl.querySelector("textarea")
                 const formControlEl = textareaEl.closest(".form__control")
                 const serviceName = buttonEl.closest(".service").querySelector(".service__name").innerHTML
-    
+
                 textareaEl.value = serviceName
                 formControlEl.classList.add("form__control_filled")
                 formBlockEl.querySelector("input[type='hidden']").value = buttonEl.dataset["serviceName"]
-                scroll.scrollTo(formBlockEl)            
-            })  
+                scroll.scrollTo(formBlockEl)
+            })
         })
     }
 

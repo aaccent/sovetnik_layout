@@ -16,7 +16,7 @@
 @import "modules/header.scss";
 
 .services-section {
-    margin-bottom: -1.25rem;
+    margin-bottom: 9.4rem;
     &__grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -48,7 +48,7 @@
         }
     }
     @include phone {
-        margin-bottom: 0;
+        margin-bottom: 4.4rem;
         &__block {
             &:not(:last-child) {
                 margin-bottom: 0.625rem;
