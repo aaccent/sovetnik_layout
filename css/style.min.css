@@ -2060,12 +2060,24 @@ img {
     margin: 4.375rem 0 0
 }
 
+.specialists-section .swiper-slide {
+    height: auto
+}
+
 .specialist {
     background-color: #fff;
     border-radius: .5rem;
     -webkit-box-shadow: 0 .25rem .4375rem 0 rgba(48,48,48,.04);
     box-shadow: 0 .25rem .4375rem 0 rgba(48,48,48,.04);
-    overflow: hidden
+    overflow: hidden;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
 }
 
 .specialist picture {
@@ -2086,7 +2098,15 @@ img {
 }
 
 .specialist__desc {
-    padding: 1.625rem
+    padding: 1.625rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%
 }
 
 .specialist__name {
