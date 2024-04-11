@@ -1,20 +1,20 @@
-@import "base/_vars.scss";
-@import "base/_fonts.scss";
-@import "base/_icons.scss";
-@import "mixins/breakpoints.scss";
-@import "mixins/fonts.scss";
-@import "mixins/media.scss";
-@import "base.scss";
+@import "../base/vars";
+@import "../base/fonts";
+@import "../base/icons";
+@import "../mixins/breakpoints";
+@import "../mixins/fonts";
+@import "../mixins/media";
+@import "base";
 
 // components
-@import "components/breadcrumbs";
-@import "components/button";
-@import "components/popup";
-@import "components/form";
+@import "../components/breadcrumbs";
+@import "../components/button";
+@import "../components/popup";
+@import "../components/form";
 
 
 // modules
-@import "modules/header.scss";
+@import "../modules/header";
 .section {
     &__body {
         & > .text-block {
@@ -46,7 +46,7 @@
     }
 }
 
-@import "modules/in-numbers.scss";
-@import "modules/why-section.scss";
-@import "modules/contacts-section.scss";
-@import "modules/footer.scss";
+@import "../modules/in-numbers";
+@import "../modules/why-section";
+@import "../modules/contacts-section";
+@import "../modules/footer";

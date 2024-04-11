@@ -1,21 +1,21 @@
-@import "base/_vars.scss";
-@import "base/_fonts.scss";
-@import "base/_icons.scss";
-@import "mixins/breakpoints.scss";
-@import "mixins/fonts.scss";
-@import "mixins/media.scss";
-@import "base.scss";
+@import "../base/vars";
+@import "../base/fonts";
+@import "../base/icons";
+@import "../mixins/breakpoints";
+@import "../mixins/fonts";
+@import "../mixins/media";
+@import "base";
 
 // components
-@import "components/breadcrumbs";
-@import "components/button";
-@import "components/popup";
-@import "components/form";
-@import "components/news";
-@import "components/review";
+@import "../components/breadcrumbs";
+@import "../components/button";
+@import "../components/popup";
+@import "../components/form";
+@import "../components/news";
+@import "../components/review";
 
 // modules
-@import "modules/header.scss";
+@import "../modules/header";
 
 .about-company-section {
     &__title {
@@ -56,15 +56,15 @@
         }
     }
 }
-@import "modules/hero-section.scss";
-@import "modules/in-numbers.scss";
-@import "modules/why-section.scss";
-@import "modules/services-section.scss";
-@import "modules/about-section.scss";
-@import "modules/specialist-section.scss";
-@import "modules/press-center-section.scss";
-@import "modules/reviews-section.scss";
-@import "modules/seo-section.scss";
+@import "../modules/hero-section";
+@import "../modules/in-numbers";
+@import "../modules/why-section";
+@import "../modules/services-section";
+@import "../modules/about-section";
+@import "../modules/specialist-section";
+@import "../modules/press-center-section";
+@import "../modules/reviews-section";
+@import "../modules/seo-section";
 
 .certificates-section {
     .swiper-slide {
@@ -109,6 +109,6 @@
     }
 }
 
-@import "modules/contacts-section.scss";
+@import "../modules/contacts-section";
 
-@import "modules/footer.scss";
+@import "../modules/footer";

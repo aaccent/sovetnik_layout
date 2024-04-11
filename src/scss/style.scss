@@ -4,7 +4,7 @@
 @import "mixins/breakpoints.scss";
 @import "mixins/fonts.scss";
 @import "mixins/media.scss";
-@import "base.scss";
+@import "pages/base";
 
 // components
 @import "components/button";
@@ -46,3 +46,15 @@
 @import "modules/contacts-section.scss";
 
 @import "modules/footer.scss";
+
+// Pages
+@import 'pages/single-service-page.scss';
+@import 'pages/typical-page.scss';
+@import 'pages/about-page.scss';
+@import 'pages/contacts-page.scss';
+@import 'pages/press-center-page.scss';
+@import 'pages/prices-page.scss';
+@import 'pages/projects-page.scss';
+@import 'pages/reviews-page.scss';
+@import 'pages/services-page.scss';
+@import 'pages/single-project-page.scss';
