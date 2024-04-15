@@ -70,7 +70,7 @@ window.onload = function () {
         }, {once: true})
     }
 
-    function validateForm(form) {
+    async function validateForm(form) {
         const reqFiedls = form.querySelectorAll("[class$='input_required']")
 
         function changeContentPage(form) {
@@ -112,6 +112,21 @@ window.onload = function () {
         if (errors) {
             console.log("Fill req fields");
         } else {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: JSON.stringify(new FormData(form)),
+            })
+
+            if (!res.ok) {
+                const text = await res.text()
+                try {
+                    console.error('Ошибка при отправке запроса, тело ответа:\n', JSON.parse(text))
+                } catch {
+                    console.error('Ошибка при отправке запроса, тело ответа:\n', text)
+                }
+                return
+            }
+
             form.classList.add("form_sending")
             form.querySelectorAll("input, textarea").forEach(formField => formField.disabled = true)
             setTimeout(() => {
