@@ -1,5 +1,11 @@
-.page__title {
+.page__title:has(+ .page__hero-img) {
+    margin-bottom: 227px;
     max-width: 50.625rem;
+
+    @include tablet {
+        margin-bottom: 0;
+        margin-top: 322px;
+    }
 }
 
 .project-section {

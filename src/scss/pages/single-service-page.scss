@@ -1,4 +1,5 @@
 .page {
+    position: relative;
     &__header {
         .container {
             display: flex;
@@ -11,15 +12,18 @@
         }
     }
     &__hero-img {
-        flex: 0 1 842px;
-        margin-top: calc(-220 / 1540 * 100%);
-        margin-right: -1.25rem;
-        position: relative;
+        position: absolute;
+        right: -130px;
+        top: -70px;
+        max-width: 980px;
+        width: 100%;
+        max-height: 613px;
+        flex-shrink: 0;
         .img {
-            position: relative;
+            display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             z-index: 1;
         }
         .vector, .circle, .ellipse {
@@ -49,24 +53,20 @@
             }
         }
         &__hero-img {
-            flex-basis: auto;
-            align-self: center;
-            margin-top: 0;
-            height: 550px
+            top: 30px;
+            right: initial;
+            left: -20px;
+            height: 340px;
+            width: auto;
+
+            .img {
+                display: block;
+                width: auto;
+            }
         }
     }
     @include gap {
         &__hero-img {
-            padding-top: calc(350 / 390 * 100%);
-            width: calc(100% + 1.25rem);
-            height: 0;
-            .img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                // width: 100%;
-                // height: 100%;
-            }
             .vector {
                 left: 0;
                 width: calc(320 / 350 * 100%)
