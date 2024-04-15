@@ -91,6 +91,63 @@
             }
         }
     }
+
+    .service {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 0.875rem 0;
+        &__desc {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-grow: 1;
+        }
+        &__name {
+            flex: 0 1 31.875rem;
+            font-size: 1.375rem;
+            font-weight: 500;
+            line-height: 1.75rem
+        }
+        &__price, &__button {
+            flex-shrink: 0
+        }
+        &__price {
+            @include base_22;
+        }
+        &:not(:last-child) {
+            border-bottom: 1px solid $border-color
+        }
+        @include gap {
+            gap: 1rem;
+            &__desc {
+                gap: 1rem
+            };
+            &__name {
+                font-weight: 400;
+            }
+        }
+        @include phone {
+            &__desc {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            &__name {
+                flex-basis: auto;
+                font-size: 1rem;
+                line-height: 1.25;
+            }
+            &__price {
+                font-size: 1rem;
+                line-height: 1.375;
+                opacity: 0.8;
+            }
+            &__button {
+                padding: 0.625rem 1.625rem
+            }
+        }
+    }
 }
 
 .category {
@@ -124,62 +181,6 @@
         &__name {
             @include mob_base_20;
             margin-bottom: 1rem;
-        }
-    }
-}
-.service {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-    padding: 0.875rem 0;
-    &__desc {
-        display: flex;
-        justify-content: space-between;
-        gap: 1.5rem;
-        flex-grow: 1;
-    }
-    &__name {
-        flex: 0 1 31.875rem;
-        font-size: 1.375rem;
-        font-weight: 500;
-        line-height: 1.75rem
-    }
-    &__price, &__button {
-        flex-shrink: 0
-    }
-    &__price {
-        @include base_22;
-    }
-    &:not(:last-child) {
-        border-bottom: 1px solid $border-color
-    }
-    @include gap {
-        gap: 1rem;
-        &__desc {
-            gap: 1rem
-        };
-        &__name {
-            font-weight: 400;
-        }
-    }
-    @include phone {
-        &__desc {
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-        &__name {
-            flex-basis: auto;
-            font-size: 1rem;
-            line-height: 1.25;
-        }
-        &__price {
-            font-size: 1rem;
-            line-height: 1.375;
-            opacity: 0.8;
-        }
-        &__button {
-            padding: 0.625rem 1.625rem
         }
     }
 }
