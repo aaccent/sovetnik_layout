@@ -43,7 +43,12 @@
     padding: 0
 }
 
+html {
+    overflow-x: clip;
+}
+
 body {
+    overflow-x: clip;
     background-color: $background-color;
     color: $black;
     font-family: "Inter", "sans-serif";
