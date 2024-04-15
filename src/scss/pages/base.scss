@@ -1,3 +1,38 @@
+@import "../base/_vars.scss";
+@import "../base/_fonts.scss";
+@import "../base/_icons.scss";
+@import "../mixins/breakpoints.scss";
+@import "../mixins/fonts.scss";
+@import "../mixins/media.scss";
+
+// components
+@import "../components/filter-panel";
+@import "../components/breadcrumbs";
+@import "../components/button";
+@import "../components/popup";
+@import "../components/form";
+@import "../components/review";
+@import "../components/project";
+@import "../components/profile";
+@import "../components/news";
+
+// modules
+@import "../modules/header";
+@import "../modules/footer";
+@import "../modules/contacts-section";
+@import "../modules/hero-section";
+@import "../modules/in-numbers";
+@import "../modules/why-section";
+@import "../modules/steps-section";
+@import "../modules/project-section";
+@import "../modules/reviews-section";
+@import "../modules/faq-section";
+@import "../modules/seo-section";
+@import "../modules/services-section";
+@import "../modules/about-section";
+@import "../modules/specialist-section";
+@import "../modules/press-center-section";
+
 :root {
     --init-width: 1600
 }

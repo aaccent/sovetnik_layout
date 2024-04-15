@@ -1,20 +1,3 @@
-@import "../base/vars";
-@import "../base/fonts";
-@import "../base/icons";
-@import "../mixins/breakpoints";
-@import "../mixins/fonts";
-@import "../mixins/media";
-@import "base";
-
-// components
-@import "../components/breadcrumbs";
-@import "../components/button";
-@import "../components/popup";
-@import "../components/form";
-
-// modules
-@import "../modules/header";
-
 .services-section {
     margin-bottom: 9.4rem;
     &__grid {
@@ -121,6 +104,3 @@
         transition: transform .5s;
     }
 }
-
-@import "../modules/contacts-section";
-@import "../modules/footer";

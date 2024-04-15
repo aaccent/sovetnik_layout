@@ -1,18 +1,3 @@
-@import "../base/vars";
-@import "../base/fonts";
-@import "../base/icons";
-@import "../mixins/breakpoints";
-@import "../mixins/fonts";
-@import "../mixins/media";
-@import "base";
-
-// components
-@import "../components/breadcrumbs";
-@import "../components/button";
-@import "../components/popup";
-@import "../components/form";
-@import "../components/project";
-
 
 .filter-panel {
     display: flex;
@@ -80,5 +65,3 @@
         }
     }
 }
-@import "../modules/contacts-section";
-@import "../modules/footer";

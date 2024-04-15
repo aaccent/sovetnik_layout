@@ -1,19 +1,3 @@
-@import "../base/vars";
-@import "../base/fonts";
-@import "../base/icons";
-@import "../mixins/breakpoints";
-@import "../mixins/fonts";
-@import "../mixins/media";
-@import "base";
-
-// components
-@import "../components/breadcrumbs";
-@import "../components/button";
-@import "../components/popup";
-@import "../components/form";
-@import "../components/project";
-@import "../components/review";
-
 .page {
     &__header {
         .container {
@@ -103,16 +87,3 @@
     }
     
 }
-// modules
-@import "../modules/header";
-@import "../modules/hero-section";
-@import "../modules/in-numbers";
-@import "../modules/why-section";
-@import "../modules/steps-section";
-@import "../modules/project-section";
-@import "../modules/reviews-section";
-@import "../modules/faq-section";
-@import "../modules/seo-section";
-@import "../modules/contacts-section";
-
-@import "../modules/footer";

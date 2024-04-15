@@ -1,21 +1,3 @@
-@import "../base/vars";
-@import "../base/fonts";
-@import "../base/icons";
-@import "../mixins/breakpoints";
-@import "../mixins/fonts";
-@import "../mixins/media";
-@import "base";
-
-// components
-@import "../components/breadcrumbs";
-@import "../components/button";
-@import "../components/popup";
-@import "../components/form";
-@import "../components/news";
-@import "../components/filter-panel";
-
-// modules
-@import "../modules/header";
 .news-section {
     &__grid {
         display: flex;
@@ -48,6 +30,3 @@
         }
     }
 }
-
-@import "../modules/contacts-section";
-@import "../modules/footer";

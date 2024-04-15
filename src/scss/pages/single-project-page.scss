@@ -1,22 +1,3 @@
-@import "../base/vars";
-@import "../base/fonts";
-@import "../base/icons";
-@import "../mixins/breakpoints";
-@import "../mixins/fonts";
-@import "../mixins/media";
-@import "base";
-
-// components
-@import "../components/breadcrumbs";
-@import "../components/button";
-@import "../components/popup";
-@import "../components/form";
-@import "../components/profile";
-@import "../components/project";
-
-// modules
-@import "../modules/header";
-
 .page__title {
     max-width: 50.625rem;
 }
@@ -338,8 +319,3 @@ table {
         }
     }
 }
-
-@import "../modules/project-section";
-@import "../modules/contacts-section";
-
-@import "../modules/footer";

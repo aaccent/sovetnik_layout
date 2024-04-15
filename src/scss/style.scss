@@ -1,21 +1,4 @@
-@import "base/_vars.scss";
-@import "base/_fonts.scss";
-@import "base/_icons.scss";
-@import "mixins/breakpoints.scss";
-@import "mixins/fonts.scss";
-@import "mixins/media.scss";
 @import "pages/base";
-
-// components
-@import "components/button";
-@import "components/popup";
-@import "components/form";
-@import "components/profile";
-@import "components/news";
-@import "components/review";
-
-// modules
-@import "modules/header.scss";
 
 .header {
     background-color: #F6F6F6;
@@ -26,7 +9,6 @@
     }
 }
 
-@import "modules/hero-section.scss";
 .hero-section {
     @include phone {
         margin-top: -1.25rem;
@@ -35,17 +17,6 @@
         }
     }
 }
-@import "modules/in-numbers.scss";
-@import "modules/why-section.scss";
-@import "modules/services-section.scss";
-@import "modules/about-section.scss";
-@import "modules/specialist-section.scss";
-@import "modules/press-center-section.scss";
-@import "modules/reviews-section.scss";
-@import "modules/seo-section.scss";
-@import "modules/contacts-section.scss";
-
-@import "modules/footer.scss";
 
 // Pages
 @import 'pages/single-service-page.scss';
