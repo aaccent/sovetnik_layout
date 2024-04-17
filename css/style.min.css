@@ -2054,6 +2054,7 @@
 }
 
 .services-section__list .service {
+    height: 100%;
     border-radius: .5rem;
     display: block;
     color: #fff;
