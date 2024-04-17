@@ -1,3 +1,7 @@
+.header:has(~ .hero-section) {
+    background-color: #f6f6f6;
+}
+
 .header {
     position: relative;
     z-index: 10;
