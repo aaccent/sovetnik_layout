@@ -872,6 +872,10 @@
     margin-top: calc(1em - .25rem)
 }
 
+.header:has(~.hero-section) {
+    background-color: #f6f6f6
+}
+
 .header {
     position: relative;
     z-index: 10
@@ -1682,9 +1686,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 1.25rem;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap
+    gap: 1.25rem
 }
 
 .in-numbers__item {
@@ -3864,10 +3866,6 @@ img {
 }
 
 @media screen and (max-width:1440px) {
-    .in-numbers {
-        max-width: 64rem
-    }
-
     .in-numbers__item {
         -ms-flex-preferred-size: calc(50% - .625rem);
         flex-basis: calc(50% - .625rem)
@@ -4434,6 +4432,11 @@ img {
 
     .in-numbers {
         max-width: 42.5rem
+    }
+
+    .in-numbers__list {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
     }
 
     .in-numbers__item {
