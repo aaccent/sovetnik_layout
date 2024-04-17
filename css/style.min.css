@@ -808,7 +808,8 @@
 .news__img {
     position: relative;
     height: 22.375rem;
-    overflow: hidden
+    overflow: hidden;
+    border-radius: 10px 10px 0 0
 }
 
 .news__img img {
@@ -1679,7 +1680,9 @@
 }
 
 .in-numbers {
-    margin: 4.375rem auto 0
+    background-color: #fbfbfb;
+    padding-top: 4.375rem;
+    margin: 0 auto
 }
 
 .in-numbers__list {
@@ -2153,7 +2156,7 @@
     -ms-flex-pack: end;
     justify-content: flex-end;
     gap: 2.125rem;
-    padding-right: 1.25rem
+    padding-right: 4rem
 }
 
 .about-section__img {
@@ -2393,9 +2396,9 @@ img {
 
 .container {
     margin: 0 auto;
-    padding: 0 1.25rem;
+    padding: 0 4rem;
     width: 100%;
-    max-width: 1480px
+    max-width: calc(1480px + 8rem)
 }
 
 .section {
@@ -3857,6 +3860,7 @@ img {
 
 @media screen and (min-width:1480px) {
     .about-section__body {
+        padding-right: 1.25rem;
         margin-right: calc((100% - 1480px)/ 2)
     }
 
@@ -3959,6 +3963,17 @@ img {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between
+    }
+}
+
+@media only screen and (max-width:1100px) {
+    .about-section__body {
+        padding-right: 1.25rem
+    }
+
+    .container {
+        padding: 0 1.25rem;
+        max-width: calc(1480px + 2.5rem)
     }
 }
 
@@ -6361,6 +6376,14 @@ img {
 }
 
  @media screen and (max-width:1140px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media only screen and (max-width:1100px){
 
 @supports (-webkit-appearance:none){
 
