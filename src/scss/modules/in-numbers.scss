@@ -3,19 +3,20 @@
     &__list {
         display: flex;
         gap: 1.25rem;
-        flex-wrap: wrap;
     }
     &__item {
         flex-basis: calc((100% - 3.75rem) / 4) ;
     }
     @media screen and (max-width: 1440px) {
-        max-width: 64rem;
         &__item {
             flex-basis: calc(50% - 0.625rem);
         }
     }
     @include gap {
         max-width: 42.5rem;
+        &__list {
+            flex-wrap: wrap;
+        }
         &__item {
             flex-basis: 100%;
         }
