@@ -1,13 +1,5 @@
 @import "pages/base";
 
-.header {
-    @media screen and (max-width: 1080px) {
-        &:before, &__menu, &__submenu {
-            background-color: #F6F6F6
-        }
-    }
-}
-
 .hero-section {
     @include phone {
         margin-top: -1.25rem;

@@ -314,7 +314,6 @@
     }
     @media screen and (max-width: 1080px) {
         &:before {
-            background-color: $background-color;
             content: "";
             position: absolute;
             inset: 0;
