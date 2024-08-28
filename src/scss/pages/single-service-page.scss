@@ -1,4 +1,8 @@
 .page {
+    &__title {
+        z-index: 10;
+    }
+
     position: relative;
     &__header {
         .container {
@@ -8,6 +12,9 @@
             width: auto;
             @media screen and (min-width: 1480px) {
                 margin-left: calc((100% - 1480px) / 2)
+            }
+            @media screen and (min-width: 1366px) {
+                margin-left: calc((100% - 1366px) / 2)
             }
         }
     }
