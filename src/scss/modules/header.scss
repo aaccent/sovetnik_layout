@@ -447,6 +447,7 @@
         padding-top: 1.25rem;
         padding-bottom: 0;
         &__top {
+            display: none;
             border-top: 1px solid rgba($color: $black, $alpha: 0.3);
             flex-direction: column;
             gap: 0;
@@ -533,6 +534,10 @@
         &__actions {
             margin-left: 0;
             transition: opacity 0.2s ease 0s;
+
+            & > :is(.header__call, .header__button) {
+                display: none;
+            }
         }
         &__button {
             width: 100%;
