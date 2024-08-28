@@ -8,11 +8,13 @@
         border-bottom-left-radius: 0.625rem;
         flex: 0 1 470px;
         overflow: hidden;
+        flex-shrink: 0;
     }
 
     &__category-button {
         background-color: #E9F1F1;
-        font-size: 1.625rem;
+        font-size: 1.375rem;
+        text-align: left;
         font-weight: 600;
         line-height: 1.75rem;
         padding: 2.125rem;
