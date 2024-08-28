@@ -47,6 +47,10 @@ html {
     overflow-x: clip;
 }
 
+html:has(._lock) {
+    overflow: hidden;
+}
+
 body {
     overflow-x: clip;
     background-color: $background-color;
