@@ -2348,6 +2348,10 @@ html {
     overflow-x: clip
 }
 
+html:has(._lock) {
+    overflow: hidden
+}
+
 body {
     overflow-x: clip;
     background-color: #fbfbfb;
@@ -2850,6 +2854,10 @@ img {
     position: relative
 }
 
+.page__title {
+    z-index: 10
+}
+
 .page__header .container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3149,12 +3157,15 @@ img {
     -webkit-box-flex: 0;
     -ms-flex: 0 1 470px;
     flex: 0 1 470px;
-    overflow: hidden
+    overflow: hidden;
+    -ms-flex-negative: 0;
+    flex-shrink: 0
 }
 
 .prices-section__category-button {
     background-color: #e9f1f1;
-    font-size: 1.625rem;
+    font-size: 1.375rem;
+    text-align: left;
     font-weight: 600;
     line-height: 1.75rem;
     padding: 2.125rem;
@@ -3462,7 +3473,7 @@ img {
 
 .page__title:has(+.page__hero-img) {
     margin-bottom: 227px;
-    max-width: 50.625rem
+    max-width: 50%
 }
 
 .project-section__details .inner-section__title {
@@ -3859,6 +3870,12 @@ img {
     }
 }
 
+@media screen and (min-width:1366px) {
+    .page__header .container {
+        margin-left: calc((100% - 1366px)/ 2)
+    }
+}
+
 @media screen and (min-width:1480px) {
     .about-section__body {
         padding-right: 1.25rem;
@@ -3984,7 +4001,6 @@ img {
     }
 
     .header:before {
-        background-color: #fbfbfb;
         content: "";
         position: absolute;
         inset: 0;
@@ -4171,10 +4187,6 @@ img {
         -ms-flex-preferred-size: auto;
         flex-basis: auto;
         height: 34.375rem
-    }
-
-    .header:before,.header__menu,.header__submenu {
-        background-color: #f6f6f6
     }
 
     .prices-section__nav {
@@ -4794,6 +4806,7 @@ img {
     }
 
     .header__top {
+        display: none;
         border-top: 1px solid rgba(48,48,48,.3);
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -4920,6 +4933,10 @@ img {
         -webkit-transition: opacity .2s ease 0s;
         -o-transition: opacity .2s ease 0s;
         transition: opacity .2s ease 0s
+    }
+
+    .header__actions>:is(.header__call,.header__button) {
+        display: none
     }
 
     .header__button {
@@ -5058,10 +5075,14 @@ img {
     }
 
     .footer__aaccent {
-        -webkit-box-orient: vertical;
+        -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column
+        -ms-flex-direction: row;
+        flex-direction: row;
+        margin-top: 15px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
     }
 
     .footer__aaccent svg {
@@ -5573,7 +5594,7 @@ img {
     }
 
     .certificates-section .swiper-slide {
-        width: 11.875rem
+        width: 100%
     }
 
     .certificate__name {
@@ -6329,6 +6350,14 @@ img {
 }
 
  @media (min-width:1280.5px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media screen and (min-width:1366px){
 
 @supports (-webkit-appearance:none){
 
