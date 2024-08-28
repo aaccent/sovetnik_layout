@@ -567,6 +567,56 @@ window.onload = function () {
         window.addEventListener("resize", () => checkElemHeight(seoContentEl, maxHeights.seo))
     }
 
+    /**
+     * Для мобильных устройств выводит сообщения на карте о том,
+     * что карту нужно перемещать двумя пальцами.
+     * */
+    function turnOffDragByOneFinger(map) {
+        if (!isMobile.any()) return
+
+        const eventsPaneEl = map.panes.get('events')?.getElement()
+        if (!eventsPaneEl) return
+
+        const mobilePanelStyles = {
+            alignItems: 'center',
+            boxSizing: 'border-box',
+            color: 'white',
+            display: 'flex',
+            justifyContent: 'center',
+            fontSize: '22px',
+            fontFamily: 'Arial,sans-serif',
+            opacity: '0.0',
+            padding: '25px',
+            textAlign: 'center',
+            transition: 'opacity .3s',
+            touchAction: 'auto',
+        }
+
+        Object.keys(mobilePanelStyles).forEach(function (name) {
+            const cssProp = name
+
+            eventsPaneEl.style[cssProp] = mobilePanelStyles[cssProp]
+        })
+
+        map.behaviors.disable('drag')
+
+        // @ts-ignore
+        ymaps.domEvent.manager.add(eventsPaneEl, 'touchmove', function (event) {
+            if (event.get('touches').length === 1) {
+                eventsPaneEl.style.transition = 'opacity .3s'
+                eventsPaneEl.style.background = 'rgba(0, 0, 0, .45)'
+                eventsPaneEl.textContent = 'Чтобы переместить карту проведите по ней двумя пальцами'
+                eventsPaneEl.style.opacity = '1'
+            }
+        })
+
+        // @ts-ignore
+        ymaps.domEvent.manager.add(eventsPaneEl, 'touchend', function () {
+            eventsPaneEl.style.transition = 'opacity .8s'
+            eventsPaneEl.style.opacity = '0'
+        })
+    }
+
     // yandex map
 
     function init(mapContainerSelector) {
@@ -599,30 +649,12 @@ window.onload = function () {
             zoom: 14,
         }, {autoFitToViewport: 'always'})
 
+        map.behaviors.disable('scrollZoom')
+        turnOffDragByOneFinger(map)
+
         let imagesSrc = mapEl.dataset
 
         getCoords()
-
-        // zoom ctrl + mouse wheel
-        let ctrlKey = false
-        let body = document.getElementsByTagName('body')[0];
-        map.behaviors.disable(['scrollZoom', 'drag']);
-        body.onkeydown = callbackDown;
-        body.onkeyup = callbackUp;
-
-        function callbackDown(e) {
-            if (e.keyCode === 17 && !ctrlKey) {
-                ctrlKey = true
-                map.behaviors.enable(['scrollZoom']);
-            }
-        }
-
-        function callbackUp(e) {
-            if (e.keyCode === 17) {
-                ctrlKey = false
-                map.behaviors.disable(['scrollZoom']);
-            }
-        }
     }
 
     ymaps.ready(() => init("map"));
