@@ -168,7 +168,9 @@
             margin-bottom: 0.5rem;
         }
         &__aaccent {
-            flex-direction: column;
+            flex-direction: row;
+            margin-top: 15px;
+            align-items: center;
             svg {
                 height: 2.125rem;
             }
