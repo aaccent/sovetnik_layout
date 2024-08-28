@@ -164,7 +164,7 @@ window.onload = function () {
 
         let hasSubmenu = targetEl.closest(".header__menu-item").childElementCount === 3
 
-        if (!hasSubmenu) {
+        if (!hasSubmenu || !isMobile.any()) {
             return
         }
 
