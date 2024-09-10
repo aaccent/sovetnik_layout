@@ -2376,7 +2376,12 @@ li {
 button {
     background-color: transparent;
     border: none;
-    font-family: inherit
+    font-family: inherit;
+    color: inherit
+}
+
+button::before {
+    color: inherit
 }
 
 button[type=button] {
