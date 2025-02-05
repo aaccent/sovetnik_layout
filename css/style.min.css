@@ -118,7 +118,6 @@
     border-radius: .5rem;
     padding: .75rem 2.8125rem;
     -webkit-transition: background-color .2s ease 0s,border-color .2s ease 0s;
-    -o-transition: background-color .2s ease 0s,border-color .2s ease 0s;
     transition: background-color .2s ease 0s,border-color .2s ease 0s
 }
 
@@ -127,7 +126,6 @@
     font-weight: 400;
     line-height: 1;
     -webkit-transition: color .2s ease 0s;
-    -o-transition: color .2s ease 0s;
     transition: color .2s ease 0s
 }
 
@@ -186,7 +184,6 @@
     padding: 1.125rem 3.75rem;
     text-align: center;
     -webkit-transition: background-color .2s ease 0s,color .2s ease 0s;
-    -o-transition: background-color .2s ease 0s,color .2s ease 0s;
     transition: background-color .2s ease 0s,color .2s ease 0s
 }
 
@@ -226,7 +223,6 @@
     opacity: 0;
     visibility: hidden;
     -webkit-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
     transition: all .3s ease 0s;
     z-index: 20
 }
@@ -257,7 +253,6 @@
     -ms-transform: scale(.4);
     transform: scale(.4);
     -webkit-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
     transition: all .3s ease 0s
 }
 
@@ -563,7 +558,6 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-transition: background-color .2s ease 0s;
-    -o-transition: background-color .2s ease 0s;
     transition: background-color .2s ease 0s
 }
 
@@ -621,7 +615,6 @@
 .form__file-doc .text {
     overflow: hidden;
     white-space: nowrap;
-    -o-text-overflow: ellipsis;
     text-overflow: ellipsis
 }
 
@@ -739,7 +732,6 @@
     overflow: hidden;
     -webkit-transition: -webkit-transform .2s ease 0s;
     transition: -webkit-transform .2s ease 0s;
-    -o-transition: transform .2s ease 0s;
     transition: transform .2s ease 0s;
     transition: transform .2s ease 0s,-webkit-transform .2s ease 0s
 }
@@ -819,7 +811,6 @@
     object-fit: cover;
     -webkit-transition: -webkit-transform .2s ease 0s;
     transition: -webkit-transform .2s ease 0s;
-    -o-transition: transform .2s ease 0s;
     transition: transform .2s ease 0s;
     transition: transform .2s ease 0s,-webkit-transform .2s ease 0s
 }
@@ -1004,7 +995,6 @@
     white-space: nowrap;
     -webkit-transition: color .2s ease 0s,-webkit-transform .3s cubic-bezier(.4,0,.2,1) 0s;
     transition: color .2s ease 0s,-webkit-transform .3s cubic-bezier(.4,0,.2,1) 0s;
-    -o-transition: color .2s ease 0s,transform .3s cubic-bezier(.4,0,.2,1) 0s;
     transition: color .2s ease 0s,transform .3s cubic-bezier(.4,0,.2,1) 0s;
     transition: color .2s ease 0s,transform .3s cubic-bezier(.4,0,.2,1) 0s,-webkit-transform .3s cubic-bezier(.4,0,.2,1) 0s
 }
@@ -1014,7 +1004,6 @@
     font-size: .5625rem;
     -webkit-transition: color .2s ease 0s,-webkit-transform .2s ease 0s;
     transition: color .2s ease 0s,-webkit-transform .2s ease 0s;
-    -o-transition: transform .2s ease 0s,color .2s ease 0s;
     transition: transform .2s ease 0s,color .2s ease 0s;
     transition: transform .2s ease 0s,color .2s ease 0s,-webkit-transform .2s ease 0s
 }
@@ -1106,7 +1095,6 @@
 
 .header__account,.header__actions>.header__account-icon,.header__actions>.header__call-icon,.header__call-desc,.header__call-phone,.header__city {
     -webkit-transition: color .2s ease 0s;
-    -o-transition: color .2s ease 0s;
     transition: color .2s ease 0s
 }
 
@@ -1140,7 +1128,6 @@
     -ms-transform-origin: center center;
     transform-origin: center center;
     -webkit-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
     transition: all .3s ease 0s
 }
 
@@ -1163,7 +1150,6 @@
     top: calc(50% - 1px);
     opacity: 1;
     -webkit-transition: opacity .2s ease 0s;
-    -o-transition: opacity .2s ease 0s;
     transition: opacity .2s ease 0s
 }
 
@@ -1198,7 +1184,6 @@
     -ms-transform: translate(-1rem,0);
     transform: translate(-1rem,0);
     -webkit-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
     transition: all .3s ease 0s
 }
 
@@ -1247,7 +1232,6 @@
     white-space: nowrap;
     opacity: .8;
     -webkit-transition: opacity .2s ease 0s;
-    -o-transition: opacity .2s ease 0s;
     transition: opacity .2s ease 0s
 }
 
@@ -1974,7 +1958,6 @@
     height: 2.5rem;
     -webkit-transition: -webkit-transform .2s ease 0s;
     transition: -webkit-transform .2s ease 0s;
-    -o-transition: transform .2s ease 0s;
     transition: transform .2s ease 0s;
     transition: transform .2s ease 0s,-webkit-transform .2s ease 0s
 }
@@ -2000,7 +1983,6 @@
     height: 0;
     overflow: hidden;
     -webkit-transition: height .3s ease 0s;
-    -o-transition: height .3s ease 0s;
     transition: height .3s ease 0s
 }
 
@@ -2068,7 +2050,6 @@
     transform: rotate(90deg);
     -webkit-transition: -webkit-transform .3s;
     transition: -webkit-transform .3s;
-    -o-transition: transform .3s;
     transition: transform .3s;
     transition: transform .3s,-webkit-transform .3s
 }
@@ -2129,7 +2110,6 @@
     height: var(--side,4.75rem);
     -webkit-transition: -webkit-transform .5s;
     transition: -webkit-transform .5s;
-    -o-transition: transform .5s;
     transition: transform .5s;
     transition: transform .5s,-webkit-transform .5s
 }
@@ -2441,7 +2421,6 @@ img {
     line-height: 1.625rem;
     text-decoration: underline;
     -webkit-transition: color .2s ease 0s;
-    -o-transition: color .2s ease 0s;
     transition: color .2s ease 0s
 }
 
@@ -2583,7 +2562,6 @@ img {
     width: 1.5rem;
     height: 1.5rem;
     -webkit-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
     transition: all .3s ease 0s
 }
 
@@ -2716,7 +2694,6 @@ img {
 
 .form-block__body {
     -webkit-transition: opacity .3s ease 0s;
-    -o-transition: opacity .3s ease 0s;
     transition: opacity .3s ease 0s
 }
 
@@ -3176,7 +3153,6 @@ img {
     padding: 2.125rem;
     width: 100%;
     -webkit-transition: background-color .2s ease 0s,color .2s ease 0s;
-    -o-transition: background-color .2s ease 0s,color .2s ease 0s;
     transition: background-color .2s ease 0s,color .2s ease 0s
 }
 
@@ -3192,7 +3168,6 @@ img {
     flex: 1 1 auto;
     padding: 2.125rem;
     -webkit-transition: opacity .3s ease 0s;
-    -o-transition: opacity .3s ease 0s;
     transition: opacity .3s ease 0s
 }
 
@@ -3289,7 +3264,6 @@ img {
     border-radius: .5rem;
     padding: .75rem 2.8125rem;
     -webkit-transition: background-color .2s ease 0s,border-color .2s ease 0s;
-    -o-transition: background-color .2s ease 0s,border-color .2s ease 0s;
     transition: background-color .2s ease 0s,border-color .2s ease 0s
 }
 
@@ -3298,7 +3272,6 @@ img {
     font-weight: 400;
     line-height: 1;
     -webkit-transition: color .2s ease 0s;
-    -o-transition: color .2s ease 0s;
     transition: color .2s ease 0s
 }
 
@@ -3430,7 +3403,6 @@ img {
     transform: rotate(90deg);
     -webkit-transition: -webkit-transform .3s;
     transition: -webkit-transform .3s;
-    -o-transition: transform .3s;
     transition: transform .3s;
     transition: transform .3s,-webkit-transform .3s
 }
@@ -3471,7 +3443,6 @@ img {
     opacity: .5;
     -webkit-transition: -webkit-transform .5s;
     transition: -webkit-transform .5s;
-    -o-transition: transform .5s;
     transition: transform .5s;
     transition: transform .5s,-webkit-transform .5s
 }
@@ -3584,7 +3555,6 @@ img {
     gap: .625rem;
     color: #06b3a5;
     -webkit-transition: color .2s ease 0s;
-    -o-transition: color .2s ease 0s;
     transition: color .2s ease 0s
 }
 
@@ -3657,7 +3627,6 @@ img {
     opacity: 0;
     visibility: hidden;
     -webkit-transition: opacity .2s ease 0s;
-    -o-transition: opacity .2s ease 0s;
     transition: opacity .2s ease 0s;
     z-index: 5
 }
@@ -3688,7 +3657,6 @@ img {
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     -webkit-transition: opacity .2s ease 0s;
-    -o-transition: opacity .2s ease 0s;
     transition: opacity .2s ease 0s;
     z-index: 5
 }
@@ -3798,7 +3766,6 @@ img {
         transform: translate(0,-1.5rem);
         -webkit-transition: opacity .3s ease 0s,-webkit-transform .3s ease 0s;
         transition: opacity .3s ease 0s,-webkit-transform .3s ease 0s;
-        -o-transition: opacity .3s ease 0s,transform .3s ease 0s;
         transition: opacity .3s ease 0s,transform .3s ease 0s;
         transition: opacity .3s ease 0s,transform .3s ease 0s,-webkit-transform .3s ease 0s;
         z-index: 3
@@ -4025,7 +3992,6 @@ img {
         transform: translate(0,calc(-100% - 11rem));
         -webkit-transition: -webkit-transform .3s ease 0s;
         transition: -webkit-transform .3s ease 0s;
-        -o-transition: transform .3s ease 0s;
         transition: transform .3s ease 0s;
         transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
         overflow-x: hidden;
@@ -4040,7 +4006,6 @@ img {
     .header__menu>:not(.header__menu-list) {
         -webkit-transition: -webkit-transform .3s cubic-bezier(.4,0,.2,1) 0s;
         transition: -webkit-transform .3s cubic-bezier(.4,0,.2,1) 0s;
-        -o-transition: transform .3s cubic-bezier(.4,0,.2,1) 0s;
         transition: transform .3s cubic-bezier(.4,0,.2,1) 0s;
         transition: transform .3s cubic-bezier(.4,0,.2,1) 0s,-webkit-transform .3s cubic-bezier(.4,0,.2,1) 0s
     }
@@ -4114,7 +4079,6 @@ img {
         transform: translate(100%,0);
         -webkit-transition: -webkit-transform .3s cubic-bezier(.4,0,.2,1) 0s;
         transition: -webkit-transform .3s cubic-bezier(.4,0,.2,1) 0s;
-        -o-transition: transform .3s cubic-bezier(.4,0,.2,1) 0s;
         transition: transform .3s cubic-bezier(.4,0,.2,1) 0s;
         transition: transform .3s cubic-bezier(.4,0,.2,1) 0s,-webkit-transform .3s cubic-bezier(.4,0,.2,1) 0s;
         z-index: 5
@@ -4134,7 +4098,6 @@ img {
         font-size: 2rem;
         font-weight: 500;
         -webkit-transition: color .2s ease 0s;
-        -o-transition: color .2s ease 0s;
         transition: color .2s ease 0s
     }
 
@@ -4160,7 +4123,6 @@ img {
         font-weight: 500;
         opacity: 1;
         -webkit-transition: color .2s ease 0s;
-        -o-transition: color .2s ease 0s;
         transition: color .2s ease 0s
     }
 
@@ -4819,7 +4781,6 @@ img {
         gap: 0;
         margin-top: 1.25rem;
         -webkit-transition: background-color .3s ease 0s;
-        -o-transition: background-color .3s ease 0s;
         transition: background-color .3s ease 0s
     }
 
@@ -4883,7 +4844,6 @@ img {
         transform: translate(-50%,-50%);
         -webkit-transition: left .3s ease 0s,-webkit-transform .3s ease 0s;
         transition: left .3s ease 0s,-webkit-transform .3s ease 0s;
-        -o-transition: left .3s ease 0s,transform .3s ease 0s;
         transition: left .3s ease 0s,transform .3s ease 0s;
         transition: left .3s ease 0s,transform .3s ease 0s,-webkit-transform .3s ease 0s
     }
@@ -4935,7 +4895,6 @@ img {
     .header__actions {
         margin-left: 0;
         -webkit-transition: opacity .2s ease 0s;
-        -o-transition: opacity .2s ease 0s;
         transition: opacity .2s ease 0s
     }
 
@@ -4953,7 +4912,6 @@ img {
         width: 2.125rem;
         height: 1rem;
         -webkit-transition: opacity .2s ease 0s;
-        -o-transition: opacity .2s ease 0s;
         transition: opacity .2s ease 0s
     }
 
