@@ -114,7 +114,7 @@ window.onload = function () {
         } else {
             const res = await fetch(form.action, {
                 method: 'POST',
-                body: JSON.stringify(new FormData(form)),
+                body: new FormData(form),
             })
 
             if (!res.ok) {
