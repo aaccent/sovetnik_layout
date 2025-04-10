@@ -303,9 +303,9 @@ window.onload = function () {
         cityItemEl.classList.add("city_active")
     }))
 
-    document
+    /*document
         .querySelectorAll(".header__call-desc, .header__button, .header__actions .header__call-icon, .hero-section__button, .step__button, .footer__button, .footer__call-desc")
-        .forEach(button => button.addEventListener("click", () => openPopup(callBackPopupEl)))
+        .forEach(button => button.addEventListener("click", () => openPopup(callBackPopupEl)))*/
 
     document.querySelectorAll(".popup__close").forEach(
         closeEl => closeEl.addEventListener("click", closePopup)
